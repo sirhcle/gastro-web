@@ -1,0 +1,26 @@
+.row{ margin-right: 0px; margin-left: 0px; } 
+
+.footer {
+    #footerSup {
+        background-color: #191919;
+        min-height: 150px;
+
+        .imgFooter{
+            position: absolute;
+            left: 10%;
+            top: 20%;
+        }
+        #supCentro{
+            color: #f37421;
+        }
+        #supDerecho{
+            color: #f37421;
+        }
+    }
+
+    #footerInf {
+        background-color: #000000;
+        min-height: 30px;
+    }
+
+}

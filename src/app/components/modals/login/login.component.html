@@ -1,0 +1,51 @@
+<div class="modal-header">
+    <!-- <h4 class="modal-title">Hi there!</h4> -->
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" align="center">
+    <img src="assets/imgs/logoMiCuentaRegistro.png" width="150px" height="58px">
+    <h3 class="titleModal">MI CUENTA</h3>
+    <form [formGroup] = 'loginForm'>
+      <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <span class="has-float-label">
+                    <input type="email" class="form-control" id="txtEmail" placeholder="myemail@ejemplo.com" formControlName="username">
+                    <label for="first">E-mail<span style="color: red;">*</span></label>
+                  </span>
+            </div>
+          
+        </div>
+  
+        <div class="row">
+            <div class="col">
+                <span class="has-float-label">
+                    <input type="password" class="form-control" id="txtPassword" placeholder="********" formControlName="password">
+                    <label for="first">Contraseña<span style="color: red;">*</span></label>
+                  </span>
+            </div>
+          
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <button type="button" class="btn btn-primary form-control" (click)="doLogin()" >Entrar</button>
+          </div>
+        </div>
+        
+      </div>
+      
+      
+    </form>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-link">Olvide contraseña</button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-link" (click)="openRegister()" >Crear cuenta</button>
+      </div>
+    </div>
+  </div>
+  

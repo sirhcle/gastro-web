@@ -1,0 +1,52 @@
+.navbar {
+  margin-top: 30px;
+
+  .noButton {
+    text-shadow: 1px 1px 6px #000000d5;
+    background-color: transparent;
+    font-size: 13px;
+  }
+}
+
+nav .navbar-nav li .btn-inicio-sesion {
+  color: #F27711 !important;
+  font-size: 13px;
+}
+
+.iconUser {
+  background-image: url(/assets/imgs/iconUser.png);
+}
+
+.bouton-image:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 1px;
+  margin-top: -3px;
+  vertical-align: text-top;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+}
+
+.monBouton:before{
+  background-image: url(/assets/imgs/iconUser.png);
+}
+
+.car-image:before {
+  content: "";
+  width: 20px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 1px;
+  margin-top: 0px;
+  vertical-align: text-top;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+}
+
+.carBouton:before{
+  background-image: url(/assets/imgs/iconCar.png);
+}

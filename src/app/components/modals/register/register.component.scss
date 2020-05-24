@@ -1,0 +1,36 @@
+.modal-header {
+    border-bottom: 0px;
+}
+
+.row {
+    padding: 10px;
+}
+
+.modal-body {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.titleModal {
+    margin-top:40px;
+}
+
+.has-float-label .form-control:placeholder-shown:not(:focus)+* {
+    font-size: 100%;
+    opacity: .5;
+    top: .8em;
+    font-weight: 400;
+    left: 1.5em;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #f07727;
+    border-color: #f07727;
+}
+
+.btn-link {
+    color: #8d8d8d;
+    font-size: 10px;
+    text-decoration: underline;
+}

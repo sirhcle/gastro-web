@@ -1,0 +1,37 @@
+.section3 {
+    min-height: 500px;
+    background-color: #333333;
+
+    h3 {
+      color: white;
+    }
+  }
+
+#accordion {
+  width: 900px;
+
+  .btn-link {
+    // font-weight: 400;
+    color: #333333;
+    text-decoration: none;
+  }
+
+  .card {
+    background-color: transparent;
+    color: white;
+  }
+
+  
+}
+
+.card-header {
+  height: 50px;
+  background-color: #c5c5c4;
+}
+
+.card-body {
+  background-color: transparent;
+}
+.show {
+  background-color: transparent;
+}

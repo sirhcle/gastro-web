@@ -1,0 +1,71 @@
+<div class="modal-header">
+  <!-- <h4 class="modal-title">Hi there!</h4> -->
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" align="center">
+  <img src="assets/imgs/logoMiCuentaRegistro.png" width="150px" height="58px">
+  <h3 class="titleModal">REGISTRO</h3>
+  <form>
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <span class="has-float-label">
+            <input type="text" class="form-control" id="txtName" placeholder="John Doe">
+            <label >Nombre</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <span class="has-float-label">
+            <input type="email" class="form-control" id="txtEmail" placeholder="email@example.com">
+            <label >E-mail</label>
+          </span>
+        </div>
+
+        <!-- <div class="col">
+          <span class="has-float-label">
+            <input type="password" class="form-control" id="txtPassword" placeholder="********">
+            <label for="first">Contraseña</label>
+          </span>
+        </div> -->
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <span class="has-float-label">
+            <input type="password" class="form-control" id="txtPassword" placeholder="********">
+            <label>Contraseña</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <span class="has-float-label">
+            <input type="password" class="form-control" id="txtPasswordConfirm" placeholder="********">
+            <label>Confirmar contraseña</label>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary form-control">Crear cuenta</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    
+  </form>
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-link" (click)="activeModal.close()">¿Ya tienes una cuenta? Entra aquí</button>
+    </div>
+  </div>
+</div>
