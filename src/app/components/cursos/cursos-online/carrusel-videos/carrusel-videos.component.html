@@ -1,0 +1,47 @@
+<div class="carrusel">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col">
+            <h3>CONTINUAR VIENDO</h3>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-1" >
+            <a class="carousel-control-prev" href="#{{carouselID}}" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+        </div>
+        <div class="col">
+            <div id="{{carouselID}}" class="carousel slide" >
+                <div class="carousel-inner">
+                  <div class="carousel-item " *ngFor="let item of [1,2,3];let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
+              
+                    <div class="row">
+                      <div class="col-sm" *ngFor="let card of [1,2,3]">
+                        <div class="card d-block w-100" >
+              
+                          <div class="card-body">
+                            <button class="btn favOff"></button>
+                            
+                            <p class="card-text">Ceviche de Bacalao</p>
+                            <div class="lblNuevo"><span>NUEVO</span></div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+        </div>
+        <div class="col-1">
+            <a class="carousel-control-next" href="#{{carouselID}}" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+        </div>
+    </div>
+</div>

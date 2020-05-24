@@ -13,6 +13,27 @@ export class CursosOnlineComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {}
+  showVideoContainer = false;
+
+  ngOnInit(): void {
+    window.onscroll = () => {
+      const videoContainer = document.getElementById('videoContainer');
+      const sticky = videoContainer.offsetTop;
+
+      if (window.pageYOffset > 400) {
+        // console.log("holaaa");
+        videoContainer.classList.remove('videoContainer');
+        videoContainer.classList.add('sticky');
+      } else {
+        // console.log("adiossss");
+        videoContainer.classList.remove('sticky');
+        videoContainer.classList.add('videoContainer');
+      }
+    };
+  }
+
+  toogleVideo() {
+    this.showVideoContainer = !this.showVideoContainer;
+  }
 
 }

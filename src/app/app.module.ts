@@ -17,6 +17,7 @@ import { MiPlanComponent } from './components/user-profile/mi-plan/mi-plan.compo
 import { CursosOnlineComponent } from './components/cursos/cursos-online/cursos-online.component';
 import { CursosPresencialesComponent } from './components/cursos/cursos-presenciales/cursos-presenciales.component';
 import { NguCarouselModule } from '@ngu/carousel';
+import { CarruselVideosComponent } from './components/cursos/cursos-online/carrusel-videos/carrusel-videos.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NguCarouselModule } from '@ngu/carousel';
     RegisterComponent,
     MiPlanComponent,
     CursosOnlineComponent,
-    CursosPresencialesComponent
+    CursosPresencialesComponent,
+    CarruselVideosComponent
   ],
   imports: [
     BrowserModule,
