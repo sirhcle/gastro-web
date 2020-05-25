@@ -18,6 +18,7 @@ import { CursosOnlineComponent } from './components/cursos/cursos-online/cursos-
 import { CursosPresencialesComponent } from './components/cursos/cursos-presenciales/cursos-presenciales.component';
 import { NguCarouselModule } from '@ngu/carousel';
 import { CarruselVideosComponent } from './components/cursos/cursos-online/carrusel-videos/carrusel-videos.component';
+import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/pago-suscripcion.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CarruselVideosComponent } from './components/cursos/cursos-online/carru
     MiPlanComponent,
     CursosOnlineComponent,
     CursosPresencialesComponent,
-    CarruselVideosComponent
+    CarruselVideosComponent,
+    PagoSuscripcionComponent
   ],
   imports: [
     BrowserModule,

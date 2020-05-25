@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PagoSuscripcionComponent } from '../../modals/pago-suscripcion/pago-suscripcion.component';
 
 @Component({
   selector: 'app-mi-plan',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiPlanComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
+  }
+
+  showPaymentOptions() {
+    this.modalService.open(PagoSuscripcionComponent, { size: 'lg' });
   }
 
 }

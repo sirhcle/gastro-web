@@ -1,0 +1,48 @@
+<div class="modal-header">
+  <!-- <h4 class="modal-title">Hi there!</h4> -->
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" align="center">
+  <img src="assets/imgs/logoMiCuentaRegistro.png" width="150px" height="58px">
+
+
+  <div class="row divider">
+    <h3>MÉTODO DE PAGO</h3>
+  </div>
+  
+
+  <form [formGroup]='paymentForm' align="left">
+    <div class="row">
+      <div class="form-group col">
+        <label for="formGroupExampleInput">Nombre</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+      </div>
+      <div class="form-group col">
+        <label for="formGroupExampleInput2">No de tarjeta</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+      </div>
+      <div class="form-group col">
+        <label for="formGroupExampleInput2">Fecha de vencimiento</label>
+          <div class="row" style="padding: 0;">
+              <div class="col-md-6 box">
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+              </div>
+              <div class="col-md-6 box">
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+              </div>
+          </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-link">Olvide contraseña</button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-link">Crear cuenta</button>
+    </div>
+  </div>
+</div>
