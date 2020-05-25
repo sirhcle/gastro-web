@@ -1,0 +1,74 @@
+#sectionSuperior {
+    background-image:url('/assets/imgs/backCursosPresenciales.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 700px;
+    background-size: cover;
+    // background-attachment: fixed;
+    background-color: #1d2126;
+}
+
+.textoTitulo {
+    position: absolute;
+    top: 45%;
+    left: 7%;
+    p {
+        font-size: 35px;
+        width: 300px;
+        height: auto;
+        color: white;
+        line-height: 1.2em;
+    }
+}
+
+.btnMasInformacion {
+    position: absolute;
+    top: 65%;
+    left: 7%;
+    button {
+        font-size: 15px;
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+.carrusel {
+    background-color: #1d2126;
+    padding-top: 7px;
+    padding-bottom: 15px;
+    h3 {
+        color: #ffffff;
+    }
+    .carousel {
+        .card {
+            background-color: #1d2126;
+            background-image: url('/assets/imgs/imgVideoBG.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 160px;
+            
+        }
+    }
+    .carousel-control-prev, .carousel-control-next {
+        width: 100%;
+    }
+}
+
+#sectionInferior {
+    background-color: #f26c16;
+    .text-orange {
+        color: #f26c16;
+    }
+    padding-top: 30px;
+
+    form {
+        padding: 40px;
+        label {
+            color: white;
+        }
+        .form-group {
+            padding-top: 20px;
+        }
+    }
+}
