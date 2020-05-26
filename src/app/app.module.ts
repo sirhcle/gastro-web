@@ -13,12 +13,13 @@ import { RegisterComponent } from './components/modals/register/register.compone
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MiPlanComponent } from './components/user-profile/mi-plan/mi-plan.component';
+import { SuscripcionComponent } from './components/user-profile/suscripcion/suscripcion.component';
 import { CursosOnlineComponent } from './components/cursos/cursos-online/cursos-online.component';
 import { CursosPresencialesComponent } from './components/cursos/cursos-presenciales/cursos-presenciales.component';
 import { NguCarouselModule } from '@ngu/carousel';
 import { CarruselVideosComponent } from './components/cursos/cursos-online/carrusel-videos/carrusel-videos.component';
 import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/pago-suscripcion.component';
+import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
 
 
 @NgModule({
@@ -30,11 +31,12 @@ import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/p
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    MiPlanComponent,
+    SuscripcionComponent,
     CursosOnlineComponent,
     CursosPresencialesComponent,
     CarruselVideosComponent,
-    PagoSuscripcionComponent
+    PagoSuscripcionComponent,
+    CursosGratisComponent
   ],
   imports: [
     BrowserModule,

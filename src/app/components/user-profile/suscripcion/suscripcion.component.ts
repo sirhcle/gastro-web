@@ -4,10 +4,10 @@ import { PagoSuscripcionComponent } from '../../modals/pago-suscripcion/pago-sus
 
 @Component({
   selector: 'app-mi-plan',
-  templateUrl: './mi-plan.component.html',
-  styleUrls: ['./mi-plan.component.scss']
+  templateUrl: './suscripcion.component.html',
+  styleUrls: ['./suscripcion.component.scss']
 })
-export class MiPlanComponent implements OnInit {
+export class SuscripcionComponent implements OnInit {
 
   constructor(private modalService: NgbModal) { }
 

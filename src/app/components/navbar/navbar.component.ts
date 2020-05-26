@@ -24,7 +24,11 @@ export class NavbarComponent implements OnInit {
   }
 
   openMiPlan() {
-    this.router.navigate(['/mi-plan']);
+    // this.router.navigate(['/mi-plan']);
+  }
+
+  openSuscripcion() {
+    this.router.navigate(['/suscripcion']);
   }
 
   openCursosOnline() {
@@ -33,6 +37,10 @@ export class NavbarComponent implements OnInit {
 
   openCursosPresenciales() {
     this.router.navigate(['/cursos-presenciales']);
+  }
+
+  openClasesGratis() {
+    this.router.navigate(['/clases-gratis']);
   }
 
 }

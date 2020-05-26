@@ -3,7 +3,8 @@ import { CursosOnlineComponent } from './components/cursos/cursos-online/cursos-
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { MiPlanComponent } from './components/user-profile/mi-plan/mi-plan.component';
+import { SuscripcionComponent } from './components/user-profile/suscripcion/suscripcion.component';
+import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
 
 
 const routes: Routes = [
@@ -18,8 +19,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'mi-plan',
-    component: MiPlanComponent
+    path: 'suscripcion',
+    component: SuscripcionComponent
   },
   {
     path: 'cursos-online',
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'cursos-presenciales',
     component: CursosPresencialesComponent
+  },
+  {
+    path: 'clases-gratis',
+    component: CursosGratisComponent
   }
 ];
 
