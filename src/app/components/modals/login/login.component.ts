@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit {
 
   doLogin() {
 
-    console.log(this.loginForm);
-    console.log(this.loginForm.value);
-    console.log(this.loginForm.value.username);
+    // console.log(this.loginForm);
+    // console.log(this.loginForm.value);
+    // console.log(this.loginForm.value.username);
 
     this.spinner.show();
     setTimeout(() => {
