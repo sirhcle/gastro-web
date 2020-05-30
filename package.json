@@ -28,6 +28,8 @@
     "bootstrap-float-label": "^3.0.1",
     "hammerjs": "^2.0.8",
     "jquery": "^3.5.1",
+    "masonry-layout": "^4.2.2",
+    "ngx-masonry": "^9.2.0",
     "ngx-spinner": "^9.0.2",
     "rxjs": "~6.5.4",
     "save": "^2.4.0",
