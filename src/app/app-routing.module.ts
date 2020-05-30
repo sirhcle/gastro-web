@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SuscripcionComponent } from './components/user-profile/suscripcion/suscripcion.component';
 import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
-
+import { EditarPerfilRoutes } from './editar-perfil-routing';
 
 const routes: Routes = [
 
@@ -22,6 +22,7 @@ const routes: Routes = [
     path: 'suscripcion',
     component: SuscripcionComponent
   },
+   ...EditarPerfilRoutes, // se incluye el archivo de rutas específicas para esta sección
   {
     path: 'cursos-online',
     component: CursosOnlineComponent

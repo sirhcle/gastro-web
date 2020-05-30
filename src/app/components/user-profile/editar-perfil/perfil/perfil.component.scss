@@ -1,0 +1,48 @@
+h1 {
+    color: #f37421;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    line-height: 0em;
+}
+
+h2 {
+    text-align: left;
+}
+
+.bgcolorDark {
+    background-color: #1d2126;
+    padding: 15px 0px 15px 50px;
+}
+
+.text-orange {
+    color: #f37421;
+}
+
+.text-grey {
+    color: grey;
+}
+
+.border-3 {
+    border: white 5px solid;
+}
+
+label {
+    color: gray;
+    font-weight: bold;
+}
+
+.btn-orange {
+    background-color: #f37421;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: medium;
+    text-align: center;
+    width: 10rem;
+    border-radius: 10em;
+}
+
+:host(.active) {
+    display: block;
+    border: 1px solid white;
+}

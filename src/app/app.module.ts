@@ -17,9 +17,12 @@ import { SuscripcionComponent } from './components/user-profile/suscripcion/susc
 import { CursosOnlineComponent } from './components/cursos/cursos-online/cursos-online.component';
 import { CursosPresencialesComponent } from './components/cursos/cursos-presenciales/cursos-presenciales.component';
 import { NguCarouselModule } from '@ngu/carousel';
-import { CarruselVideosComponent } from './components/cursos/cursos-online/carrusel-videos/carrusel-videos.component';
-import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/pago-suscripcion.component';
-import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
+import { EditarPerfilComponent} from './components/user-profile/editar-perfil/editar-perfil.component';
+import { PerfilComponent } from './components/user-profile/editar-perfil/perfil/perfil.component';
+import { MiPlanDetComponent } from './components/user-profile/editar-perfil/miplandet/miplandet.component';
+import { MisComprasComponent } from './components/user-profile/editar-perfil/mis-compras/mis-compras.component';
+
+
 
 
 @NgModule({
@@ -34,9 +37,10 @@ import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-
     SuscripcionComponent,
     CursosOnlineComponent,
     CursosPresencialesComponent,
-    CarruselVideosComponent,
-    PagoSuscripcionComponent,
-    CursosGratisComponent
+    EditarPerfilComponent,
+    PerfilComponent,
+    MiPlanDetComponent,
+    MisComprasComponent,
   ],
   imports: [
     BrowserModule,

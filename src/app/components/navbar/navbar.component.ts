@@ -27,8 +27,8 @@ export class NavbarComponent implements OnInit {
     // this.router.navigate(['/mi-plan']);
   }
 
-  openSuscripcion() {
-    this.router.navigate(['/suscripcion']);
+  openEditarPerfil() {
+    this.router.navigate(['/editar-perfil']);
   }
 
   openCursosOnline() {
