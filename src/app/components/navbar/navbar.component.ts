@@ -24,12 +24,16 @@ export class NavbarComponent implements OnInit {
     this.modalService.open(LoginComponent);
   }
 
+  openMisCompras() {
+    this.router.navigate(['/editar-perfil/miscompras']);
+  }
+
   openMiPlan() {
-    // this.router.navigate(['/mi-plan']);
+    this.router.navigate(['/editar-perfil/miplandet']);
   }
 
   openEditarPerfil() {
-    this.router.navigate(['/editar-perfil']);
+    this.router.navigate(['/editar-perfil/perfil']);
   }
   
   closeSesssion() {
