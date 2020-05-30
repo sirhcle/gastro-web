@@ -24,6 +24,11 @@ import { MisComprasComponent } from './components/user-profile/editar-perfil/mis
 
 
 
+import { CarruselVideosComponent } from './components/cursos/cursos-online/carrusel-videos/carrusel-videos.component';
+import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/pago-suscripcion.component';
+import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
+import { ProductsListComponent } from './components/tienda/products-list/products-list.component';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
   declarations: [
@@ -41,6 +46,10 @@ import { MisComprasComponent } from './components/user-profile/editar-perfil/mis
     PerfilComponent,
     MiPlanDetComponent,
     MisComprasComponent,
+    CarruselVideosComponent,
+    PagoSuscripcionComponent,
+    CursosGratisComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,8 @@ import { MisComprasComponent } from './components/user-profile/editar-perfil/mis
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
-    NguCarouselModule
+    NguCarouselModule,
+    NgxMasonryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

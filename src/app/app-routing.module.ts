@@ -6,6 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 import { SuscripcionComponent } from './components/user-profile/suscripcion/suscripcion.component';
 import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
 import { EditarPerfilRoutes } from './editar-perfil-routing';
+import { ProductsListComponent } from './components/tienda/products-list/products-list.component';
+
 
 const routes: Routes = [
 
@@ -22,7 +24,7 @@ const routes: Routes = [
     path: 'suscripcion',
     component: SuscripcionComponent
   },
-   ...EditarPerfilRoutes, // se incluye el archivo de rutas específicas para esta sección
+   ...EditarPerfilRoutes, // se incluye el archivo de rutas especï¿½ficas para esta secciï¿½n
   {
     path: 'cursos-online',
     component: CursosOnlineComponent
@@ -34,6 +36,10 @@ const routes: Routes = [
   {
     path: 'clases-gratis',
     component: CursosGratisComponent
+  },
+  {
+    path: 'store',
+    component: ProductsListComponent
   }
 ];
 
