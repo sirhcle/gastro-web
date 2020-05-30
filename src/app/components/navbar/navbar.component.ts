@@ -28,6 +28,10 @@ export class NavbarComponent implements OnInit {
     // this.router.navigate(['/mi-plan']);
   }
 
+  openEditarPerfil() {
+    this.router.navigate(['/editar-perfil']);
+  }
+  
   closeSesssion() {
     localStorage.removeItem('userData');
     this.spinner.show();
