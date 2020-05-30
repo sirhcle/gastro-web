@@ -20,7 +20,8 @@ import { NguCarouselModule } from '@ngu/carousel';
 import { CarruselVideosComponent } from './components/cursos/cursos-online/carrusel-videos/carrusel-videos.component';
 import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/pago-suscripcion.component';
 import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
-
+import { ProductsListComponent } from './components/tienda/products-list/products-list.component';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-
     CursosPresencialesComponent,
     CarruselVideosComponent,
     PagoSuscripcionComponent,
-    CursosGratisComponent
+    CursosGratisComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
-    NguCarouselModule
+    NguCarouselModule,
+    NgxMasonryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
