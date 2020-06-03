@@ -1,9 +1,7 @@
-h1 {
-    color: #f37421;
-    text-align: justify;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 3rem;
-    line-height: 0em;
+.title {
+    font-size: 3em;
+    font-stretch: semi-condensed;
+    line-height: .5;
 }
 
 h2 {
@@ -45,4 +43,8 @@ label {
 :host(.active) {
     display: block;
     border: 1px solid white;
+}
+
+.short {
+    width: 155px;
 }
