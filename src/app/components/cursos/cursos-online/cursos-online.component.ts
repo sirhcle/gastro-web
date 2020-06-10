@@ -1,3 +1,4 @@
+import { VideosServicesService } from './../../../services/videos/videos-services.service';
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Input } from '@angular/core';
 
 declare var $: any;

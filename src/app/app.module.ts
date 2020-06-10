@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +30,11 @@ import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/p
 import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
 import { ProductsListComponent } from './components/tienda/products-list/products-list.component';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { ProductDetailsComponent } from './components/tienda/product-details/product-details.component';
+import { FastRegisterComponent } from './components/modals/fast-register/fast-register.component';
+
+// import {  } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -49,7 +55,9 @@ import { NgxMasonryModule } from 'ngx-masonry';
     CarruselVideosComponent,
     PagoSuscripcionComponent,
     CursosGratisComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    ProductDetailsComponent,
+    FastRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +68,9 @@ import { NgxMasonryModule } from 'ngx-masonry';
     FormsModule,
     ReactiveFormsModule,
     NguCarouselModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

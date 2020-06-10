@@ -1,0 +1,104 @@
+// .videoContainer {
+//     width: 100px;
+//     height: 100%;
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: white;
+}
+
+#containerBackground {
+  background-color: black;
+  margin-top: 0px;
+  padding-top: 150px !important;
+//   background-image: url('/assets/imgs/fondoPdp.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 900px;
+}
+
+.mainTitle {
+    font-size: 30px;
+}
+
+button {
+  color: white;
+}
+
+.contenedorBotones {
+  border-bottom: solid;
+  border-color: white;
+  border-width: medium;
+}
+
+.textDescription {
+  background-color: #eb7024;
+
+  p {
+    font-size: 19px;
+    color: white;
+    font-weight: lighter;
+    text-align: left;
+    line-height: 1.3em;
+
+    span {
+      font-weight: 800;
+    }
+  }
+}
+
+.secondElement {
+  border-left: solid;
+  border-right: solid;
+  border-color: white;
+  border-width: thin;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  color: #eb7024;
+  content: "\2022";
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1.6em;
+}
+
+li {
+    font-size: 12px;
+    text-align: left;
+}
+
+.lastSection{
+    color: white;
+    h3, h4 {
+        color: #eb7024;
+        text-align: left;
+    }
+
+    h3 {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .padding-1 {
+        padding-left: 50px;
+    }
+} 
+
+.sticky {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.507);
+    bottom: 0px;
+    right: 0;
+    width: 20%;
+    height: 20%;
+    z-index: 10;
+}
