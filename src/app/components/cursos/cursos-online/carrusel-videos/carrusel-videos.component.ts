@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
 
 @Component({
   selector: 'app-carrusel-videos',
@@ -8,13 +9,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CarruselVideosComponent implements OnInit {
 
   @Input() carouselID: string;
+  videoData: any;
+  videos3x3: [any];
 
+  constructor(private _services: VideosServicesService) { }
 
-  
-
-
-  constructor() { }
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._services.getVideosList()
+      .subscribe((response: any) => {
+        this.videoData = response.videos;
+        // console.log(response);
+      });
+  }
 
 }

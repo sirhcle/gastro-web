@@ -6,9 +6,18 @@
         color: #ffffff;
     }
     .carousel {
+        .card0{
+            background-image: url('/assets/imgs/imgVideoBG.png');
+        }
+        .card1{
+            background-image: url('/assets/imgs/imgVideoBG2.png');
+        }
+        .card2{
+            background-image: url('/assets/imgs/imgVideoBG3.png');
+        }
         .card {
             background-color: #1d2126;
-            background-image: url('/assets/imgs/imgVideoBG.png');
+            
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -33,6 +42,12 @@
                 width: 100px;
                 left: 30px;
                 top:60px;
+                a {
+                    color: white;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+
             }
 
             .lblNuevo {

@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <!-- <h4 class="modal-title">Hi there!</h4> -->
+  <button type="button" class="close" aria-label="Close" (click)="onConfirm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" align="center">
+  <img src="assets/imgs/logoMiCuentaRegistro.png" width="150px" height="58px">
+  <h3 class="titleModal">Crea tu cuenta para que comiences tu membresía</h3>
+  <form>
+    <div class="form-group">
+
+      <div class="d-flex flex-column">
+        <div class="d-flex justify-content-around">
+
+          <span class="has-float-label">
+            <input type="text" class="form-control" id="txtName">
+            <label>Nombre</label>
+          </span>
+
+          <span class="has-float-label">
+            <input type="tel" class="form-control" id="txtPhone">
+            <label>Teléfono</label>
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="d-flex flex-column singleFormField">
+        
+        <span class="has-float-label">
+            <input type="email" class="form-control" id="txtEmail">
+            <label>E-mail</label>
+        </span>
+        
+      </div>
+
+      <div class="d-flex flex-column">
+        
+          <button type="button" class="btn btn-primary form-control" (click)="onConfirm()">Crear cuenta</button>
+        
+      </div>
+    </div>
+  </form>
+</div>

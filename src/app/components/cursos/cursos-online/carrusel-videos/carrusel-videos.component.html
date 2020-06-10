@@ -17,16 +17,21 @@
         <div class="col">
             <div id="{{carouselID}}" class="carousel slide" >
                 <div class="carousel-inner">
-                  <div class="carousel-item " *ngFor="let item of [1,2,3];let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
+                  <div class="carousel-item " *ngFor="let item of videoData;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
               
                     <div class="row">
-                      <div class="col-sm" *ngFor="let card of [1,2,3]">
-                        <div class="card d-block w-100" >
+                      <div class="col-sm" *ngFor="let cardVideo of item; let idx = index">
+                        <div class="card card{{idx}} d-block w-100" >
               
                           <div class="card-body">
                             <button class="btn favOff"></button>
                             
-                            <p class="card-text">Ceviche de Bacalao</p>
+                            <p class="card-text">
+                              <a [routerLink]="['/product-details',cardVideo.id_video]">
+                                {{cardVideo.titulo_video}}
+                              </a>
+                              
+                            </p>
                             <div class="lblNuevo"><span>NUEVO</span></div>
                           </div>
 

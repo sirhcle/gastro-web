@@ -1,0 +1,7 @@
+{
+    "/mymobile/gastroAdmin/*" : {
+        "target" : "http://70.35.195.239",
+        "secure" : false,
+        "logLevel": "debug"
+    }
+}
