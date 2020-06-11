@@ -18,12 +18,14 @@ h3 {
     .card-footer {
         padding-left: 50px;
         padding-right: 50px;
-        padding-bottom: 50px;
+        padding-bottom: 30px;
         background-color: transparent;
         border: none;
         .btn-comprar1 {
             border-color: #959595;
             border-width: 2;
+            margin-bottom: 30px;
+            margin-top: 20px;
         }
 
         .btn-comprar2 {
@@ -31,7 +33,16 @@ h3 {
             background-color: #f26c16;
             border-width: 2;
             color: white;
+            margin-bottom: 30px;
+            margin-top: 20px;
         }
+
+        a {
+            color: black;
+            text-decoration: underline;
+        }
+
+        
     }
 
     .card-header {
@@ -129,6 +140,7 @@ h3 {
    background-size: cover;
    min-height: 95%;
    width: 100% ;
+   padding-bottom: 20px;
 //    text-align: center;
 //    margin: 0px;
 }

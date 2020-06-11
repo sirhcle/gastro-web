@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
+import { ProductDetailsComponent } from './components/tienda/product-details/product-details.component';
+import { FastRegisterComponent } from './components/modals/fast-register/fast-register.component';
+
+// import {  } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +66,9 @@ import { MatListModule } from '@angular/material/list';
     PagoSuscripcionComponent,
     CursosGratisComponent,
     ProductsListComponent,
-    SideNavComponent
+    SideNavComponent,
+  ProductDetailsComponent,
+    FastRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +85,9 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+     HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
