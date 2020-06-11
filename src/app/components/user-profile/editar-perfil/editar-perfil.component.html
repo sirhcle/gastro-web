@@ -1,10 +1,10 @@
 <div class="bgcolorDark">
     <div class="container-fluid">
         <hr>
-        <div class="space"></div>
         <br> <br>
         <div class="row">
-            <div class="sm-col-2 md-col-2 lg-col-3" id="leftmenu">
+            <app-side-nav></app-side-nav>
+            <!--
                 <ul>
                     <li>
                         <a routerLink="perfil" routerLinkActive="leftmenuActive">
@@ -23,9 +23,9 @@
                     <li>
                         <a routerLinkActive="leftmenuActive activeText"><img src="/assets/imgs/icoDirecciones.png" class="prof_ico" /> Mis Direcciones</a>
                     </li>
-                </ul>
+                </ul>-->
+            <div class="col-sm-12 col-md-7 col-lg-6">
+                <router-outlet></router-outlet>
             </div>
-            <router-outlet></router-outlet>
-
         </div>
     </div>

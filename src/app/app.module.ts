@@ -21,6 +21,7 @@ import { EditarPerfilComponent} from './components/user-profile/editar-perfil/ed
 import { PerfilComponent } from './components/user-profile/editar-perfil/perfil/perfil.component';
 import { MiPlanDetComponent } from './components/user-profile/editar-perfil/miplandet/miplandet.component';
 import { MisComprasComponent } from './components/user-profile/editar-perfil/mis-compras/mis-compras.component';
+import { MisDireccionesComponent} from './components/user-profile/editar-perfil/misdirecciones/misdirecciones.component';
 
 
 
@@ -29,6 +30,13 @@ import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/p
 import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
 import { ProductsListComponent } from './components/tienda/products-list/products-list.component';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { SideNavComponent } from './components/user-profile/side-nav/side-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -46,10 +54,12 @@ import { NgxMasonryModule } from 'ngx-masonry';
     PerfilComponent,
     MiPlanDetComponent,
     MisComprasComponent,
+    MisDireccionesComponent,
     CarruselVideosComponent,
     PagoSuscripcionComponent,
     CursosGratisComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +70,13 @@ import { NgxMasonryModule } from 'ngx-masonry';
     FormsModule,
     ReactiveFormsModule,
     NguCarouselModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
