@@ -22,6 +22,7 @@ import { EditarPerfilComponent} from './components/user-profile/editar-perfil/ed
 import { PerfilComponent } from './components/user-profile/editar-perfil/perfil/perfil.component';
 import { MiPlanDetComponent } from './components/user-profile/editar-perfil/miplandet/miplandet.component';
 import { MisComprasComponent } from './components/user-profile/editar-perfil/mis-compras/mis-compras.component';
+import { MisDireccionesComponent} from './components/user-profile/editar-perfil/misdirecciones/misdirecciones.component';
 
 
 
@@ -30,6 +31,14 @@ import { PagoSuscripcionComponent } from './components/modals/pago-suscripcion/p
 import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-gratis.component';
 import { ProductsListComponent } from './components/tienda/products-list/products-list.component';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { SideNavComponent } from './components/user-profile/side-nav/side-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
 import { ProductDetailsComponent } from './components/tienda/product-details/product-details.component';
 import { FastRegisterComponent } from './components/modals/fast-register/fast-register.component';
 
@@ -53,10 +62,12 @@ import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
     PerfilComponent,
     MiPlanDetComponent,
     MisComprasComponent,
+    MisDireccionesComponent,
     CarruselVideosComponent,
     PagoSuscripcionComponent,
     CursosGratisComponent,
     ProductsListComponent,
+    SideNavComponent,
     ProductDetailsComponent,
     FastRegisterComponent
   ],
@@ -70,6 +81,12 @@ import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
     ReactiveFormsModule,
     NguCarouselModule,
     NgxMasonryModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     HttpClientModule,
     ModalModule.forRoot()
   ],
