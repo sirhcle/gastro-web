@@ -44,6 +44,7 @@ import { FastRegisterComponent } from './components/modals/fast-register/fast-re
 
 // import {  } from 'ngx-bootstrap/modal';
 import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+// import { SafePipePipe } from './pipes/safe-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
     CursosGratisComponent,
     ProductsListComponent,
     SideNavComponent,
-  ProductDetailsComponent,
+    ProductDetailsComponent,
     FastRegisterComponent
   ],
   imports: [
@@ -86,7 +87,7 @@ import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-     HttpClientModule,
+    HttpClientModule,
     ModalModule.forRoot()
   ],
   providers: [],

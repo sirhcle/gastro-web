@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 import { RegisterComponent } from './../register/register.component';
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal, private spinner: NgxSpinnerService) {
+  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal, private spinner: NgxSpinnerService, private router: Router) {
     this.loginForm = new FormGroup({
       username: new FormControl(),
       password: new FormControl()
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       /** spinner ends after 5 seconds */
-
+      
       const obUsuario = {
         username : this.loginForm.value.username,
         password : this.loginForm.value.password,
@@ -47,7 +48,9 @@ export class LoginComponent implements OnInit {
 
       this.spinner.hide();
       localStorage.setItem('userData', JSON.stringify(obUsuario) );
-      window.location.reload();
+      // window.location.reload();
+      this.router.navigate(['/cursos-online']);
+      this.activeModal.close();
     }, 5000);
   }
 
