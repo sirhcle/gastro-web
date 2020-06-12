@@ -2,6 +2,7 @@ import { EditarPerfilComponent } from './components/user-profile/editar-perfil/e
 import { PerfilComponent } from './components/user-profile/editar-perfil/perfil/perfil.component';
 import { MiPlanDetComponent } from './components/user-profile/editar-perfil/miplandet/miplandet.component';
 import { MisComprasComponent } from './components/user-profile/editar-perfil/mis-compras/mis-compras.component';
+import { MisDireccionesComponent } from './components/user-profile/editar-perfil/misdirecciones/misdirecciones.component';
 
 export const EditarPerfilRoutes = [
 {
@@ -25,6 +26,10 @@ export const EditarPerfilRoutes = [
   path: 'miscompras',
   component: MisComprasComponent
 },
+{
+  path: 'misdirecciones',
+  component: MisDireccionesComponent
+}
  ]
 },
 ];

@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
   openEditarPerfil() {
     this.router.navigate(['/editar-perfil/perfil']);
   }
-  
+
   closeSesssion() {
     localStorage.removeItem('userData');
     this.spinner.show();
