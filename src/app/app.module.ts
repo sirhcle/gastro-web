@@ -44,6 +44,10 @@ import { FastRegisterComponent } from './components/modals/fast-register/fast-re
 
 // import {  } from 'ngx-bootstrap/modal';
 import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+import { SelectPagoComponent } from './components/modals/select-pago/select-pago.component';
+import { DatosTarjetaCreditoComponent } from './components/modals/datos-tarjeta-credito/datos-tarjeta-credito.component';
+import { DatosTiendaConvenienciaComponent } from './components/modals/datos-tienda-conveniencia/datos-tienda-conveniencia.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 // import { SafePipePipe } from './pipes/safe-pipe.pipe';
 
 @NgModule({
@@ -69,7 +73,11 @@ import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
     ProductsListComponent,
     SideNavComponent,
     ProductDetailsComponent,
-    FastRegisterComponent
+    FastRegisterComponent,
+    SelectPagoComponent,
+    DatosTarjetaCreditoComponent,
+    DatosTiendaConvenienciaComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,

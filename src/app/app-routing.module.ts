@@ -8,6 +8,7 @@ import { CursosGratisComponent } from './components/cursos/cursos-gratis/cursos-
 import { EditarPerfilRoutes } from './editar-perfil-routing';
 import { ProductsListComponent } from './components/tienda/products-list/products-list.component';
 import { ProductDetailsComponent } from './components/tienda/product-details/product-details.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'product-details/:productId',
     component: ProductDetailsComponent
+  },
+  {
+    path: 'nosotros',
+    component: NosotrosComponent
   }
 ];
 
