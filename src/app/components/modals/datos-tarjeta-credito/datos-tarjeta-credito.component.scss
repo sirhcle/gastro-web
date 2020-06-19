@@ -1,0 +1,61 @@
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .titleModal {
+      color: #f26c16;
+      font-size: 14px;
+      text-align: left;
+      border-bottom: solid;
+      border-width: 3px;
+      border-color: #f26c16;
+      margin-top: 20px;
+  }
+
+  .imgOpenPay{
+    position: absolute;
+    width: 10%;
+    height: auto;
+    right: 10px;
+    top: 95px;
+  }
+
+  .btnsOrange {
+      background-color: #f26c16;
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;
+      height: 40px;
+      margin-top: 26px;
+  }
+
+  .tituloPasos{
+      margin-top: 15px;
+      color: #4c4a59;
+      font-size: 14px;
+  }
+
+  .textPasos {
+    color: #5d5a65;
+    font-size: 9px;
+  }
+
+  .spanText {
+      font-size: 8px;
+      color: black;
+      font-weight: 600;
+  }
+
+  .form-group {
+      margin-right: 20px;
+  }
+  .bg-secondary {
+      color: white;
+      margin-right: 15px;
+  }
+
+  .margin-imgs {
+      margin-right: 10px;
+  }

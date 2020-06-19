@@ -1,0 +1,62 @@
+#sectionSuperior {
+    background-image:url('/assets/imgs/fondoNosotros.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 750px;
+    background-size: cover;
+    // background-attachment: fixed;
+    background-color: #1d2126;
+    padding-top: 15%;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.descripcion{
+    background-color: #eb7024;
+    width: 50%;
+    align-items: center;
+}
+
+.titleChefs {
+    h3 {
+        color: #eb7024;
+        font-size: 25px;
+        text-align: left;
+    }
+}
+
+.chefs {
+    .nombreChef {
+        background-color: white;
+        padding: .3em;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .chef1{
+        margin-right: 8%;
+    }
+    .chef2{
+        margin-left: 1%;
+        margin-right: 30%;
+    }
+    p { 
+        font-size: 2vw;
+        line-height: 1.2em;
+        text-align: left;
+        span {
+            color: #eb7024;
+        }
+        
+        
+    }
+}
+
+.chefsSection {
+    background-color: #161a1f;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}

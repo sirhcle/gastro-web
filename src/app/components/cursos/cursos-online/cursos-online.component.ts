@@ -12,6 +12,8 @@ declare var $: any;
 
 export class CursosOnlineComponent implements OnInit {
 
+  widthFrame = '100%';
+  heightFrame = '600';
   constructor() { }
 
   showVideoContainer = false;
@@ -25,10 +27,12 @@ export class CursosOnlineComponent implements OnInit {
         // console.log("holaaa");
         videoContainer.classList.remove('videoContainer');
         videoContainer.classList.add('sticky');
+        this.heightFrame = '100';
       } else {
         // console.log("adiossss");
         videoContainer.classList.remove('sticky');
         videoContainer.classList.add('videoContainer');
+        this.heightFrame = '600';
       }
     };
   }

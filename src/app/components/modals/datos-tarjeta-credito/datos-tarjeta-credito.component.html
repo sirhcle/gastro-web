@@ -1,0 +1,76 @@
+<div class="modal-header">
+  <!-- <h4 class="modal-title">Hi there!</h4> -->
+  <button type="button" class="close" aria-label="Close" (click)="onConfirm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" align="left">
+  <img src="assets/imgs/logoMiCuentaRegistro.png" width="20%" height="20%">
+  <img src="assets/imgs/logoOpenPay.png" class="imgOpenPay" >
+  <h3 class="titleModal">TARJETAS DE CRÉDITO/DÉBITO</h3>
+
+  <div class="d-flex flex-column">
+
+    <form >
+
+      <div class="d-flex justify-content-start box">
+        <div class="form-group">
+          <label for="email">Nueva tarjeta:</label>
+          <input type="email" class="form-control" id="nvaTarjeta">
+        </div>
+        <img class="margin-imgs" src="/assets/imgs/visaLogo.png" width="8%" height="8%">
+        <img class="margin-imgs" src="/assets/imgs/mastercardLogo.png" width="5%" height="5%">
+        <img class="margin-imgs" src="/assets/imgs/americanLogo.png" width="5%" height="5%">
+      </div>
+
+      <div class="d-flex justify-content-start">
+        <div class="form-group">
+          <label for="email">Nombre del tarjetabiente:</label>
+          <input type="email" class="form-control" id="nvaTarjeta">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Número de tarjeta:</label>
+          <input type="email" class="form-control" id="nvaTarjeta">
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-start">
+        <div class="form-group">
+          <label for="email">Expira (MM/AA):</label>
+          <input type="email" class="form-control" id="nvaTarjeta">
+        </div>
+
+        <div class="form-group">
+          <label for="email">CVV:</label>
+          <input type="email" class="form-control" id="nvaTarjeta">
+        </div>
+
+        <button class="btn btnsOrange">confirmar pago</button>
+      </div>
+
+    </form>
+
+    <div class="d-flex justify-content-around box">
+        <img src="/assets/imgs/inbursaLogo.png" width="8%" height="8%">
+        <img src="/assets/imgs/scotiaLogo.png" width="8%" height="8%">
+        <img src="/assets/imgs/hsbcLogo.png" width="8%" height="8%">
+        <img src="/assets/imgs/santanderLogo.png" width="8%" height="8%">
+        <img src="/assets/imgs/citiLogo.png" width="8%" height="8%">
+        <img src="/assets/imgs/carnetLogo.png" width="5%" height="5%">
+        <img src="/assets/imgs/ixeLogo.png" width="5%" height="5%">
+    </div>
+
+    <div class="d-flex flex-column">
+        <h3>+Otros métodos de pago</h3>
+        <div class="d-flex justify-content-start">
+            <button class="btn rounded-pill bg-secondary">PAYPAL</button>
+            <button class="btn rounded-pill bg-secondary">OXXO</button>
+            <button class="btn rounded-pill bg-secondary">TIENDAS</button>
+        </div>
+    </div>
+
+  </div>
+
+
+</div>

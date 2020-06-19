@@ -1,0 +1,39 @@
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .titleModal {
+      color: #f26c16;
+      font-size: 14px;
+      text-align: left;
+      border-bottom: solid;
+      border-width: 3px;
+      border-color: #f26c16;
+      margin-top: 20px;
+  }
+
+  .btnsOrange {
+      background-color: #f26c16;
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;;
+  }
+
+  .tituloPasos{
+      margin-top: 15px;
+      color: #4c4a59;
+      font-size: 14px;
+  }
+
+  .textPasos {
+    color: #5d5a65;
+    font-size: 9px;
+  }
+
+  .spanText {
+      font-size: 8px;
+      color: black;
+      font-weight: 600;
+  }
