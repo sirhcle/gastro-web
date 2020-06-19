@@ -3,11 +3,10 @@
     <h4 *ngIf="videoData" class="mainTitle"> RECETA: {{videoData.titulo_video}}</h4>
 
     <div  id='videoContainer' class="d-flex flex-row videoContainer" *ngIf="showVideoContainer">
-<<<<<<< HEAD
-      <iframe [src]="urlSafe" 
-=======
+      
       <iframe src="https://player.vimeo.com/video/355222047" 
->>>>>>> 86c2efd638cae90cd92f40e7b979ac94dfb23850
+              
+      <iframe [src]="urlSafe" 
       width="{{widthFrame}}"
       height="{{heightFrame}}" 
       frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>

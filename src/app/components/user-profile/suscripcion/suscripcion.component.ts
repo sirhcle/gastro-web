@@ -46,7 +46,7 @@ export class SuscripcionComponent implements OnInit {
 
         case 'paypal':
           // console.log(result);
-          alert('próxiamente disponible');
+          alert('prÃ³xiamente disponible');
           break;
 
         case 'efectivo':
@@ -54,7 +54,7 @@ export class SuscripcionComponent implements OnInit {
           break;
 
         case 'oxxo':
-          alert('próxiamente disponible');
+          alert('prÃ³xiamente disponible');
           break;
 
         default:
