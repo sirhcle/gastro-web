@@ -3,9 +3,9 @@
 
     <h3 class="">Cocina en cualquier lugar en cualquier momento</h3>
     <p class="card-text">
-      <button type="button" class="btn text-orange rounded-pill">COCINAR AHORA</button>
+      <button type="button" class="btn text-orange rounded-pill" routerLink="/clases-gratis" >COCINAR AHORA</button>
     </p>
-    <a href="#" class="text-white obtener-info btn-link">Obtener información</a>
+    <a (click)="scroll(target)" class="text-white obtener-info btn-link">Obtener información</a>
 
   </div>
 
@@ -59,7 +59,7 @@
       <p class="card-text text-section2">
         Descubre una variedad de cursos de cocina y recetarios digitales. Los videos incluyen el paso a paso y una receta en PDF para descargar. 
       </p>
-      <a href="#" class="link-section2">Obtener información</a>
+      <a class="link-section2" (click)="scroll(target)">Obtener información</a>
     </div>
     <div class="col text-center">
       <img class="img-fluid" src="assets/imgs/section2home1.png">
@@ -73,12 +73,12 @@
       <p class="card-text text-section2">
         Disfruta de los videos desde cualquier dispositivo, incluyendo smartphone, smart TV y tablet.
       </p>
-      <a href="#" class="link-section2">Obtener información</a>
+      <a class="link-section2" (click)="scroll(target)">Obtener información</a>
     </div>
   </div>
 </div>
 
-
+<div #target></div>
 <app-accordion></app-accordion>
 
 <!-- <app-footer></app-footer> -->

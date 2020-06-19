@@ -10,18 +10,20 @@
 #accordion {
   width: 900px;
 
-  .btn-link {
+  .btn-link.collapsed {
     // font-weight: 400;
-    color: #333333;
+    color: #fff;
     text-decoration: none;
+  }
+
+  .btn-link:not(.collapsed){
+    color:#333333;
   }
 
   .card {
     background-color: transparent;
     color: white;
   }
-
-  
 }
 
 .card-header {
@@ -29,9 +31,20 @@
   background-color: #c5c5c4;
 }
 
-.card-body {
-  background-color: transparent;
+// .card-body {
+//   background-color: transparent;
+// }
+// .show {
+//   background-color: transparent;
+// }
+
+.card-header.collapsed {
+  background:#ccc;
 }
-.show {
-  background-color: transparent;
+.card-header:not(.collapsed) {
+  background:#f37421;
+}
+
+h5 {
+  text-align: left;
 }

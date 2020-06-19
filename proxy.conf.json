@@ -1,6 +1,6 @@
 {
-    "/mymobile/gastroAdmin/*" : {
-        "target" : "http://70.35.195.239",
+    "/gastroAdmin/*" : {
+        "target" : "https://gigahert.com.mx/",
         "secure" : false,
         "logLevel": "debug"
     }

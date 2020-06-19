@@ -10,10 +10,12 @@ export class VideosServicesService {
   constructor( private httpClient: HttpClient) {}
 
   getVideosList(): Observable<any> {
-    return this.httpClient.get('http://70.35.195.239/mymobile/gastroAdmin/webService.php?method=getVideos');
+    return this.httpClient.get('https://gigahert.com.mx/gastroAdmin/webService.php?method=getVideos');
   }
 
   getVideosById(idVideo): Observable<any> {
-    return this.httpClient.get(`http://70.35.195.239/mymobile/gastroAdmin/webService.php?method=getVideo&idVideo=${idVideo}`);
+    console.log(`https://gigahert.com.mx/gastroAdmin/webService.php?method=getVideo&idVideo=${idVideo}`);
+    
+    return this.httpClient.get(`https://gigahert.com.mx/gastroAdmin/webService.php?method=getVideo&idVideo=${idVideo}`);
   }
 }

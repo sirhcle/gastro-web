@@ -1,11 +1,19 @@
 <div id="sectionSuperior" align="center" class="row d-flex align-items-center justify-content-center h-100">
-  <div class="col">
-    <h3 style="padding: 30px;">CURSOS GRATIS</h3>
 
-    <p style="padding: 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praese</p>
+  <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer" >
+    <button class="btn closeVideo" (click)="toogleVideo()" >cerrar</button>
+    <iframe src="https://player.vimeo.com/video/391619826/" 
+        width="{{widthFrame}}"
+        height="{{heightFrame}}" 
+        frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+
+  <div class="col">
+    <h3 style="padding: 30px;">CLASES GRATIS</h3>
+
+    <!-- <p style="padding: 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praese</p> -->
 
     <div class="carrusel">
-
       <div class="row">
         <div class="col-1">
           <a class="carousel-control-prev" href="#carouselCursos" role="button" data-slide="prev">
@@ -20,7 +28,7 @@
                 [ngClass]="{active:isFirst}">
 
                 <div class="row">
-                  <div class="col-sm" *ngFor="let card of [1,2,3, 4]">
+                  <div class="col-sm" *ngFor="let card of [1,2,3, 4]" (click)="toogleVideo()">
                     <div class="card d-block w-100">
                       <div class="card-body"></div>
                     </div>
