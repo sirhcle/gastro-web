@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { SolicitaInformacionComponent } from '../../modals/solicita-informacion/solicita-informacion.component';
 
 @Component({
   selector: 'app-cursos-presenciales',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursosPresencialesComponent implements OnInit {
 
-  constructor() { }
+  public modalRef: BsModalRef;
+  constructor(/*private modalService: NgbModal*/private modalService: BsModalService) { }
 
   ngOnInit(): void {
+  }
+
+  showInformation(){
+    this.modalRef = this.modalService.show(SolicitaInformacionComponent);
   }
 
 }

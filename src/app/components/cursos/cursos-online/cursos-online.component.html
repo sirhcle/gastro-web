@@ -1,7 +1,11 @@
 <div id="section-video-day">
     <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer" >
         <button class="btn closeVideo" (click)="toogleVideo()" >cerrar</button>
-        <p style="color: aqua;">AQUI VA EL VIDEO</p>
+        <!-- <p style="color: aqua;">AQUI VA EL VIDEO</p> -->
+        <iframe src="https://player.vimeo.com/video/391619826/" 
+            width="{{widthFrame}}"
+            height="{{heightFrame}}" 
+            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
     <div class="textoNombrePlatillo">
         <p>TARTA DE TOMATE Y REQUESÓN</p>
@@ -21,6 +25,36 @@
 <app-carrusel-videos carouselID = 'misFavoritos'></app-carrusel-videos>
 
 <app-carrusel-videos carouselID = 'todosLosVideos'></app-carrusel-videos>
+
+<div class="d-flex flex-column recetas" style="background-color: #1d2126;">
+
+    <h3>RECETARIOS DIGITALES</h3>
+    
+    <div class="d-flex justify-content-around p-5" align="center">
+        <a href="#">
+            <img src="/assets/imgs/01recetas.png" width="60%" height="auto">
+        </a>
+        <a href="#">
+            <img src="/assets/imgs/02recetas.png" width="60%" height="auto">
+        </a>
+        <a href="#">
+            <img src="/assets/imgs/03recetas.png" width="60%" height="auto">
+        </a>
+    </div>
+    
+    <div class="d-flex justify-content-around p-5" align="center">
+        <a href="#">
+            <img src="/assets/imgs/04recetas.png" width="60%" height="auto">
+        </a>
+        <a href="#">
+            <img src="/assets/imgs/05recetas.png" width="60%" height="auto">
+        </a>
+        <a href="#">
+            <img src="/assets/imgs/06recetas.png" width="60%" height="auto">
+        </a>
+    </div>
+
+</div>
 
 
 

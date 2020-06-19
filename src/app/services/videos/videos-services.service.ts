@@ -14,6 +14,8 @@ export class VideosServicesService {
   }
 
   getVideosById(idVideo): Observable<any> {
+    console.log(`https://gigahert.com.mx/gastroAdmin/webService.php?method=getVideo&idVideo=${idVideo}`);
+    
     return this.httpClient.get(`https://gigahert.com.mx/gastroAdmin/webService.php?method=getVideo&idVideo=${idVideo}`);
   }
 }

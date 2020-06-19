@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoreServicesService } from 'src/app/services/store-services.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
-// import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product-details',
@@ -19,10 +19,15 @@ export class ProductDetailsComponent implements OnInit {
   heightFrame = '600';
   videoURL: any;
 
+
+  url = '';
+  urlSafe: SafeResourceUrl;
+
   constructor(private _httpService: StoreServicesService,
               private route: ActivatedRoute,
               private router: Router,
-              private _services: VideosServicesService) { }
+              private _services: VideosServicesService,
+              public sanitizer: DomSanitizer) { }
 
 
   ngOnInit(): void {
@@ -44,17 +49,18 @@ export class ProductDetailsComponent implements OnInit {
       }
     };
 
+    // this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
 
     this._services.getVideosById(this.idVideo)
       .subscribe((resp: any) => {
         // console.log(resp);
         this.videoData = resp;
-        // console.log(this.videoData.url_video);
-        // this.videoURL = this.domSanitizer.bypassSecurityTrustResourceUrl(`https://player.vimeo.com/video/${this.videoURL}`);
+        console.log(this.videoData.url_video);
+        
 
-        this.videoURL = 'https://player.vimeo.com/video/355222047';
+        this.videoURL = `https://player.vimeo.com/video/${this.videoData.url_video}`;
 
-        // console.log(`https://player.vimeo.com/video/${this.videoURL}`);
+        this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
 
       });
 

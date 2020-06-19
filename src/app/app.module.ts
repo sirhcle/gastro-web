@@ -48,6 +48,8 @@ import { SelectPagoComponent } from './components/modals/select-pago/select-pago
 import { DatosTarjetaCreditoComponent } from './components/modals/datos-tarjeta-credito/datos-tarjeta-credito.component';
 import { DatosTiendaConvenienciaComponent } from './components/modals/datos-tienda-conveniencia/datos-tienda-conveniencia.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { InfoChefComponent } from './components/modals/info-chef/info-chef.component';
+import { SolicitaInformacionComponent } from './components/modals/solicita-informacion/solicita-informacion.component';
 // import { SafePipePipe } from './pipes/safe-pipe.pipe';
 
 @NgModule({
@@ -77,7 +79,9 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
     SelectPagoComponent,
     DatosTarjetaCreditoComponent,
     DatosTiendaConvenienciaComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    InfoChefComponent,
+    SolicitaInformacionComponent
   ],
   imports: [
     BrowserModule,
