@@ -41,4 +41,8 @@ export class CursosOnlineComponent implements OnInit {
     this.showVideoContainer = !this.showVideoContainer;
   }
 
+  openPDF(url: string){
+    window.open(url, '_blank');
+}
+
 }
