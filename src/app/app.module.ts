@@ -50,6 +50,7 @@ import { DatosTiendaConvenienciaComponent } from './components/modals/datos-tien
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { InfoChefComponent } from './components/modals/info-chef/info-chef.component';
 import { SolicitaInformacionComponent } from './components/modals/solicita-informacion/solicita-informacion.component';
+import { ProximamenteComponent } from './components/modals/proximamente/proximamente.component';
 // import { SafePipePipe } from './pipes/safe-pipe.pipe';
 
 @NgModule({
@@ -81,7 +82,8 @@ import { SolicitaInformacionComponent } from './components/modals/solicita-infor
     DatosTiendaConvenienciaComponent,
     NosotrosComponent,
     InfoChefComponent,
-    SolicitaInformacionComponent
+    SolicitaInformacionComponent,
+    ProximamenteComponent
   ],
   imports: [
     BrowserModule,
