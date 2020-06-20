@@ -2,12 +2,9 @@
     <div class="container-fluid">
         <hr>
         <br> <br>
-        <app-side-nav>
-            <div class="col-sm-12 col-md-7 col-lg-7">
-                <router-outlet></router-outlet>
-            </div>
-        </app-side-nav>
-        <!--
+        <div class="row">
+            <app-side-nav></app-side-nav>
+            <!--
                 <ul>
                     <li>
                         <a routerLink="perfil" routerLinkActive="leftmenuActive">
@@ -27,7 +24,8 @@
                         <a routerLinkActive="leftmenuActive activeText"><img src="/assets/imgs/icoDirecciones.png" class="prof_ico" /> Mis Direcciones</a>
                     </li>
                 </ul>-->
-        <!-- <div class="col-sm-12 col-md-7 col-lg-6">
+            <div class="col-sm-12 col-md-7 col-lg-6">
                 <router-outlet></router-outlet>
-            </div>-->
+            </div>
+        </div>
     </div>
