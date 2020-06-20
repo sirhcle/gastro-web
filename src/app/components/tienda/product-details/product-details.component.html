@@ -3,6 +3,7 @@
     <h4 *ngIf="videoData" class="mainTitle"> RECETA: {{videoData.titulo_video}}</h4>
 
     <div  id='videoContainer' class="d-flex flex-row videoContainer" *ngIf="showVideoContainer">
+              
       <iframe [src]="urlSafe" 
       width="{{widthFrame}}"
       height="{{heightFrame}}" 
