@@ -1,33 +1,81 @@
-<div class="modal-header">
-    <!-- <h4 class="modal-title">Hi there!</h4> -->
-    <button type="button" class="close" aria-label="Close" (click)="onConfirm()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body" align="center">
-    <img src="assets/imgs/logoMiCuentaRegistro.png" width="20%" height="20%">
-    <!-- <h3 class="titleModal">Número de teléfono</h3> -->
-  
-    <div class="d-flex flex-column">
-  
-      <form >
-  
-        <div class="d-flex justify-content-center box">
-          <div class="form-group row">
-            <label for="phoneNumber">Número de teléfono:</label>
-            <input type="tel" class="form-control" id="phoneNumber">
-          </div>
-        </div>
-  
-        
-  
-        <div class="d-flex justify-content-center">
-          <button class="btn btnsOrange rounded-pill">enviar</button>
-        </div>
-  
-      </form>
+<!-- MODAL FELICIDADES -->
+<div class="modal-body modalCongrats" align="left" *ngIf="modalCongrats">
+  <button type="button" class="close" aria-label="Close" (click)="onConfirm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="d-flex chefCongrat">
+
+    <div class="flex-fill">
+      <img src="/assets/imgs/imgEdnaCongrats.png" width="90%" height="auto">
     </div>
-  
-  
+
+    <div class="flex-fill txtCongrats">
+      <img src="assets/imgs/logoMiCuentaRegistro.png" width="50%" height="auto">
+
+      <h3>FELICIDADES</h3>
+      
+      <p class="txtGris">Has adquirido el curso</p>
+      
+      <p class="txtGris">Recibirás en tu mail la confirmación</p>
+      
+      <p class="txtNaranja">*De no recibirla favor de <br>
+        comunicarte con nosotros a</p>
+      
+      <p class="txtNaranja">81818181 ó a <br>
+        hola@gastrobureau.com</p>
+      
+    </div>
+
+
   </div>
-  
+</div>
+
+
+<!-- MODAL GRACIAS -->
+<div class="modal-body modalThanks" align="center" *ngIf="modalThanks">
+  <img src="assets/imgs/logoMiCuentaRegistro.png" width="20%" height="20%">
+  <button type="button" class="close" aria-label="Close" (click)="onConfirm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="d-flex flex-column">
+
+    <h3>GRACIAS</h3>
+    <p>Gracias, has solicitado información sobre los cursos</p>
+    <p>En tu correo recibirás más información sobre los cursos</p>
+    <button type="button" class="btn btn-link" (click)="solicitaLlamada()">Quiero que me llamen</button>
+
+  </div>
+</div>
+
+
+
+<!-- MODAL INGRESAR TELEFONO -->
+<div class="modal-body" align="center" *ngIf="modalPhone">
+  <img src="assets/imgs/logoMiCuentaRegistro.png" width="20%" height="20%">
+  <button type="button" class="close" aria-label="Close" (click)="onConfirm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <!-- <h3 class="titleModal">Número de teléfono</h3> -->
+
+  <div class="d-flex flex-column">
+
+    <form>
+
+      <div class="d-flex justify-content-center box">
+        <div class="form-group row">
+          <label for="phoneNumber">Número de teléfono:</label>
+          <input type="tel" class="form-control" id="phoneNumber">
+        </div>
+      </div>
+
+
+
+      <div class="d-flex justify-content-center">
+        <button class="btn btnsOrange rounded-pill">enviar</button>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -10,13 +10,35 @@ import { SolicitaInformacionComponent } from '../../modals/solicita-informacion/
 export class CursosPresencialesComponent implements OnInit {
 
   public modalRef: BsModalRef;
-  constructor(/*private modalService: NgbModal*/private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
 
   showInformation(){
-    this.modalRef = this.modalService.show(SolicitaInformacionComponent);
+    const initialState = {
+      modalThanks: true
+    };
+
+    this.modalRef = this.modalService.show(SolicitaInformacionComponent, {initialState});
+    this.modalRef.content.onClose.subscribe(result => {
+      console.log('result->' + result);
+      this.openModalPhone();
+    });
+  }
+
+  openModalPhone() {
+    const initialState = {
+      modalPhone: true
+    };
+    this.modalRef = this.modalService.show(SolicitaInformacionComponent, {initialState});
+  }
+
+  openModalCongrat(){
+    const initialState = {
+      modalCongrats: true
+    };
+    this.modalRef = this.modalService.show(SolicitaInformacionComponent, {initialState});
   }
 
 }

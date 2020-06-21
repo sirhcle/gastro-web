@@ -2,3 +2,43 @@
     background-color: #f26c16;
     color: white;
 }
+
+.modalThanks{
+    h3 {
+        margin-top: 30px;
+        font-size: 30px;
+        color: #4c4a59;
+    }
+
+    p {
+        font-size: 17px;
+        color: #a19b9e;
+    }
+
+    .btn-link {
+        font-size: 17px;
+        color: #f26c16;
+    }
+}
+
+.modalCongrats {
+    .chefCongrat {
+        margin-top: 30px;
+    }
+
+    .txtCongrats{
+        h3{
+            margin-top: 30px;
+            font-size: 30px;
+            color: #4c4a59;
+        }
+        p.txtGris{
+            font-size: 17px;
+            color: #a19b9e;
+        }
+        p.txtNaranja{
+            font-size: 17px;
+            color: #f26c16;
+        }
+    }
+}
