@@ -3,11 +3,14 @@ import { StoreServicesService } from 'src/app/services/store-services.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss']
+  styleUrls: ['./product-details.component.scss'],
+  providers: [NgbRatingConfig]
 })
 
 export class ProductDetailsComponent implements OnInit {
@@ -15,9 +18,11 @@ export class ProductDetailsComponent implements OnInit {
   idVideo;
   videoData: any;
   showVideoContainer = true;
-  widthFrame = '100%';
+  widthFrame = '90%';
   heightFrame = '600';
   videoURL: any;
+  rating = 0;
+
 
 
   url = '';
@@ -27,7 +32,11 @@ export class ProductDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private _services: VideosServicesService,
-              public sanitizer: DomSanitizer) { }
+              public sanitizer: DomSanitizer,
+              config: NgbRatingConfig)
+  {
+    config.max = 5;
+  }
 
 
   ngOnInit(): void {
@@ -36,7 +45,7 @@ export class ProductDetailsComponent implements OnInit {
       const videoContainer = document.getElementById('videoContainer');
       const sticky = videoContainer.offsetTop;
 
-      if (window.pageYOffset > 400) {
+      if (window.pageYOffset > 850) {
         // console.log("holaaa");
         videoContainer.classList.remove('videoContainer');
         videoContainer.classList.add('sticky');
