@@ -45,7 +45,7 @@ export class ProductDetailsComponent implements OnInit {
       const videoContainer = document.getElementById('videoContainer');
       const sticky = videoContainer.offsetTop;
 
-      if (window.pageYOffset > 850) {
+      if (window.pageYOffset > 550) {
         // console.log("holaaa");
         videoContainer.classList.remove('videoContainer');
         videoContainer.classList.add('sticky');
