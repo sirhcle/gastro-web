@@ -54,9 +54,10 @@ export class CarruselVideosComponent implements OnInit {
 
       case 'todosLosVideos':
         this.tituloVideos = 'TODOS LOS VIDEOS';
-        this._services.getVideosList()
+        this._services.getVideosList(userData.idUsuario)
           .subscribe((response: any) => {
             this.videoData = response.videos;
+            console.log('todos los videos');
             console.log(this.videoData);
           });
         break;

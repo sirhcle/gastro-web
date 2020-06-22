@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 
 @Component({
   selector: 'app-select-pago',
@@ -17,7 +18,7 @@ export class SelectPagoComponent implements OnInit {
   cantidad: any;
   concepto: any;
 
-  constructor(public bsModalRef: BsModalRef) {
+  constructor(public bsModalRef: BsModalRef, private _service: SuscripcionService) {
     this.initConfig();
   }
 
@@ -49,20 +50,41 @@ export class SelectPagoComponent implements OnInit {
     this.bsModalRef.hide();
   }
 
+  pagoExitoso() {
+
+    const locStorage = localStorage.getItem('userData');
+    const userData = JSON.parse(locStorage);
+
+    const idUsuario = userData.idUsuario;
+    let idSuscripcion = 1;
+
+    if (this.concepto === 'premium') {
+      idSuscripcion = 2;
+    } else if (this.concepto === 'golden') {
+      idSuscripcion = 3;
+    }
+
+
+    this._service.postSuscripcion(idUsuario, idSuscripcion)
+        .subscribe((resp: any) => {
+          console.log(resp);
+        });
+  }
+
   private initConfig(): void {
     this.payPalConfig = {
-      currency: 'MXN',
+      currency: 'USD',
       clientId: 'AXyhsj1weGYX3VtPJfEB9fvfIlGlXOsJsa4J_sL5kDehQmsHq1_SHp-ovWYrq1v4JuWZ3p3zFCJ9K9xw',
       // tslint:disable-next-line:no-angle-bracket-type-assertion
       createOrderOnClient: (data) => <ICreateOrderRequest> {
         intent: 'CAPTURE',
         purchase_units: [{
           amount: {
-            currency_code: 'MXN',
+            currency_code: 'USD',
             value: this.cantidad,
             breakdown: {
               item_total: {
-                currency_code: 'MXN',
+                currency_code: 'USD',
                 value: this.cantidad
               }
             }
@@ -72,7 +94,7 @@ export class SelectPagoComponent implements OnInit {
             quantity: '1',
             category: 'DIGITAL_GOODS',
             unit_amount: {
-              currency_code: 'MXN',
+              currency_code: 'USD',
               value: this.cantidad,
             },
           }]
@@ -91,6 +113,7 @@ export class SelectPagoComponent implements OnInit {
           console.log('onApprove - you can get full order details inside onApprove: ', details);
           if (details.status === 'APPROVED'){
             alert('Transacción aprobada');
+            this.pagoExitoso();
           } else {
             alert(details.status);
           }
