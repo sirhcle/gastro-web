@@ -7,7 +7,7 @@ import { MAT_DRAWER_CONTAINER, MatDrawer } from '@angular/material/sidenav/drawe
 import { NgSelectOption } from '@angular/forms';
 import { MatSidenav, matDrawerAnimations } from '@angular/material/sidenav';
 import { async } from '@angular/core/testing';
-import {MenuItemComponent} from './MenuItem';
+import {MenuItemComponent} from '../../../models/MenuItem';
 
 @Component({
   selector: 'app-side-nav',
