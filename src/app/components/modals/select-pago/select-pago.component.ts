@@ -14,6 +14,9 @@ export class SelectPagoComponent implements OnInit {
   public onClose: Subject<string>;
   public payPalConfig: IPayPalConfig;
 
+  cantidad: any;
+  concepto: any;
+
   constructor(public bsModalRef: BsModalRef) {
     this.initConfig();
   }
@@ -49,28 +52,28 @@ export class SelectPagoComponent implements OnInit {
   private initConfig(): void {
     this.payPalConfig = {
       currency: 'MXN',
-      clientId: 'Aa-yqpPq0bPFn_NiSXxBttcokmBPnmKTkpkHWUpsI3JJLoc4czAWRHjIMtJIya6CgKLgMBnT4bBfeY-x',
+      clientId: 'AXyhsj1weGYX3VtPJfEB9fvfIlGlXOsJsa4J_sL5kDehQmsHq1_SHp-ovWYrq1v4JuWZ3p3zFCJ9K9xw',
       // tslint:disable-next-line:no-angle-bracket-type-assertion
       createOrderOnClient: (data) => <ICreateOrderRequest> {
         intent: 'CAPTURE',
         purchase_units: [{
           amount: {
             currency_code: 'MXN',
-            value: '9.99',
+            value: this.cantidad,
             breakdown: {
               item_total: {
                 currency_code: 'MXN',
-                value: '9.99'
+                value: this.cantidad
               }
             }
           },
           items: [{
-            name: 'Enterprise Subscription',
+            name: this.concepto,
             quantity: '1',
             category: 'DIGITAL_GOODS',
             unit_amount: {
               currency_code: 'MXN',
-              value: '9.99',
+              value: this.cantidad,
             },
           }]
         }]
@@ -86,6 +89,11 @@ export class SelectPagoComponent implements OnInit {
         console.log('onApprove - transaction was approved, but not authorized', data, actions);
         actions.order.get().then(details => {
           console.log('onApprove - you can get full order details inside onApprove: ', details);
+          if (details.status === 'APPROVED'){
+            alert('Transacción aprobada');
+          } else {
+            alert(details.status);
+          }
         });
 
       },

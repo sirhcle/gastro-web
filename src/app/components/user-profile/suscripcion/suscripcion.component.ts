@@ -29,7 +29,7 @@ export class SuscripcionComponent implements OnInit {
     // this.modalService.open(PagoSuscripcionComponent, { size: 'lg' });
   }
 
-  openFastRegister() {
+  openFastRegister(monto, tipoMembresia) {
     // this.modalService.open();
 
     // this.modalRef = this.modalService.show(FastRegisterComponent);
@@ -38,11 +38,19 @@ export class SuscripcionComponent implements OnInit {
     //   this.openTipoPago();
     // });
 
-    this.openTipoPago();
+    this.openTipoPago(monto, tipoMembresia);
   }
 
-  openTipoPago() {
-    this.modalRef = this.modalService.show(SelectPagoComponent);
+  openTipoPago(monto, tipoMembresia) {
+
+    const initialState = {
+      cantidad: monto,
+      concepto: tipoMembresia
+  };
+
+    this.modalRef = this.modalService.show(SelectPagoComponent, {initialState});
+
+
     this.modalRef.content.onClose.subscribe(result => {
       switch (result) {
         case 'tarjeta':
