@@ -24,7 +24,7 @@ public url: string;
     headers);
   }
 
-  updateUsuario (idUsuario, nombre, usuario, correo, ubicacion, acerca): Observable<any>{
+  updateUsuario(idUsuario, nombre, usuario, correo, ubicacion, acerca): Observable<any>{
     const body = new HttpParams().set('idUsuario', idUsuario)
     .set('nombre', nombre)
     .set('usuario', usuario)

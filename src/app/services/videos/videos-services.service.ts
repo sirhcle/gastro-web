@@ -9,8 +9,18 @@ export class VideosServicesService {
 
   constructor( private httpClient: HttpClient) {}
 
-  getVideosList(): Observable<any> {
-    return this.httpClient.get('https://gigahert.com.mx/gastroAdmin/webService.php?method=getVideos');
+  getVideosList(idUsuario): Observable<any> {
+    const body = new HttpParams()
+    .set('idUsuario', idUsuario);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=getVideos',
+      body.toString(),
+      headers);
   }
 
   getVideosById(idVideo, idUsuario): Observable<any> {

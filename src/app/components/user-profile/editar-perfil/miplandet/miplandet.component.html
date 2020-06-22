@@ -7,8 +7,8 @@
     </div>
     <div class="row">
         <div class="col-sm-4 col-md-6 col-lg-8">
-            <h2 id="tipoplan" class="text-orange ">Plan básico</h2>
-            <p id="detalle" class="texto">$2.99 USD Precio por mes Clases Online y Recetarios Digitales On Demand</p>
+            <h2 id="tipoplan" class="text-orange ">Plan {{nombreSuscripcion}}</h2>
+            <p id="detalle" class="texto">${{precioSuscripcion}}USD, {{descripcionSuscripcion}} </p>
         </div>
     </div>
     <br>
@@ -20,10 +20,10 @@
     <hr>
     <div class="row">
         <div class="col-sm-12 col-md-4 col-lg-4">
-            <input type="button" class="btn btn-orange" value="SUBIR TU SUSCRIPCIÓN"></div>
+            <input type="button" class="btn btn-orange" value="SUBIR TU SUSCRIPCIÓN" (click)="openSuscripciones()"></div>
         <div class="col-sm-12 col-md-1 col-lg-1 pt-2"></div>
         <div class="col-sm-12 col-md-4 col-lg-4">
-            <input type="button" class="btn btn-orange ml-3" value="CANCELAR SUSCRIPCIÓN">
+            <input type="button" class="btn btn-orange ml-3" value="CANCELAR SUSCRIPCIÓN" (click)="cancelaSuscripcion()">
         </div>
     </div>
 
