@@ -9,13 +9,14 @@
     <h3 class="titleModal">Confirma tu modo de pago</h3>
 
     <div class="d-flex flex-column btnsPago">
-        <button type="button" class="btn rounded-pill" (click)="paymentTarjeta()" >TARJETA DE CRÉDITO/DÉBITO</button>
+        <!-- <button type="button" class="btn rounded-pill" (click)="paymentTarjeta()" >TARJETA DE CRÉDITO/DÉBITO</button> -->
 
-        <button type="button" class="btn rounded-pill" (click)="paymentPaypal()" >PAYPAL</button>
+        <!-- <button type="button" class="btn rounded-pill" (click)="paymentPaypal()" >PAYPAL</button> -->
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
 
-        <button type="button" class="btn rounded-pill" (click)="paymentEfectivo()" >EFECTIVO EN TIENDAS DE CONVENIENCIA</button>
+        <!-- <button type="button" class="btn rounded-pill" (click)="paymentEfectivo()" >EFECTIVO EN TIENDAS DE CONVENIENCIA</button> -->
 
-        <button type="button" class="btn rounded-pill" (click)="paymentOxxo()" >EFECTIVO EN OXXO</button>
+        <!-- <button type="button" class="btn rounded-pill" (click)="paymentOxxo()" >EFECTIVO EN OXXO</button> -->
     </div>
     
     
