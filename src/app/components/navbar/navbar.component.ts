@@ -3,6 +3,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../modals/login/login.component';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { RegisterComponent } from '../modals/register/register.component';
 
 @Component({
   selector: 'app-navbar',
@@ -13,15 +14,21 @@ export class NavbarComponent implements OnInit {
 
   userData: any;
   constructor(private modalService: NgbModal, private router: Router, private spinner: NgxSpinnerService ) {
-    const locStorage = localStorage.getItem('userData');
-    this.userData = JSON.parse(locStorage);
+    
   }
 
   ngOnInit(): void {
+    const locStorage = localStorage.getItem('userData');
+    this.userData = JSON.parse(locStorage);
+    // console.log("hola->" + this.userData);
   }
 
   openLogin(){
     this.modalService.open(LoginComponent);
+  }
+
+  openRegister() {
+    this.modalService.open(RegisterComponent);
   }
 
   openMisCompras() {
@@ -41,11 +48,12 @@ export class NavbarComponent implements OnInit {
     this.spinner.show();
 
     setTimeout(() => {
-      /** spinner ends after 5 seconds */
       this.spinner.hide();
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home']).then( () => {
+        window.location.reload();
+      });
       // window.location.reload();
-    }, 5000);
+    }, 3000);
   }
 
   goHome() {
@@ -71,5 +79,4 @@ export class NavbarComponent implements OnInit {
   openStore() {
     this.router.navigate(['/store']);
   }
-
 }

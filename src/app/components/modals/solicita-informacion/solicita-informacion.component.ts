@@ -12,11 +12,20 @@ export class SolicitaInformacionComponent implements OnInit {
   public onClose: Subject<string>;
   constructor(public bsModalRef: BsModalRef) { }
 
+  modalPhone = false;
+  modalThanks = false;
+  modalCongrats = false;
+
   ngOnInit(): void {
     this.onClose = new Subject();
   }
 
   public onConfirm(): void {
+    this.bsModalRef.hide();
+  }
+
+  solicitaLlamada() {
+    this.onClose.next('llamada');
     this.bsModalRef.hide();
   }
 
