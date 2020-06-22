@@ -11,7 +11,7 @@ import { stringify } from 'querystring';
 export class PerfilComponent implements OnInit {
   public usuarioactual;
   public updated;
-  public validPass = false;
+  public validPass;
   usuarioForm: FormGroup;
   constructor(private _edicionService: EdicionService) {
     this.usuarioForm = new FormGroup({
@@ -24,18 +24,19 @@ contraseña :  new FormControl(),
 nueva :  new FormControl(),
 confirmar :  new FormControl()
     });
+    this.updated = 1;
+    this.validPass = true;
    }
 
   ngOnInit(): void {
     this._edicionService.getUsuario('1').subscribe(
-      response => {this.usuarioactual = response[0];},
+      response => {this.usuarioactual = response[0]; console.log(this.usuarioactual);},
       error => {console.log(error as any); }
     );
-    this.updated = null;
   }
 
   guardarDatos(){
-    const idUsuario = this.usuarioactual.idUsuario;
+    const idUsuario = 1; //this.usuarioactual.idUsuario;
     const nombre = this.usuarioForm.value.name;
     const usuario = this.usuarioForm.value.username;
     const correo = this.usuarioForm.value.mail;
