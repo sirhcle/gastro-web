@@ -7,60 +7,68 @@
     <br>
     <div class="row">
         <div class="col-sm-12 col-md-4 col-lg-4 pl-2">
-            <img src="assets/imgs/usuario_dummy.jpg" class="img-fluid rounded-circle img-thumbnail">
+            <img src="assets/imgs/{{usuarioactual.foto_usuario}}" class="img-fluid rounded-circle img-thumbnail">
         </div>
         <div class="col-sm-12 col-md-8 col-lg-8 pt-sm-1 pt-md-2 pt-lg-2">
-            <p class="text-white">LOREM IPSUM</p>
-            <a href="" class="text-orange">Cambiar foto de perfil</a>
+            <p class="text-white" *ngIf="usuarioactual">{{usuarioactual.usuario_usuario}}</p>
+            <a routerLink="" class="text-orange">Cambiar foto de perfil</a>
         </div>
     </div>
     <br>
     <br>
-    <form class="form-horizontal">
-        <div class="form-group row">
-            <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
-                <label for="name">Nombre:</label>
-                <input type="text" class="form-control" id="name">
+    <form class="form-horizontal" [formGroup]='usuarioForm'>
+        <div *ngIf="updated === 1">
+            <div class="form-group row">
+                <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
+                    <label for="name">Nombre:</label>
+                    <input type="text" class="form-control" #name id="name" formControlName="name" required pattern="[a-zA-Z]+" placeholder="{{usuarioactual.nombre_usuario}}">
+                    <span *ngIf="name.touched && !name.valid" class="text-orange">*Campo obligatorio</span>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-1"></div>
+                <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" class="form-control" id="username" formControlName="username" required placeholder="{{usuarioactual.usuario_usuario}}">
+                </div>
             </div>
-            <div class="col-sm-12 col-md-2 col-lg-1"></div>
-            <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
-                <label for="username">Nombre de Usuario:</label>
-                <input type="text" class="form-control" id="username">
+            <div class="form-group row">
+                <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
+                    <label for="mail">Correo electrónico:</label>
+                    <input type="email" class="form-control" id="mail" formControlName="mail" required placeholder="{{usuarioactual.correo_usuario}}">
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-1"></div>
+                <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
+                    <label for="ubicacion">Ubicacion:</label>
+                    <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion" placeholder="{{usuarioactual.ubicacion_usuario}}">
+                </div>
             </div>
+            <div class="form-group row">
+                <div class="col-11">
+                    <label for="detalle">Acerca de tu perfil:</label>
+                    <textarea class="form-control" rows="5" id="detalle" formControlName="detalle" placeholder="{{usuarioactual.acerca_usuario}}"></textarea>
+                </div>
+            </div>
+            <br>
+            <input type="button" class="btn btn-orange" value="Guardar datos" (click)="guardarDatos()">
         </div>
-        <div class="form-group row">
-            <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
-                <label for="mail">Correo electrónico:</label>
-                <input type="text" class="form-control" id="mail">
-            </div>
-            <div class="col-sm-12 col-md-2 col-lg-1"></div>
-            <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
-                <label for="ubicacion">Ubicacion:</label>
-                <input type="text" class="form-control" id="ubicacion">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-11">
-                <label for="detalle">Acerca de tu perfil:</label>
-                <textarea class="form-control" rows="5" id="detalle"></textarea>
-            </div>
-        </div>
+        <h1 class="text-white" *ngIf="updated != 1">Tus datos han sido actualizados exitosamente</h1>
+        <hr>
         <p class="text-grey font-weight-bold">Cambiar contraseña</p>
         <div class="form-group row">
             <div class="float-left">
-                <input type="password" class="form-control short" id="contraseña">
+                <input type="password" class="form-control short" id="contraseña" formControlName="contraseña" required>
                 <label for="contraseña"><small>contraseña antigua</small></label>
             </div>
             <div class="float-left pl-sm-2 pl-md-3 pl-lg-3 ">
-                <input type="password" class="form-control short" id="nueva">
+                <input type="password" class="form-control short" id="nueva" formControlName="nueva" required>
                 <label for="nueva"><small>Contraseña nueva</small></label>
             </div>
             <div class="float-left pl-sm-2 pl-md-3 pl-lg-3">
-                <input type="password" class="form-control short" id="confirmar">
+                <input type="password" class="form-control short" id="confirmar" formControlName="confirmar" onchange="validarContrasena()" required>
                 <label for="confirmar"><small>Confirmar nueva contraseña</small></label>
+                <span *ngIf="!validPass" class="text-warning">las contraseñas deben coincidir</span>
             </div>
         </div>
         <br>
-        <input type="submit" class="btn btn-orange" value="Guardar">
+        <input type="button" class="btn btn-orange" value="Cambiar contraseña" (click)="cambiarContrasena()">
     </form>
 </div>

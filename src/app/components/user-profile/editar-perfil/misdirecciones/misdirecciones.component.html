@@ -6,35 +6,39 @@
     <h2 class="text-white">+Agregar dirección</h2>
     <br>
     <br>
-    <form class="form-horizontal">
+    <form class="form-horizontal" #direccionForm="ngForm" (ngSubmit)="agregar()">
         <div class="form-group row">
             <div class="col-sm-10 col-md-10 col-lg-10 pl-0">
                 <label for="calle">Calle</label>
-                <input type="text" class="form-control" id="calle">
+                <input type="text" class="form-control" name="calle" [(ngModel)]="direccion.calle" #calle="ngModel" required>
             </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                 <label for="numero">Número</label>
-                <input type="text" class="form-control" id="numero">
+                <input type="text" class="form-control" name="numero" [(ngModel)]="direccion.numero" #numero="ngModel" required>
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
+                <label for="colonia">Colonia</label>
+                <input type="text" class="form-control" name="colonia" [(ngModel)]="direccion.colonia" #colonia="ngModel" required>
             </div>
         </div>
 
         <div class="form-group row">
             <div class="col-sm-6 col-md-4 col-lg-4 pl-0">
                 <label for="ciudad">Ciudad</label>
-                <input type="text" class="form-control" id="ciudad">
+                <input type="text" class="form-control" name="ciudad" [(ngModel)]="direccion.ciudad" #ciudad="ngModel" required>
             </div>
 
             <div class="col-sm-6 col-md-4 col-lg-4 pl-0">
                 <label for="estado">Estado</label>
-                <input type="text" class="form-control" id="estado">
+                <input type="text" class="form-control" name="estado" [(ngModel)]="direccion.estado" #estado="ngModel" required>
             </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                 <label for="cp">C.P.</label>
-                <input type="text" class="form-control" id="cp">
+                <input type="text" class="form-control" name="cp" [(ngModel)]="direccion.cp" #cp="ngModel" required>
             </div>
         </div>
         <br>

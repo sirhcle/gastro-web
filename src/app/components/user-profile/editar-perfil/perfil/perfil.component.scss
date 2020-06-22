@@ -36,7 +36,6 @@ label {
     font-weight: bold;
     font-size: medium;
     text-align: center;
-    width: 10rem;
     border-radius: 10em;
 }
 
@@ -52,4 +51,10 @@ label {
 input,
 textarea {
     border-radius: 0.50rem;
+}
+
+hr {
+    color: gray;
+    border-style: solid;
+    border-width: thin;
 }
