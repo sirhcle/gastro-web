@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 
 import { RegisterComponent } from './../register/register.component';
 import { LoginService } from 'src/app/services/login/login.service';
+import { RecoveryPasswordComponent } from '../recovery-password/recovery-password.component';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,11 @@ export class LoginComponent implements OnInit {
 
   openRegister() {
     this.modalService.open(RegisterComponent);
+  }
+
+  openRecoveryPass(){
+    // this.modalRef = this.modalService.show(SolicitaInformacionComponent, {initialState});
+    this.modalService.open(RecoveryPasswordComponent);
   }
 
   doLogin() {
