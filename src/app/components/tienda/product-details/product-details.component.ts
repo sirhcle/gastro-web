@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { StoreServicesService } from 'src/app/services/store-services.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
@@ -15,6 +15,8 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 export class ProductDetailsComponent implements OnInit {
 
+  @ViewChild('videoFrame') myIframe: ElementRef;
+
   idVideo;
   videoData: any;
   showVideoContainer = true;
@@ -27,6 +29,7 @@ export class ProductDetailsComponent implements OnInit {
 
   url = '';
   urlSafe: SafeResourceUrl;
+  nextPaso = 0;
 
   constructor(private _httpService: StoreServicesService,
               private route: ActivatedRoute,
@@ -68,9 +71,34 @@ export class ProductDetailsComponent implements OnInit {
         console.log(resp);
         this.videoData = resp;
         console.log(this.videoData.url_video);
-        this.videoURL = `https://player.vimeo.com/video/${this.videoData.url_video}`;
+        this.videoURL = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=130s`;
         this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
       });
+  }
+
+  
+  siguientePasoVideo() {
+    if (this.nextPaso > (this.videoData.pasos.length - 1)){
+      this.nextPaso = 0;
+    }
+    const nextStep = this.videoData.pasos[this.nextPaso];
+    console.log(nextStep.segundos_pasos);
+    this.myIframe.nativeElement.src = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=${nextStep.segundos_pasos}s`;
+    this.nextPaso += 1;
+  }
+
+  anteriorPasoVideo() {
+    if (this.nextPaso === 0){
+      this.nextPaso = this.videoData.pasos.length - 1;
+    }
+    const nextStep = this.videoData.pasos[this.nextPaso];
+    this.myIframe.nativeElement.src = `https://player.vimeo.com/video/${this.videoData.url_video}#t=${nextStep.segundos_pasos}`;
+    this.nextPaso -= 1;
+  }
+
+  openPDF(){
+    console.log(this.videoData);
+    window.open(this.videoData.pdf_video, '_blank');
   }
 
 }
