@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgxPayPalModule } from 'ngx-paypal';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -50,6 +51,8 @@ import { DatosTiendaConvenienciaComponent } from './components/modals/datos-tien
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { InfoChefComponent } from './components/modals/info-chef/info-chef.component';
 import { SolicitaInformacionComponent } from './components/modals/solicita-informacion/solicita-informacion.component';
+import { ProximamenteComponent } from './components/modals/proximamente/proximamente.component';
+import { ModalesCursoPresencialComponent } from './components/modals/modales-curso-presencial/modales-curso-presencial.component';
 // import { SafePipePipe } from './pipes/safe-pipe.pipe';
 
 @NgModule({
@@ -81,7 +84,9 @@ import { SolicitaInformacionComponent } from './components/modals/solicita-infor
     DatosTiendaConvenienciaComponent,
     NosotrosComponent,
     InfoChefComponent,
-    SolicitaInformacionComponent
+    SolicitaInformacionComponent,
+    ProximamenteComponent,
+    ModalesCursoPresencialComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +105,8 @@ import { SolicitaInformacionComponent } from './components/modals/solicita-infor
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

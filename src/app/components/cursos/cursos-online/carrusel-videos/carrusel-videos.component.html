@@ -1,8 +1,8 @@
-<div class="carrusel">
+<div class="carrusel" *ngIf="videoData" >
     <div class="row">
         <div class="col-1"></div>
         <div class="col">
-            <h3>CONTINUAR VIENDO</h3>
+            <h3>{{tituloVideos}}</h3>
         </div>
         <div class="col-1"></div>
     </div>
@@ -21,10 +21,11 @@
               
                     <div class="row">
                       <div class="col-sm" *ngFor="let cardVideo of item; let idx = index">
-                        <div class="card card{{idx}} d-block w-100" >
+                        <div class="card card0 d-block w-100" 
+                        [ngStyle]="{'background-image': 'url(' + cardVideo.imagen_video + ')'}">
               
                           <div class="card-body">
-                            <button class="btn favOff"></button>
+                            <button class="btn favOff" (click)="saveFavorite(cardVideo.id_video)"></button>
                             
                             <p class="card-text">
                               <a [routerLink]="['/product-details',cardVideo.id_video]">

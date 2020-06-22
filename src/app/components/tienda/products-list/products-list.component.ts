@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ProximamenteComponent } from '../../modals/proximamente/proximamente.component';
+
+
 declare var $: any;
 
 @Component({
@@ -6,7 +10,9 @@ declare var $: any;
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.scss']
 })
-export class ProductsListComponent implements OnInit {
+export class ProductsListComponent implements OnInit, AfterViewInit {
+
+  public modalRef: BsModalRef;
 
   masonryItems = [
     { title: 'item 1' },
@@ -19,7 +25,7 @@ export class ProductsListComponent implements OnInit {
     { title: 'item 3' },
     { title: 'item 3' },
   ];
-  constructor() { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit(): void {
     // $('.grid').masonry({
@@ -29,4 +35,7 @@ export class ProductsListComponent implements OnInit {
     // });
   }
 
+  ngAfterViewInit(): void {
+    this.modalRef = this.modalService.show(ProximamenteComponent);
+  }
 }

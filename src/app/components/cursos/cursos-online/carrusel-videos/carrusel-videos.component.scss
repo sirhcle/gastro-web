@@ -8,6 +8,7 @@
     .carousel {
         .card0{
             background-image: url('/assets/imgs/imgVideoBG.png');
+            background-color: lightgray;
         }
         .card1{
             background-image: url('/assets/imgs/imgVideoBG2.png');
@@ -22,8 +23,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             min-height: 160px;
-            .favOff {
-                background-image: url('/assets/imgs/imgFavOff.png');
+            .favOff, .favoOn {
                 border: none;
                 cursor: pointer;
                 background-position: center center;
@@ -35,6 +35,9 @@
                 right: 0;
                 top: 0;
             }
+
+            .favOff{background-image: url('/assets/imgs/imgFavOff.png');}
+            .favoOn{background-image: url('/assets/imgs/imgFavOn.png');}
 
             .card-text {
                 color: #ffffff;

@@ -31,9 +31,11 @@
     "masonry-layout": "^4.2.2",
     "ngx-bootstrap": "^5.6.1",
     "ngx-masonry": "^9.2.0",
+    "ngx-paypal": "^6.1.0",
     "ngx-spinner": "^9.0.2",
     "rxjs": "~6.5.4",
     "save": "^2.4.0",
+    "ts-md5": "^1.2.7",
     "tslib": "^1.13.0",
     "zone.js": "~0.10.2"
   },

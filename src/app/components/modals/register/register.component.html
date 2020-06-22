@@ -7,12 +7,12 @@
 <div class="modal-body" align="center">
   <img src="assets/imgs/logoMiCuentaRegistro.png" width="150px" height="58px">
   <h3 class="titleModal">REGISTRO</h3>
-  <form>
+  <form [formGroup] = 'registerForm'>
     <div class="form-group">
       <div class="row">
         <div class="col">
           <span class="has-float-label">
-            <input type="text" class="form-control" id="txtName" placeholder="John Doe">
+            <input type="text" class="form-control" id="txtName" placeholder="John Doe" formControlName="username">
             <label >Nombre</label>
           </span>
         </div>
@@ -21,23 +21,16 @@
       <div class="row">
         <div class="col">
           <span class="has-float-label">
-            <input type="email" class="form-control" id="txtEmail" placeholder="email@example.com">
+            <input type="email" class="form-control" id="txtEmail" placeholder="email@example.com" formControlName="email">
             <label >E-mail</label>
           </span>
         </div>
-
-        <!-- <div class="col">
-          <span class="has-float-label">
-            <input type="password" class="form-control" id="txtPassword" placeholder="********">
-            <label for="first">Contraseña</label>
-          </span>
-        </div> -->
       </div>
 
       <div class="row">
         <div class="col">
           <span class="has-float-label">
-            <input type="password" class="form-control" id="txtPassword" placeholder="********">
+            <input type="password" class="form-control" id="txtPassword" placeholder="********" formControlName="password">
             <label>Contraseña</label>
           </span>
         </div>
@@ -46,7 +39,7 @@
       <div class="row">
         <div class="col">
           <span class="has-float-label">
-            <input type="password" class="form-control" id="txtPasswordConfirm" placeholder="********">
+            <input type="password" class="form-control" id="txtPasswordConfirm" placeholder="********" formControlName="password2">
             <label>Confirmar contraseña</label>
           </span>
         </div>
@@ -54,7 +47,7 @@
 
       <div class="row">
         <div class="col">
-            <button type="button" class="btn btn-primary form-control">Crear cuenta</button>
+            <button type="button" class="btn btn-primary form-control" (click)="doRegister()" >Crear cuenta</button>
         </div>
       </div>
 
