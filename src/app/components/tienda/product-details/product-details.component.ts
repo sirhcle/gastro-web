@@ -68,14 +68,9 @@ export class ProductDetailsComponent implements OnInit {
         console.log(resp);
         this.videoData = resp;
         console.log(this.videoData.url_video);
-        
-
         this.videoURL = `https://player.vimeo.com/video/${this.videoData.url_video}`;
-
         this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
-
       });
-
   }
 
 }

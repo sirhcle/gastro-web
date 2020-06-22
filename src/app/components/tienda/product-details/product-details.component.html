@@ -52,113 +52,36 @@
       </div>
 
       <div>
-        <div class="p-3">
-          <h3 style="text-align: left; color: #eb7024;">Ingredientes</h3>
-        </div>
-
-
-        <div class="d-flex justify-content-between text-white">
-          <div class="p-2 flex-fill">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
+        <div *ngFor="let ingrediente of videoData.ingredientes" >
+          <div class="p-3">
+            <h3 style="text-align: left; color: #eb7024;">Ingredientes</h3>
           </div>
-
-          <div class="p-2 flex-fill secondElement">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
-          </div>
-
-          <div class="p-2 flex-fill">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
+  
+  
+          <div class="d-flex justify-content-between text-white">
+            <div class="p-2 flex-fill">
+              <ul>
+                <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
+              </ul>
+            </div>
+  
+            <div class="p-2 flex-fill secondElement">
+              <ul>
+                <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
+              </ul>
+            </div>
+  
+            <div class="p-2 flex-fill">
+              <ul>
+                <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
+              </ul>
+            </div>
           </div>
         </div>
+        
 
 
-        <!-- Segunda Linea receta -->
-
-        <div class="p-3">
-          <h3 style="text-align: left; color: #eb7024;">Ingredientes</h3>
-        </div>
-
-
-        <div class="d-flex justify-content-between text-white">
-          <div class="p-2 flex-fill">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
-          </div>
-
-          <div class="p-2 flex-fill secondElement">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
-          </div>
-
-          <div class="p-2 flex-fill">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
-          </div>
-        </div>
-
-        <!-- tercera linea receta -->
-
-        <div class="p-3">
-          <h3 style="text-align: left; color: #eb7024;">Ingredientes</h3>
-        </div>
-
-
-        <div class="d-flex justify-content-between text-white">
-          <div class="p-2 flex-fill">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
-          </div>
-
-          <div class="p-2 flex-fill secondElement">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
-          </div>
-
-          <div class="p-2 flex-fill">
-            <ul>
-              <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
-              <!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li> -->
-            </ul>
-          </div>
-        </div>
-      </div>
+        
 
       <div class="d-flex flex-column lastSection">
         <!-- <div class="">
