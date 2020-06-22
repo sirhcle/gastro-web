@@ -1,4 +1,4 @@
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -44,24 +44,26 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.value.password;
 
     this._loginService.doLogin(username, password)
-        .subscribe((resp: any) => {
-          console.log(resp);
+      .subscribe((resp: any) => {
+        // console.log(resp.idUsuario);
+        const obUsuario = {
+          username: this.loginForm.value.username,
+          idUsuario: resp.idUsuario,
+          isLogin: true
+        };
+
+        this.spinner.hide();
+        localStorage.setItem('userData', JSON.stringify(obUsuario));
+        this.activeModal.close();
+        this.router.navigate(['/cursos-online']).then( () => {
+          window.location.reload();
         });
-    
+      });
+
     // setTimeout(() => {
     //   /** spinner ends after 5 seconds */
-      
-    //   const obUsuario = {
-    //     username : this.loginForm.value.username,
-    //     password : this.loginForm.value.password,
-    //     isLogin : true
-    //   };
 
-    //   this.spinner.hide();
-    //   localStorage.setItem('userData', JSON.stringify(obUsuario) );
-    //   // window.location.reload();
-    //   this.router.navigate(['/cursos-online']);
-    //   this.activeModal.close();
+
     // }, 5000);
   }
 

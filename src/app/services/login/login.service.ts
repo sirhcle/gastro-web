@@ -29,4 +29,26 @@ export class LoginService {
       headers
     );
   }
+
+
+  postCreateUser(username: string, password: string, correo: string): Observable<any> {
+
+    const hash: string = Md5.hashStr(password) as string;
+
+    const body = new HttpParams()
+    .set('nombreUsuario', username)
+    .set('correoUsuario', correo)
+    .set('contraUsuario', hash);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=registerUser',
+      body.toString(),
+      headers
+    );
+  }
 }

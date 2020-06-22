@@ -59,10 +59,13 @@ export class ProductDetailsComponent implements OnInit {
     };
 
     // this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+    const locStorage = localStorage.getItem('userData');
+    const userData = JSON.parse(locStorage);
+    const idUsuario = userData.idUsuario;
 
-    this._services.getVideosById(this.idVideo)
+    this._services.getVideosById(this.idVideo, idUsuario)
       .subscribe((resp: any) => {
-        // console.log(resp);
+        console.log(resp);
         this.videoData = resp;
         console.log(this.videoData.url_video);
         
