@@ -2,7 +2,7 @@
 
   <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer" >
     <button class="btn closeVideo" (click)="toogleVideo()" >cerrar</button>
-    <iframe src="https://player.vimeo.com/video/391619826/" 
+    <iframe [src]="urlSafe" 
         width="{{widthFrame}}"
         height="{{heightFrame}}" 
         frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -24,16 +24,17 @@
         <div class="col">
           <div id="carouselCursos" class="carousel slide">
             <div class="carousel-inner">
-              <div class="carousel-item " *ngFor="let item of [1,2,3];let index = index;let isFirst = first"
+              <div class="carousel-item " *ngFor="let item of videoData;let index = index;let isFirst = first"
                 [ngClass]="{active:isFirst}">
 
                 <div class="row">
-                  <div class="col-sm" *ngFor="let card of [1,2,3, 4]" (click)="toogleVideo()">
-                    <div class="card d-block w-100">
+                  <div class="col-sm" *ngFor="let card of item" (click)="toogleVideo(); showVideo(card.url_video)">
+                    <div class="card d-block w-100"
+                    [ngStyle]="{'background-image': 'url(' + card.imagen_video + ')'}">
                       <div class="card-body"></div>
                     </div>
                     <div class="row" align="center" style="color: white;">
-                      <div class="col">Curso 1</div>
+                      <div class="col">{{card.titulo_video}}</div>
                     </div>
                   </div>
                 </div>

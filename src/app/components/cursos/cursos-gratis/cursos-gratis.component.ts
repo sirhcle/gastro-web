@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cursos-gratis',
@@ -11,8 +13,12 @@ export class CursosGratisComponent implements OnInit {
   widthFrame = '100%';
   heightFrame = '600';
   showVideoContainer = false;
-  
-  constructor(private router: Router) { }
+  videoData: any;
+
+  videoURL = '';
+  urlSafe: SafeResourceUrl;
+
+  constructor(private router: Router, private _services: VideosServicesService, public sanitizer: DomSanitizer) { }
   
 
   ngOnInit(): void {
@@ -32,6 +38,13 @@ export class CursosGratisComponent implements OnInit {
         this.heightFrame = '600';
       }
     };
+
+    this._services.getVideosGratis()
+        .subscribe((resp: any) => {
+          console.log(resp.videos);
+          this.videoData = resp.videos;
+        });
+
   }
 
   openSuscripcion() {
@@ -40,6 +53,11 @@ export class CursosGratisComponent implements OnInit {
 
   toogleVideo() {
     this.showVideoContainer = !this.showVideoContainer;
+  }
+
+  showVideo(idVideo){
+    this.videoURL = `https://player.vimeo.com/video/${idVideo}`;
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
   }
 
 }

@@ -11,14 +11,71 @@ export class CarruselVideosComponent implements OnInit {
   @Input() carouselID: string;
   videoData: any;
   videos3x3: [any];
+  tituloVideos = '';
 
   constructor(private _services: VideosServicesService) { }
 
   ngOnInit(): void {
-    this._services.getVideosList()
-      .subscribe((response: any) => {
-        this.videoData = response.videos;
-        // console.log(response);
+
+    const locStorage = localStorage.getItem('userData');
+    const userData = JSON.parse(locStorage);
+
+    switch (this.carouselID) {
+
+      case 'continuarViendo':
+        this.tituloVideos = 'CONTINUAR VIENDO';
+
+        this._services.getVideosRecentViews(userData.idUsuario)
+          .subscribe((response: any) => {
+            this.videoData = response.videos;
+            console.log(this.videoData);
+          });
+        break;
+
+      case 'agregadosRecientemente':
+        this.tituloVideos = 'AGREGADOS RECIENTEMENTE';
+        this._services.getVideosRecent()
+          .subscribe((response: any) => {
+            this.videoData = response.videos;
+            console.log('videos recientes:');
+            console.log(this.videoData);
+          });
+        break;
+
+      case 'misFavoritos':
+        this.tituloVideos = 'MIS FAVORITOS';
+        this._services.getVideoUserFavos(userData.idUsuario)
+            .subscribe((response: any) => {
+              this.videoData = response.videos;
+              console.log('videos favoritos:');
+              console.log(this.videoData);
+            });
+        break;
+
+      case 'todosLosVideos':
+        this.tituloVideos = 'TODOS LOS VIDEOS';
+        this._services.getVideosList()
+          .subscribe((response: any) => {
+            this.videoData = response.videos;
+            console.log(this.videoData);
+          });
+        break;
+
+      default:
+        break;
+    }
+
+
+  }
+
+  saveFavorite(idVideo) {
+    const locStorage = localStorage.getItem('userData');
+    const userData = JSON.parse(locStorage);
+
+    this._services.postFavoriteVideo(userData.idUsuario, idVideo)
+      .subscribe((resp: any) => {
+        // console.log(resp);
+        window.location.reload();
       });
   }
 
