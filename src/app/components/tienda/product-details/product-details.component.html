@@ -4,7 +4,7 @@
     
     <div style="width: 100%; height: 600px; position: relative;">
       <div  id='videoContainer' class="d-flex justify-content-center" *ngIf="showVideoContainer">
-        <iframe [src]="urlSafe" 
+        <iframe [src]="urlSafe" #videoFrame
         width="{{widthFrame}}"
         height="{{heightFrame}}" 
         frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -21,7 +21,7 @@
 
       <div class="d-flex flex-row">
         <img src="/assets/imgs/iconDescargaPDF.png" width="20%" height="70%">
-        <button type="button" class="btn">Descargar Receta</button>
+        <button type="button" class="btn" (click)="openPDF()">Descargar Receta</button>
       </div>
 
       <div class="d-flex flex-row">
@@ -29,9 +29,13 @@
         <button type="button" class="btn">Compartir</button>
       </div>
 
-      <div class="d-flex flex-row">
-        <button type="button" class="btn"> <- </button> 
-        <button type="button" class="btn"> -> </button>
+      <div class="d-flex justify-content-start">
+        <button type="button" class="btn" (click)="anteriorPasoVideo()">
+          <img src="/assets/imgs/stepBack.png" width="40%" height="70%">
+        </button> 
+        <button type="button" class="btn" (click)="siguientePasoVideo()">
+          <img src="/assets/imgs/stepForward.png" width="40%" height="70%">
+        </button>
       </div>
     </div>
 
@@ -61,36 +65,26 @@
           <div class="d-flex justify-content-between text-white">
             <div class="p-2 flex-fill">
               <ul>
-                <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
+                <li *ngFor="let item of ingrediente[0]">{{item.nombre_ingrediente}}</li>
               </ul>
             </div>
   
             <div class="p-2 flex-fill secondElement">
               <ul>
-                <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
+                <li *ngFor="let item of ingrediente[1]">{{item.nombre_ingrediente}}</li>
               </ul>
             </div>
   
             <div class="p-2 flex-fill">
               <ul>
-                <li *ngFor="let item of [0,1,2,3]">{{videoData.ingredientes[0][item].nombre_ingrediente}}</li>
+                <li *ngFor="let item of ingrediente[2]">{{item.nombre_ingrediente}}</li>
               </ul>
             </div>
           </div>
         </div>
         
 
-
-        
-
       <div class="d-flex flex-column lastSection">
-        <!-- <div class="">
-          <h3>Preparación</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis lectus vitae euismod lacinia.
-            Quisque ut metus erat. Ut sollicitudin lacus quam, nec volutpat mi placerat eu. Suspendisse aliquet odio
-            magna, a porttitor quam sagittis vitae. Sed tristique vulputate nulla a imperdiet.</p>
-        </div> -->
-
         <div class="" *ngFor="let preparacion of videoData.preparacion">
           <h4>Preparación </h4>
           <ul class="padding-1">

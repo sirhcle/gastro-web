@@ -17,11 +17,15 @@ export class CursosGratisComponent implements OnInit {
 
   videoURL = '';
   urlSafe: SafeResourceUrl;
+  userData: any;
 
   constructor(private router: Router, private _services: VideosServicesService, public sanitizer: DomSanitizer) { }
   
 
   ngOnInit(): void {
+    const locStorage = localStorage.getItem('userData');
+    this.userData = JSON.parse(locStorage);
+
     window.onscroll = () => {
       const videoContainer = document.getElementById('videoContainer');
       const sticky = videoContainer.offsetTop;

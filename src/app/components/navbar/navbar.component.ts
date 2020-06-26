@@ -13,9 +13,7 @@ import { RegisterComponent } from '../modals/register/register.component';
 export class NavbarComponent implements OnInit {
 
   userData: any;
-  constructor(private modalService: NgbModal, private router: Router, private spinner: NgxSpinnerService ) {
-    
-  }
+  constructor(private modalService: NgbModal, private router: Router, private spinner: NgxSpinnerService ) {}
 
   ngOnInit(): void {
     const locStorage = localStorage.getItem('userData');
@@ -59,7 +57,7 @@ export class NavbarComponent implements OnInit {
   goHome() {
     this.router.navigate(['/home']);
   }
-
+  
   openSuscripcion() {
     this.router.navigate(['/suscripcion']);
   }
