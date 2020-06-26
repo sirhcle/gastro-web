@@ -22,7 +22,7 @@ import { NguCarouselModule } from '@ngu/carousel';
 import { EditarPerfilComponent} from './components/user-profile/editar-perfil/editar-perfil.component';
 import { PerfilComponent } from './components/user-profile/editar-perfil/perfil/perfil.component';
 import { MiPlanDetComponent } from './components/user-profile/editar-perfil/miplandet/miplandet.component';
-import { MisComprasComponent } from './components/user-profile/editar-perfil/mis-compras/mis-compras.component';
+import { MisComprasComponent, SafePipe } from './components/user-profile/editar-perfil/mis-compras/mis-compras.component';
 import { MisDireccionesComponent} from './components/user-profile/editar-perfil/misdirecciones/misdirecciones.component';
 
 
@@ -71,6 +71,7 @@ import { ModalesCursoPresencialComponent } from './components/modals/modales-cur
     PerfilComponent,
     MiPlanDetComponent,
     MisComprasComponent,
+    SafePipe,
     MisDireccionesComponent,
     CarruselVideosComponent,
     PagoSuscripcionComponent,

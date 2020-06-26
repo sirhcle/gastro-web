@@ -20,6 +20,7 @@ export class MiPlanDetComponent implements OnInit {
     this.spinner.show();
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
+    console.log(localStorage);
     this._service.getSuscripcion(userData.idUsuario)
         .subscribe((resp: any) => {
           console.log(resp.suscription);
@@ -27,7 +28,8 @@ export class MiPlanDetComponent implements OnInit {
           this.nombreSuscripcion = resp.suscription.nombre_tipoSuscripciones;
           this.precioSuscripcion = resp.suscription.precio_tipoSuscripciones;
           this.spinner.hide();
-        });
+        },
+        error => { console.log(error as any); this.spinner.hide(); });
   }
 
   openSuscripciones() {
