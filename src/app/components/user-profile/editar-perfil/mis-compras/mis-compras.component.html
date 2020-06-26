@@ -1,22 +1,26 @@
 <div class="bgcolorDark text-justify">
-    <div class="row">
-        <div class="col-sm-12 col-md-8 col-lg-8">
-            <h1 class="text-orange title">MIS FAVORITOS</h1>
-            <br>
-            <p class="texto1">Videos</p>
-        </div>
+    <div id='videoContainer' class="videoContainer col-12" *ngIf="showVideoContainer">
+        <input type="button" class="btn btn-orange" (click)="toggleVideo(1)" value="Regresar">
+        <iframe [src]="videoUrl | safe" width="{{widthFrame}}" height="{{heightFrame}}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
 
-    <br>
-    <div class="row fila">
-        <div class="col-sm-12 col-lg-4 mr-5 mb-3" *ngFor="let detalles of video">
-            <a routerLink="">
-                <img class="img-fluid" src="{{detalles.imagen_video}}" alt="{{detalles.descripcion_video}}">
-                <h2 class="text-white">{{detalles.titulo_video}}</h2>
-            </a>
+    <div *ngIf="!showVideoContainer">
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <h1 class="text-orange title">MIS FAVORITOS</h1>
+                <br>
+                <p class="texto1">Videos</p>
+            </div>
         </div>
+        <br>
+        <div class="row fila">
+            <div class="col-sm-12 col-lg-4 mr-5 mb-3" *ngFor="let detalles of video">
+                <a> <img class="img-fluid" src="{{detalles.imagen_video}}" (click)="toggleVideo(detalles.url_video)" alt="{{detalles.descripcion_video}}"></a>
+                <h2 class="text-white">{{detalles.titulo_video}}</h2>
+            </div>
+        </div>
+        <br>
+        <br>
+        <input type="button" routerLink="../../store" class="btn btn-orange" value="IR A TIENDA">
     </div>
-    <br>
-    <br>
-    <input type="button" routerLink="../../store" class="btn btn-orange" value="IR A TIENDA">
 </div>

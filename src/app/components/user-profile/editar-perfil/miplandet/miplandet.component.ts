@@ -1,6 +1,7 @@
 import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-miplandet',
@@ -13,18 +14,22 @@ export class MiPlanDetComponent implements OnInit {
   nombreSuscripcion = '';
   precioSuscripcion = '';
 
-  constructor(private _service: SuscripcionService, private router: Router) { }
+  constructor(private spinner: NgxSpinnerService, private _service: SuscripcionService, private router: Router) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
+    console.log(localStorage);
     this._service.getSuscripcion(userData.idUsuario)
         .subscribe((resp: any) => {
           console.log(resp.suscription);
           this.descripcionSuscripcion = resp.suscription.descripcion_tipoSuscripciones;
           this.nombreSuscripcion = resp.suscription.nombre_tipoSuscripciones;
           this.precioSuscripcion = resp.suscription.precio_tipoSuscripciones;
-        });
+          this.spinner.hide();
+        },
+        error => { console.log(error as any); this.spinner.hide(); });
   }
 
   openSuscripciones() {

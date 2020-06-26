@@ -1,59 +1,52 @@
 <div id="section-video-day">
-    <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer" >
-        <button class="btn closeVideo" (click)="toogleVideo()" >cerrar</button>
+    <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer">
+        <button class="btn closeVideo" (click)="toogleVideo()">cerrar</button>
         <!-- <p style="color: aqua;">AQUI VA EL VIDEO</p> -->
-        <iframe src="https://player.vimeo.com/video/391619826/" 
-            width="{{widthFrame}}"
-            height="{{heightFrame}}" 
-            frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/391619826/" width="{{widthFrame}}" height="{{heightFrame}}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
     <div class="textoNombrePlatillo">
         <p>TARTA DE TOMATE Y REQUESÓN</p>
     </div>
 
     <div class="btnPlayNow">
-        <button type="button" class="btn rounded-pill" (click)="toogleVideo()" >
+        <button type="button" class="btn rounded-pill" (click)="toogleVideo()">
             REPRODUCIR AHORA
         </button>
     </div>
 </div>
 
-<app-carrusel-videos carouselID = 'continuarViendo'></app-carrusel-videos>
+<app-carrusel-videos carouselID='continuarViendo'></app-carrusel-videos>
 
-<app-carrusel-videos carouselID = 'agregadosRecientemente'></app-carrusel-videos>
+<app-carrusel-videos carouselID='agregadosRecientemente'></app-carrusel-videos>
 
-<app-carrusel-videos carouselID = 'misFavoritos'></app-carrusel-videos>
+<app-carrusel-videos carouselID='misFavoritos'></app-carrusel-videos>
 
-<app-carrusel-videos carouselID = 'todosLosVideos'></app-carrusel-videos>
+<app-carrusel-videos carouselID='todosLosVideos'></app-carrusel-videos>
 
 <div class="d-flex flex-column recetas" style="background-color: #1d2126;">
 
     <h3>RECETARIOS DIGITALES</h3>
-    
+
     <div class="d-flex justify-content-around p-5" align="center">
-        
-            <img src="/assets/imgs/01recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/01recetas.pdf')">
-        
-        
-            <img src="/assets/imgs/02recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/02recetas.pdf')">
-        
-        
-            <img src="/assets/imgs/03recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/03recetas.pdf')">
-        
+
+        <img src="/assets/imgs/01recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/01recetas.pdf')">
+
+
+        <img src="/assets/imgs/02recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/02recetas.pdf')">
+
+
+        <img src="/assets/imgs/03recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/03recetas.pdf')">
+
     </div>
-    
+
     <div class="d-flex justify-content-around p-5" align="center">
-        
-            <img src="/assets/imgs/04recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/04recetas.pdf')">
-        
-            <img src="/assets/imgs/05recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/05recetas.pdf')">
-        
-            <img src="/assets/imgs/06recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/06recetas.pdf')">
-        
+
+        <img src="/assets/imgs/04recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/04recetas.pdf')">
+
+        <img src="/assets/imgs/05recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/05recetas.pdf')">
+
+        <img src="/assets/imgs/06recetas.png" width="20%" height="auto" (click)="openPDF('/assets/imgs/06recetas.pdf')">
+
     </div>
 
 </div>
-
-
-
- 
