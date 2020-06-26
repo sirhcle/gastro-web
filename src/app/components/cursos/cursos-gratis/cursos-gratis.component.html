@@ -1,4 +1,4 @@
-<div id="sectionSuperior" align="center" class="row d-flex align-items-center justify-content-center h-100">
+<div id="sectionSuperior" align="center" class="row d-flex align-items-center justify-content-center">
 
   <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer" >
     <button class="btn closeVideo" (click)="toogleVideo()" >cerrar</button>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="col">
-    <h3 style="padding: 30px;">CLASES GRATIS</h3>
+    <h3 style="padding: 30px;line-height: 1.2em;">CLASES GRATIS</h3>
 
     <!-- <p style="padding: 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praese</p> -->
 
@@ -52,7 +52,8 @@
     </div>
 
 
-    <button type="button" class="btn rounded-pill text-white" (click)="openSuscripcion()" >OBTENER SUSCRIPCION</button>
+    <button *ngIf="userData"
+    type="button" class="btn rounded-pill text-white" (click)="openSuscripcion()" >OBTENER SUSCRIPCION</button>
     
   </div>
 

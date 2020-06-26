@@ -1,20 +1,36 @@
 .navbar {
-  margin-top: 30px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: transparent;
+}
 
-  .noButton {
-    text-shadow: 1px 1px 6px #000000d5;
-    background-color: transparent;
-    font-size: 13px;
+.show, .collapsing {
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  img {
+    width: 30%;
+    height: auto;
   }
 }
 
-nav .navbar-nav li .btn-inicio-sesion {
+.noButton {
+  text-shadow: 1px 1px 6px #000000d5;
+  background-color: transparent;
+  font-size: 13px;
+}
+
+.btn-inicio-sesion {
   color: #F27711 !important;
   font-size: 13px;
 }
 
-.iconUser {
-  background-image: url(/assets/imgs/iconUser.png);
+.dropdown-item{
+  color: #ffffff;
+}
+
+.navbar-toggler {
+  background-color: rgba($color: #ffffff, $alpha: 0.7);
 }
 
 .bouton-image:before {
@@ -34,19 +50,6 @@ nav .navbar-nav li .btn-inicio-sesion {
   background-image: url(/assets/imgs/iconUser.png);
 }
 
-.car-image:before {
-  content: "";
-  width: 20px;
-  height: 15px;
-  display: inline-block;
-  margin-right: 1px;
-  margin-top: 0px;
-  vertical-align: text-top;
-  background-color: transparent;
-  background-position : center center;
-  background-repeat:no-repeat;
-}
-
-.carBouton:before{
-  background-image: url(/assets/imgs/iconCar.png);
+.navbar-nav .nav-item .nav-link {
+  color: #ffffff;
 }
