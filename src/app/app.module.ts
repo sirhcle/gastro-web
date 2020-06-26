@@ -54,6 +54,7 @@ import { SolicitaInformacionComponent } from './components/modals/solicita-infor
 import { ProximamenteComponent } from './components/modals/proximamente/proximamente.component';
 import { ModalesCursoPresencialComponent } from './components/modals/modales-curso-presencial/modales-curso-presencial.component';
 import { RecoveryPasswordComponent } from './components/modals/recovery-password/recovery-password.component';
+import { AnuncioComponent } from './components/modals/anuncio/anuncio.component';
 // import { SafePipePipe } from './pipes/safe-pipe.pipe';
 
 @NgModule({
@@ -88,7 +89,8 @@ import { RecoveryPasswordComponent } from './components/modals/recovery-password
     SolicitaInformacionComponent,
     ProximamenteComponent,
     ModalesCursoPresencialComponent,
-    RecoveryPasswordComponent
+    RecoveryPasswordComponent,
+    AnuncioComponent
   ],
   imports: [
     BrowserModule,

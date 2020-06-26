@@ -1,14 +1,4 @@
-<header>
-  <div class="contenedor-fijo">
-
-    <h3 class="">Cocina en cualquier lugar en cualquier momento</h3>
-    <p class="card-text">
-      <button type="button" class="btn text-orange rounded-pill" routerLink="/clases-gratis" >COCINAR AHORA</button>
-    </p>
-    <a (click)="scroll(target)" class="text-white obtener-info btn-link">Obtener información</a>
-
-  </div>
-
+<div class="d-flex">
   <div id="carouselHome" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselHome" data-slide-to="0" class="active"></li>
@@ -16,6 +6,17 @@
       <li data-target="#carouselHome" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
+
+      <div class="contenedor-fijo">
+
+        <h3>Cocina en cualquier lugar en cualquier momento</h3>
+        <p class="card-text">
+          <button type="button" class="btn text-orange rounded-pill" routerLink="/clases-gratis">COCINAR AHORA</button>
+        </p>
+        <a (click)="scroll(target)" class="text-white obtener-info btn-link">Obtener información</a>
+
+      </div>
+
       <div class="carousel-item active">
         <img class="d-block w-100" src="assets/imgs/imgSlider1.png" alt="">
         <div class="carousel-content">
@@ -38,50 +39,60 @@
 
   </div>
 
-</header>
+</div>
 
 
 <!-- <div class="sticky-top bg-white hidden-spacer"> </div> -->
-<div class="bordeNaranja text-center">
+<section>
+  <div class="d-flex flex-column bordeNaranja p-4">
 
-  <div class="row h-100 justify-content-center align-items-center">
-    <p class="">
-      Nos inspira poder transmitir que la cocina es pasión, comunicación <br /> y una forma de disfrutar mientras
-      aprendemos.
-    </p>
-  </div>
-</div>
-
-<div class="section2 container-fluid pt-5 h-100" >
-  <div class="row h-100 justify-content-center align-items-center" >
-    <div class="col">
-      <h3 class="section2-title">COCINA <span>AHORA</span></h3>
-      <p class="card-text text-section2">
-        Descubre una variedad de cursos de cocina y recetarios digitales. Los videos incluyen el paso a paso y una receta en PDF para descargar. 
+    <div class="d-flex justify-content-center">
+      <p class="text-center">
+        Nos inspira poder transmitir que la cocina es pasión, comunicación <br /> y una forma de disfrutar mientras
+        aprendemos.
       </p>
-      <a class="link-section2" (click)="scroll(target)">Obtener información</a>
-    </div>
-    <div class="col text-center">
-      <img class="img-fluid" src="assets/imgs/section2home1.png">
-    </div>
-    <div class="w-100"></div>
-    <div class="col">
-      <img class="img-fluid" src="assets/imgs/section2home2.png" style="width: 100%; height: auto;">
-    </div>
-    <div class="col">
-      <h3 class="section2-title">DISFRUTA DESDE <br><span>CUALQUIER DISPOSITIVO</span></h3>
-      <p class="card-text text-section2">
-        Disfruta de los videos desde cualquier dispositivo, incluyendo smartphone, smart TV y tablet.
-      </p>
-      <a class="link-section2" (click)="scroll(target)">Obtener información</a>
     </div>
   </div>
-</div>
+</section>
 
-<div #target></div>
+<section>
+  <div class="d-flex flex-column section2 ">
+
+    <div class="d-flex p-5">
+
+      <div class="flex-even p-2">
+        <p class="section2-title">COCINA <span>AHORA</span></p>
+        <p class="card-text text-section2">
+          Descubre una variedad de cursos de cocina y recetarios digitales. Los videos incluyen el paso a paso y una
+          receta en PDF para descargar.
+        </p>
+        <a class="link-section2" (click)="scroll(target)">Obtener información</a>
+      </div>
+
+      <div class="flex-even p-2">
+        <img class="img-fluid" src="assets/imgs/section2home1.png" width="75%" height="auto">
+      </div>
+
+    </div>
+
+    <div class="d-flex">
+      <div class="flex-even">
+        <img class="img-fluid" src="assets/imgs/section2home2.png" width="75%" height="auto">
+      </div>
+
+
+      <div class="flex-even">
+        <h3 class="section2-title">DISFRUTA DESDE <br><span>CUALQUIER DISPOSITIVO</span></h3>
+        <p class="card-text text-section2">
+          Disfruta de los videos desde cualquier dispositivo, incluyendo smartphone, smart TV y tablet.
+        </p>
+        <a class="link-section2" (click)="scroll(target)">Obtener información</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="d-flex" #target></div>
 <app-accordion></app-accordion>
-
-<!-- <app-footer></app-footer> -->
-
-
-<!--container-->

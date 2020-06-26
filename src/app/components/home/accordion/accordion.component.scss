@@ -1,5 +1,6 @@
 .section3 {
-    min-height: 500px;
+    // min-height: 500px;
+    padding: 40px;
     background-color: #333333;
 
     h3 {
@@ -8,7 +9,7 @@
   }
 
 #accordion {
-  width: 900px;
+  width: 76%;
 
   .btn-link.collapsed {
     // font-weight: 400;
