@@ -13,6 +13,7 @@ export class PerfilComponent implements OnInit {
   public updated;
   public validPass;
   usuarioForm: FormGroup;
+
   constructor(private _edicionService: EdicionService) {
     this.usuarioForm = new FormGroup({
       name: new FormControl(),
@@ -33,7 +34,10 @@ export class PerfilComponent implements OnInit {
     const userData = JSON.parse(locStorage);
 
     this._edicionService.getUsuario(userData.idUsuario).subscribe(
-      response => { this.usuarioactual = response[0]; console.log(this.usuarioactual); },
+      response => { 
+        this.usuarioactual = response[0]; 
+        console.log(this.usuarioactual); 
+      },
       error => { console.log(error as any); }
     );
   }
@@ -48,6 +52,8 @@ export class PerfilComponent implements OnInit {
     const correo = this.usuarioForm.value.mail;
     const ubicacion = this.usuarioForm.value.ubicacion;
     const acerca = this.usuarioForm.value.detalle;
+
+    // return;
     this._edicionService.updateUsuario(idUsuario, nombre, usuario, correo, ubicacion, acerca)
       .subscribe(response => {
         this.updated = response.status;
