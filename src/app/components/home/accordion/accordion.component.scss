@@ -30,14 +30,8 @@
 .card-header {
   height: 50px;
   background-color: #c5c5c4;
+  cursor: pointer;
 }
-
-// .card-body {
-//   background-color: transparent;
-// }
-// .show {
-//   background-color: transparent;
-// }
 
 .card-header.collapsed {
   background:#ccc;
@@ -48,4 +42,9 @@
 
 h5 {
   text-align: left;
+  .btn {
+    font-size: 134%;
+    padding-top: 0px;
+    margin-top: -6px;
+  }
 }

@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { SolicitaInformacionComponent } from '../../modals/solicita-informacion/solicita-informacion.component';
+import { AnuncioComponent } from '../../modals/anuncio/anuncio.component';
 
 @Component({
   selector: 'app-cursos-presenciales',
   templateUrl: './cursos-presenciales.component.html',
   styleUrls: ['./cursos-presenciales.component.scss']
 })
-export class CursosPresencialesComponent implements OnInit {
+export class CursosPresencialesComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('template') template: any;
 
   public modalRef: BsModalRef;
   constructor(private modalService: BsModalService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  
+  ngAfterViewInit(): void {
+    this.modalRef = this.modalService.show(AnuncioComponent);
   }
 
   showInformation(){

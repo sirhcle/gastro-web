@@ -6,6 +6,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -25,11 +26,14 @@ export class ProductDetailsComponent implements OnInit {
   videoURL: any;
   rating = 0;
 
-
+  x = 5;
+  y = 0;
 
   url = '';
   urlSafe: SafeResourceUrl;
   nextPaso = 0;
+  currentRoute = '';
+  
 
   constructor(private _httpService: StoreServicesService,
               private route: ActivatedRoute,
@@ -39,6 +43,7 @@ export class ProductDetailsComponent implements OnInit {
               config: NgbRatingConfig)
   {
     config.max = 5;
+    this.currentRoute = window.location.href;
   }
 
 
@@ -61,6 +66,12 @@ export class ProductDetailsComponent implements OnInit {
       }
     };
 
+    this._services.getRateVideo(this.idVideo)
+        .subscribe((resp: any) => {
+          // console.log(resp.promedio);
+          this.y = resp.promedio;
+        });
+
     // this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
@@ -71,7 +82,7 @@ export class ProductDetailsComponent implements OnInit {
         console.log(resp);
         this.videoData = resp;
         console.log(this.videoData.url_video);
-        this.videoURL = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=130s`;
+        this.videoURL = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=0s`;
         this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
       });
   }
@@ -82,7 +93,7 @@ export class ProductDetailsComponent implements OnInit {
       this.nextPaso = 0;
     }
     const nextStep = this.videoData.pasos[this.nextPaso];
-    console.log(nextStep.segundos_pasos);
+    // console.log(nextStep.segundos_pasos);
     this.myIframe.nativeElement.src = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=${nextStep.segundos_pasos}s`;
     this.nextPaso += 1;
   }
@@ -99,6 +110,21 @@ export class ProductDetailsComponent implements OnInit {
   openPDF(){
     console.log(this.videoData);
     window.open(this.videoData.pdf_video, '_blank');
+  }
+
+  addFavorite(){
+    this._services.postVideoFavorito(this.videoData.id_video)
+        .subscribe((resp: any) => {
+          console.log(resp);
+        });
+  }
+
+  changeRating(value: number): void {
+    console.log(value);
+    this._services.postRateVideo(this.videoData.id_video, value)
+        .subscribe((resp: any) => {
+          console.log(resp);
+        });
   }
 
 }

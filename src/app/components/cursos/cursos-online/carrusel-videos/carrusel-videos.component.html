@@ -25,7 +25,9 @@
                         [ngStyle]="{'background-image': 'url(' + cardVideo.imagen_video + ')'}">
               
                           <div class="card-body">
-                            <button class="btn favOff" (click)="saveFavorite(cardVideo.id_video)"></button>
+                            <button class="btn favOff" (click)="saveFavorite(cardVideo.id_video)">
+                              <img src="/assets/imgs/imgFavOff.png" width="30vw" height="30vh">
+                            </button>
                             
                             <p class="card-text">
                               <a [routerLink]="['/product-details',cardVideo.id_video]">
@@ -33,7 +35,7 @@
                               </a>
                               
                             </p>
-                            <div class="lblNuevo"><span>NUEVO</span></div>
+                            <!-- <div class="lblNuevo"><span>NUEVO</span></div> -->
                           </div>
 
                         </div>
