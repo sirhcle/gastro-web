@@ -42,3 +42,24 @@ a{
           text-transform: capitalize;
       }
   }
+
+
+
+  .port-item {
+    width: 30%;
+    min-width: 0;
+  }
+
+  #bars{
+    background-color: #191919;
+  }
+  
+  @media screen and (max-width: 768px) {
+    #bars {
+      flex-direction: column !important;
+      background-color: #191919;
+    }
+    .port-item {
+      width: 100%;
+    }
+  }

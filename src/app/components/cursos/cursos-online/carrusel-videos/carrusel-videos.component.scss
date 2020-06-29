@@ -1,3 +1,8 @@
+.row {  
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 .carrusel {
     background-color: #1d2126;
     padding-top: 7px;
@@ -26,18 +31,15 @@
             .favOff, .favoOn {
                 border: none;
                 cursor: pointer;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                height: 20px;
-                width: 20px;
+                // height: 10px;
+                // width: 10px;
                 position: absolute;
                 right: 0;
                 top: 0;
             }
 
-            .favOff{background-image: url('/assets/imgs/imgFavOff.png');}
-            .favoOn{background-image: url('/assets/imgs/imgFavOn.png');}
+            // .favOff{background-image: url('/assets/imgs/imgFavOff.png');}
+            // .favoOn{background-image: url('/assets/imgs/imgFavOn.png');}
 
             .card-text {
                 color: #ffffff;
@@ -45,11 +47,11 @@
                 width: 100px;
                 left: 30px;
                 top:60px;
-                a {
-                    color: white;
-                    text-decoration: none;
-                    cursor: pointer;
-                }
+                // a {
+                //     color: white;
+                //     text-decoration: none;
+                //     cursor: pointer;
+                // }
 
             }
 

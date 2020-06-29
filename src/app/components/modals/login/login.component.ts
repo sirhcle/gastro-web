@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
     this._loginService.doLogin(username, password)
       .subscribe((resp: any) => {
         console.log(resp);
-
+        
         if (resp.status === 0) {
           const obUsuario = {
             username: this.loginForm.value.username,
@@ -68,6 +68,19 @@ export class LoginComponent implements OnInit {
           });
         } else {
           alert(resp.error);
+          this.spinner.hide();
+          // const obUsuario = {
+          //   username: this.loginForm.value.username,
+          //   idUsuario: 1,
+          //   isLogin: true
+          // };
+          
+          // localStorage.setItem('userData', JSON.stringify(obUsuario));
+          // this.activeModal.close();
+          // this.router.navigate(['/cursos-online']).then( () => {
+          //   window.location.reload();
+          // });
+          
         }
       });
 

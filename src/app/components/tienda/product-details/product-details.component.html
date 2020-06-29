@@ -1,52 +1,57 @@
 <div id="containerBackground">
   <div class="container" align="center">
     <h4 *ngIf="videoData" class="mainTitle"> RECETA: {{videoData.titulo_video}}</h4>
-    
+
     <div style="width: 100%; height: 600px; position: relative;">
-      <div  id='videoContainer' class="d-flex justify-content-center" *ngIf="showVideoContainer">
-        <iframe [src]="urlSafe" #videoFrame
-        width="{{widthFrame}}"
-        height="{{heightFrame}}" 
-        frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div id='videoContainer' class="d-flex justify-content-center" *ngIf="showVideoContainer">
+        <iframe [src]="urlSafe" #videoFrame width="{{widthFrame}}" height="{{heightFrame}}" frameborder="0"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
 
-    
+
 
     <div class="d-flex justify-content-between p3 contenedorBotones">
-      <div class="d-flex flex-row">
-        <img src="/assets/imgs/iconFavorito.png" width="20%" height="70%">
-        <button type="button" class="btn">Favoritos</button>
+      <div class="d-flex flex-row btnsActions">
+        <img src="/assets/imgs/iconFavorito.png" width="30vw" height="30vh">
+        <button type="button" class="btn" (click)="addFavorite()">Favoritos</button>
       </div>
 
-      <div class="d-flex flex-row">
-        <img src="/assets/imgs/iconDescargaPDF.png" width="20%" height="70%">
+      <div class="d-flex flex-row btnsActions">
+        <img src="/assets/imgs/iconDescargaPDF.png" width="30vw" height="30vh">
         <button type="button" class="btn" (click)="openPDF()">Descargar Receta</button>
       </div>
 
-      <div class="d-flex flex-row">
-        <img src="/assets/imgs/iconoCompartir.png" width="20%" height="70%">
-        <button type="button" class="btn">Compartir</button>
+      <div class="d-flex flex-row btnsActions">
+        <img src="/assets/imgs/iconoCompartir.png" width="30vw" height="30vh">
+
+        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+          Compartir
+        </button>
       </div>
 
-      <div class="d-flex justify-content-start">
+      <div class="d-flex flex-row btnsActions">
         <button type="button" class="btn" (click)="anteriorPasoVideo()">
-          <img src="/assets/imgs/stepBack.png" width="40%" height="70%">
-        </button> 
+          <img src="/assets/imgs/stepBack.png" width="30vw" height="30vh">
+        </button>
         <button type="button" class="btn" (click)="siguientePasoVideo()">
-          <img src="/assets/imgs/stepForward.png" width="40%" height="70%">
+          <img src="/assets/imgs/stepForward.png" width="30vw" height="30vh">
         </button>
       </div>
     </div>
 
     <div class="d-flex justify-content-end p-3">
       <h3 style="margin-right: 10px;">Califica esta receta</h3>
-      
-      <ngb-rating [rate]="rating" [max]=5 [readonly]=false>
-        <ng-template let-fill="fill">
-          <span class="star" [ngClass]="'color-yellow'"[class.filled]="fill === 100">&#9733;</span>
+
+      <div>
+        <rating [max]="5" [(ngModel)]="y" [customTemplate]="tt"></rating>
+        
+        <ng-template #tt let-i="index" let-v="value">
+          <button (click)="changeRating(i+1)"  class="btn color-{{i < v ? 'yellow' : 'default'}}">
+            {{i < v ? '&#9733;' : '&#9734;'}}
+          </button>
         </ng-template>
-      </ngb-rating>
+      </div>
 
     </div>
 
@@ -56,25 +61,25 @@
       </div>
 
       <div>
-        <div *ngFor="let ingrediente of videoData.ingredientes" >
+        <div *ngFor="let ingrediente of videoData.ingredientes">
           <div class="p-3">
             <h3 style="text-align: left; color: #eb7024;">Ingredientes</h3>
           </div>
-  
-  
+
+
           <div class="d-flex justify-content-between text-white">
             <div class="p-2 flex-fill">
               <ul>
                 <li *ngFor="let item of ingrediente[0]">{{item.nombre_ingrediente}}</li>
               </ul>
             </div>
-  
+
             <div class="p-2 flex-fill secondElement">
               <ul>
                 <li *ngFor="let item of ingrediente[1]">{{item.nombre_ingrediente}}</li>
               </ul>
             </div>
-  
+
             <div class="p-2 flex-fill">
               <ul>
                 <li *ngFor="let item of ingrediente[2]">{{item.nombre_ingrediente}}</li>
@@ -82,27 +87,53 @@
             </div>
           </div>
         </div>
-        
 
-      <div class="d-flex flex-column lastSection">
-        <div class="" *ngFor="let preparacion of videoData.preparacion">
-          <h4>Preparación </h4>
-          <ul class="padding-1">
-            <li *ngFor="let prep of preparacion" >{{prep.descripcion_preparacion}}
-            </li>
-          </ul>
+
+        <div class="d-flex flex-column lastSection">
+          <div class="" *ngFor="let preparacion of videoData.preparacion">
+            <h4>Preparación </h4>
+            <ul class="padding-1">
+              <li *ngFor="let prep of preparacion">{{prep.descripcion_preparacion}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="d-flex flex-column" style="background-color: #353535;">
+      <div class="d-flex justify-content-center p-4">
+        <textarea class="form-control" style="max-width: 70%"></textarea>
+      </div>
+      <div class="d-flex justify-content-end" style="padding-right: 16%;">
+        <button type="button" class="btn">ENVIAR</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <div class="fb-share-button" data-layout="button_count"
+            data-size="small">
+            <a target="_blank"
+              href="https://www.facebook.com/sharer/sharer.php?u={{this.currentRoute}}&amp;src=sdkpreparse"
+              class="btn fb-xfbml-parse-ignore" onclick="window.open(this.href, 'mywin',
+              'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">Facebook</a>
+          </div>
+
+          <a target="_blank" class="btn twitter-share-button" href="https://twitter.com/intent/tweet?text={{this.currentRoute}}" data-size="large" onclick="window.open(this.href, 'mywin',
+          'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+            Twitter</a>
+
         </div>
       </div>
     </div>
   </div>
-
-
-  <div class="d-flex flex-column" style="background-color: #353535;">
-    <div class="d-flex justify-content-center p-4">
-      <textarea class="form-control" style="max-width: 70%"></textarea>
-    </div>
-    <div class="d-flex justify-content-end" style="padding-right: 16%;">
-      <button type="button" class="btn">ENVIAR</button>
-    </div>
-  </div>
-</div>

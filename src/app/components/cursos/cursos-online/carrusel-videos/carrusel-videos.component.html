@@ -21,19 +21,21 @@
               
                     <div class="row">
                       <div class="col-sm" *ngFor="let cardVideo of item; let idx = index">
-                        <div class="card card0 d-block w-100" 
+                        <div class="card card0 d-block w-100" [routerLink]="['/product-details',cardVideo.id_video]"
+                        style="cursor: pointer;"
                         [ngStyle]="{'background-image': 'url(' + cardVideo.imagen_video + ')'}">
               
                           <div class="card-body">
-                            <button class="btn favOff" (click)="saveFavorite(cardVideo.id_video)"></button>
+                            <button class="btn favOff" (click)="saveFavorite(cardVideo.id_video)" *ngIf = "tituloVideos != 'MIS FAVORITOS' && tituloVideos != 'AGREGADOS RECIENTEMENTE' " >
+                              <img src="/assets/imgs/imgFavOff.png" width="30vw" height="30vh" *ngIf="!cardVideo.isFavorite" >
+                              <img src="/assets/imgs/imgFavOn.png" width="30vw" height="30vh" *ngIf="cardVideo.isFavorite" >
+                            </button>
+
                             
                             <p class="card-text">
-                              <a [routerLink]="['/product-details',cardVideo.id_video]">
-                                {{cardVideo.titulo_video}}
-                              </a>
-                              
+                              {{cardVideo.titulo_video}}
                             </p>
-                            <div class="lblNuevo"><span>NUEVO</span></div>
+                            <!-- <div class="lblNuevo"><span>NUEVO</span></div> -->
                           </div>
 
                         </div>

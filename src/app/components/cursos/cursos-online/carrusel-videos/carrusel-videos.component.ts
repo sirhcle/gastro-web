@@ -28,6 +28,7 @@ export class CarruselVideosComponent implements OnInit {
         this._services.getVideosRecentViews(userData.idUsuario)
           .subscribe((response: any) => {
             this.videoData = response.videos;
+            console.log('continuar viendo');
             console.log(this.videoData);
           });
         break;

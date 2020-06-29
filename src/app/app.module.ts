@@ -56,6 +56,7 @@ import { ModalesCursoPresencialComponent } from './components/modals/modales-cur
 import { RecoveryPasswordComponent } from './components/modals/recovery-password/recovery-password.component';
 import { AnuncioComponent } from './components/modals/anuncio/anuncio.component';
 // import { SafePipePipe } from './pipes/safe-pipe.pipe';
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import { AnuncioComponent } from './components/modals/anuncio/anuncio.component'
     MatListModule,
     HttpClientModule,
     ModalModule.forRoot(),
-    NgxPayPalModule
+    NgxPayPalModule,
+    RatingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

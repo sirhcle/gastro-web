@@ -30,15 +30,21 @@ export class NavbarComponent implements OnInit {
   }
 
   openMisCompras() {
-    this.router.navigate(['/editar-perfil/miscompras']);
+    this.router.navigate(['/editar-perfil/miscompras']).then( () => {
+      window.location.reload();
+    });
   }
 
   openMiPlan() {
-    this.router.navigate(['/editar-perfil/miplandet']);
+    this.router.navigate(['/editar-perfil/miplandet']).then( () => {
+      window.location.reload();
+    });
   }
 
   openEditarPerfil() {
-    this.router.navigate(['/editar-perfil/perfil']);
+    this.router.navigate(['/editar-perfil/perfil']).then( () => {
+      window.location.reload();
+    });
   }
 
   closeSesssion() {
@@ -55,26 +61,38 @@ export class NavbarComponent implements OnInit {
   }
 
   goHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home']).then( () => {
+      window.location.reload();
+    });
   }
   
   openSuscripcion() {
-    this.router.navigate(['/suscripcion']);
+    this.router.navigate(['/suscripcion']).then( () => {
+      window.location.reload();
+    });
   }
 
   openCursosOnline() {
-    this.router.navigate(['/cursos-online']);
+    this.router.navigate(['/cursos-online']).then( () => {
+      window.location.reload();
+    });
   }
 
   openCursosPresenciales() {
-    this.router.navigate(['/cursos-presenciales']);
+    this.router.navigate(['/cursos-presenciales']).then( () => {
+      window.location.reload();
+    });
   }
 
   openClasesGratis() {
-    this.router.navigate(['/clases-gratis']);
+    this.router.navigate(['/clases-gratis']).then( () => {
+      window.location.reload();
+    });
   }
 
   openStore() {
-    this.router.navigate(['/store']);
+    this.router.navigate(['/store']).then( () => {
+      window.location.reload();
+    });
   }
 }
