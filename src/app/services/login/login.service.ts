@@ -55,7 +55,7 @@ export class LoginService {
   postResetPassword(correo: string): Observable<any> {
 
     // const hash: string = Md5.hashStr(password) as string;
-    console.log(correo);
+    // console.log(correo);
     
     const body = new HttpParams()
     .set('emailUsuario', correo);
@@ -67,6 +67,22 @@ export class LoginService {
 
     return this.httpClient.post(
       'https://gigahert.com.mx/gastroAdmin/webService.php?method=recoveryPassword',
+      body.toString(),
+      headers
+    );
+  }
+
+  getChefs(idNosotros){
+    const body = new HttpParams()
+    .set('idNosotros', idNosotros);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=getOurs',
       body.toString(),
       headers
     );

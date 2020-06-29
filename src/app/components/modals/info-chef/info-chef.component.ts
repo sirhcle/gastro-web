@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-info-chef',
@@ -9,11 +10,24 @@ import { Subject } from 'rxjs';
 })
 export class InfoChefComponent implements OnInit {
 
+
   public onClose: Subject<string>;
-  constructor(public bsModalRef: BsModalRef) { }
+  idNosotros = 0;
+  textoNosotros = '';
+  nombreNosotros = '';
+
+  constructor(public bsModalRef: BsModalRef, private _service: LoginService) { }
+
+  
 
   ngOnInit(): void {
     this.onClose = new Subject();
+    console.log('idChef ' + this.idNosotros);
+    this._service.getChefs(this.idNosotros)
+        .subscribe((resp: any) => {
+          this.textoNosotros = resp[0].texto_nosotros;
+          this.nombreNosotros = resp[0].nombre_nosotros;
+        });
   }
 
   public onConfirm(): void {

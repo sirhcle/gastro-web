@@ -17,7 +17,7 @@
 
 .descripcion{
     background-color: #eb7024;
-    width: 50%;
+    width: 60%;
     align-items: center;
 }
 
@@ -60,3 +60,25 @@
     padding-top: 20px;
     padding-bottom: 30px;
 }
+
+
+
+.port-item {
+    width: 50%;
+    min-width: 0;
+    margin-left: -10px;
+  }
+
+  #bars{
+    background-color: #191919;
+  }
+  
+  @media screen and (max-width: 768px) {
+    #bars {
+      flex-direction: column !important;
+      background-color: #191919;
+    }
+    .port-item {
+      width: 100%;
+    }
+  }
