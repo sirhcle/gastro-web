@@ -19,7 +19,13 @@
 
         </div>
         <div class="card-footer">
-          <button type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openFastRegister('2.99', 'basica')" >
+          <button *ngIf="userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openPayment('59', 'golden')">
+            SUSCRIBIRME
+          </button>
+
+          <button *ngIf="!userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openFastRegister('2.99', 'basica')" >
             SUSCRIBIRME
           </button>
           <a href="#" class="">Cancela en cualquier comento</a>
@@ -38,7 +44,13 @@
 
         </div>
         <div class="card-footer">
-          <button type="button" class="btn rounded-pill .text-white btn-comprar2 btn-block" (click)="openFastRegister('4.99', 'premium')" >
+          <button *ngIf="userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openPayment('59', 'golden')">
+            SUSCRIBIRME
+          </button>
+
+          <button *ngIf="!userData"
+          type="button" class="btn rounded-pill .text-white btn-comprar2 btn-block" (click)="openFastRegister('4.99', 'premium')" >
             SUSCRIBIRME
           </button>
           <a href="#" class="">Cancela en cualquier comento</a>
@@ -59,7 +71,13 @@
 
         </div>
         <div class="card-footer">
-          <button type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openFastRegister('59', 'golden')">
+          <button *ngIf="userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openPayment('59', 'golden')">
+            SUSCRIBIRME
+          </button>
+
+          <button *ngIf="!userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openFastRegister('59', 'golden')">
             SUSCRIBIRME
           </button>
           <a href="#" class="">Cancela en cualquier comento</a>

@@ -19,26 +19,37 @@ import { DatosTiendaConvenienciaComponent } from '../../modals/datos-tienda-conv
 export class SuscripcionComponent implements OnInit {
 
   public modalRef: BsModalRef;
+  userData: any;
 
   constructor(/*private modalService: NgbModal*/private modalService: BsModalService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const locStorage = localStorage.getItem('userData');
+    this.userData = JSON.parse(locStorage);
+  }
 
 
   showPaymentOptions() {
     // this.modalService.open(PagoSuscripcionComponent, { size: 'lg' });
   }
 
+  openPayment(monto, tipoMembresia) {
+    this.openTipoPago(monto, tipoMembresia);
+  }
+
   openFastRegister(monto, tipoMembresia) {
     // this.modalService.open();
 
-    // this.modalRef = this.modalService.show(FastRegisterComponent);
-    // this.modalRef.content.onClose.subscribe(result => {
-    //   console.log('result->' + result);
-    //   this.openTipoPago();
-    // });
-
-    this.openTipoPago(monto, tipoMembresia);
+    this.modalRef = this.modalService.show(FastRegisterComponent);
+    this.modalRef.content.onClose.subscribe(result => {
+      // console.log('result->' + result);
+      if (result)
+      {
+        this.openTipoPago(monto, tipoMembresia);
+      }
+      // this.openTipoPago();
+      
+    });
   }
 
   openTipoPago(monto, tipoMembresia) {

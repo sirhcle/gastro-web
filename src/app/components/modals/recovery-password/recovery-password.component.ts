@@ -13,14 +13,14 @@ export class RecoveryPasswordComponent implements OnInit {
   // public onClose: Subject<string>;
   txtEmail = '';
 
-  constructor(private _service: LoginService) { }
+  constructor(private _service: LoginService, private bsModalRef: BsModalRef) { }
 
   ngOnInit(): void {
     // this.onClose = new Subject();
   }
 
   public onConfirm(): void {
-    // this.bsModalRef.hide();
+    this.bsModalRef.hide();
   }
 
   recuperaPassword() {
