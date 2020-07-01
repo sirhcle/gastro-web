@@ -22,7 +22,7 @@ export class InfoChefComponent implements OnInit {
 
   ngOnInit(): void {
     this.onClose = new Subject();
-    console.log('idChef ' + this.idNosotros);
+    // console.log('idChef ' + this.idNosotros);
     this._service.getChefs(this.idNosotros)
         .subscribe((resp: any) => {
           this.textoNosotros = resp[0].texto_nosotros;

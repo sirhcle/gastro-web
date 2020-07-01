@@ -9,9 +9,13 @@ export class VideosServicesService {
 
   private locStorage = localStorage.getItem('userData');
   private userData = JSON.parse(this.locStorage);
-  private idUsuario = this.userData.idUsuario;
+  private idUsuario;
 
-  constructor( private httpClient: HttpClient) {}
+  constructor( private httpClient: HttpClient) {
+    if (this.userData != null){
+      this.idUsuario = this.userData.idUsuario;
+    }
+  }
 
   getVideosList(idUsuario): Observable<any> {
     const body = new HttpParams()

@@ -18,7 +18,11 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal, private spinner: NgxSpinnerService, private router: Router, private _loginService: LoginService) {
+  constructor(private modalService: NgbModal,
+              public activeModal: NgbActiveModal,
+              private spinner: NgxSpinnerService,
+              private router: Router,
+              private _loginService: LoginService) {
 
     this.loginForm = new FormGroup({
       username: new FormControl(),
@@ -31,7 +35,8 @@ export class LoginComponent implements OnInit {
   }
 
   openRegister() {
-    this.modalService.open(RegisterComponent);
+    const modalRef = this.modalService.open(RegisterComponent);
+    modalRef.componentInstance.isFromLogin = true;
   }
 
   openRecoveryPass(){
