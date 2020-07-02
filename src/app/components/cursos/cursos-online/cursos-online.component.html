@@ -1,6 +1,8 @@
 <div id="section-video-day">
     <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer">
-        <button class="btn closeVideo" (click)="toogleVideo()">cerrar</button>
+        <button class="btn closeVideo" (click)="toogleVideo()" >
+            <img src="/assets/imgs/closeModalButton.png" width="50vm" height="auto">
+        </button>
         <!-- <p style="color: aqua;">AQUI VA EL VIDEO</p> -->
         <iframe src="https://player.vimeo.com/video/391619826/" width="{{widthFrame}}" height="{{heightFrame}}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>

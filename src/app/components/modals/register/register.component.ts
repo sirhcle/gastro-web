@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
           this.spinner.hide();
           localStorage.setItem('userData', JSON.stringify(obUsuario));
           this.activeModal.close();
-          this.router.navigate(['/cursos-online']).then(() => {
+          this.router.navigate(['/suscripcion']).then(() => {
             window.location.reload();
           });
         }

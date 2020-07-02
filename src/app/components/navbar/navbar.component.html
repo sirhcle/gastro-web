@@ -17,7 +17,7 @@
       </li>
 
       <li class="nav-item">
-        <button class="nav-link text-white noButton btn btn-link"(click)="openSuscripcion()">PRECIOS</button>
+        <button class="nav-link text-white noButton btn btn-link"(click)="openSuscripcion()">SUSCRIPCIONES</button>
       </li>
       
       <li class="nav-item">
@@ -27,7 +27,8 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <button class="dropdown-item" type="button" (click)="openCursosOnline()">Online</button>
-            <button class="dropdown-item" type="button" (click)="openCursosPresenciales()">Presencial</button><button class="dropdown-item" type="button" (click)="openClasesGratis()">Clases gratis</button>
+            <button class="dropdown-item" type="button" (click)="openCursosPresenciales()">Presencial</button>
+            <!-- <button class="dropdown-item" type="button" (click)="openClasesGratis()">Clases gratis</button> -->
             
           </div>
         </div>
@@ -61,9 +62,13 @@
         <button data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link text-white noButton btn btn-link" (click)="goHome()">HOME</button>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <button data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link text-white noButton btn btn-link" (click)="openStore()">TIENDA EN LINEA</button>
+      </li> -->
+      <li class="nav-item">
+        <button class="nav-link text-white noButton btn btn-link"(click)="openSuscripcion()">SUSCRIPCIONES</button>
       </li>
+
       <li class="nav-item">
         <button data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link text-white noButton btn btn-link" (click)="openRegister()">REGISTRO</button>
       </li>
