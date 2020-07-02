@@ -12,14 +12,14 @@
 
 
     <div class="d-flex justify-content-between p3 contenedorBotones">
-      <div class="d-flex flex-row btnsActions">
+      <div class="d-flex flex-row btnsActions" (click)="addFavorite()">
         <img src="/assets/imgs/iconFavorito.png" width="30vw" height="30vh">
-        <button type="button" class="btn" (click)="addFavorite()">Favoritos</button>
+        <button type="button" class="btn" >Favoritos</button>
       </div>
 
-      <div class="d-flex flex-row btnsActions">
+      <div class="d-flex flex-row btnsActions" (click)="openPDF()">
         <img src="/assets/imgs/iconDescargaPDF.png" width="30vw" height="30vh">
-        <button type="button" class="btn" (click)="openPDF()">Descargar Receta</button>
+        <button type="button" class="btn" >Descargar Receta</button>
       </div>
 
       <div class="d-flex flex-row btnsActions">
