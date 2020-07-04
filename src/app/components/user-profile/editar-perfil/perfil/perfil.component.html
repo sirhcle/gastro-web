@@ -25,50 +25,30 @@
             <div class="form-group row">
                 <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                     <label for="name">Nombre:</label>
-<<<<<<< HEAD
                     <input type="text" class="form-control" #name id="name" formControlName="name" required pattern="[a-zA-Z]+">
-=======
-                    <input type="text" class="form-control" #name id="name" formControlName="name" required pattern="[a-zA-Z]+" ngModel="{{usuarioactual.nombre_usuario}}">
->>>>>>> 53755a5429996ba3f548448ab40eb737ce23d8d3
                     <span *ngIf="name.touched && !name.valid" class="text-orange">*Campo obligatorio</span>
                 </div>
                 <div class="col-sm-12 col-md-2 col-lg-1"></div>
                 <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                     <label for="username">Nombre de Usuario:</label>
-<<<<<<< HEAD
                     <input type="text" class="form-control" id="username" formControlName="username" required placeholder="Alias">
-=======
-                    <input type="text" class="form-control" id="username" formControlName="username" required ngModel="{{usuarioactual.usuario_usuario}}">
->>>>>>> 53755a5429996ba3f548448ab40eb737ce23d8d3
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                     <label for="mail">Correo electrónico:</label>
-<<<<<<< HEAD
                     <input type="email" class="form-control" id="mail" formControlName="mail" required>
-=======
-                    <input type="email" class="form-control" id="mail" formControlName="mail" required ngModel="{{usuarioactual.correo_usuario}}">
->>>>>>> 53755a5429996ba3f548448ab40eb737ce23d8d3
                 </div>
                 <div class="col-sm-12 col-md-2 col-lg-1"></div>
                 <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                     <label for="ubicacion">Ubicacion:</label>
-<<<<<<< HEAD
                     <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion" placeholder="ejemplo: CDMX">
-=======
-                    <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion" ngModel="{{usuarioactual.ubicacion_usuario}}">
->>>>>>> 53755a5429996ba3f548448ab40eb737ce23d8d3
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-11">
                     <label for="detalle">Acerca de tu perfil:</label>
-<<<<<<< HEAD
                     <textarea class="form-control" rows="5" id="detalle" formControlName="detalle"></textarea>
-=======
-                    <textarea class="form-control" rows="5" id="detalle" formControlName="detalle" ngModel="{{usuarioactual.acerca_usuario}}"></textarea>
->>>>>>> 53755a5429996ba3f548448ab40eb737ce23d8d3
                 </div>
             </div>
             <br>
