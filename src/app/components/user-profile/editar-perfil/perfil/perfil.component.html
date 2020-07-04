@@ -7,11 +7,15 @@
     <br>
     <div class="row">
         <div class="col-sm-12 col-md-4 col-lg-4 pl-2">
-            <img src="{{usuarioactual.foto_usuario}}" class="img-fluid rounded-circle img-thumbnail">
+            <img [src]=fotoPerfil class="img-fluid rounded-circle img-thumbnail" class="perfilImg">
         </div>
         <div class="col-sm-12 col-md-8 col-lg-8 pt-sm-1 pt-md-2 pt-lg-2">
             <h2 class="text-white" *ngIf="usuarioactual">{{usuarioactual.usuario_usuario}}</h2>
-            <a routerLink="" class="text-orange">Cambiar foto de perfil</a>
+            <a class="text-orange" (click)="cambiar=!cambiar;">Cambiar foto de perfil</a>
+        </div>
+        <div class="custom-file mb-3 mt-3" *ngIf="cambiar">
+            <input type="file" id="archivo" (change)="cambio($event.target.files)" class="text-white custom-file-input" name="archivoImg">
+            <label for="archivo" class="text-gray custom-file-label"> Introduce un archivo de imagen </label>
         </div>
     </div>
     <br>
@@ -21,30 +25,30 @@
             <div class="form-group row">
                 <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                     <label for="name">Nombre:</label>
-                    <input type="text" class="form-control" #name id="name" formControlName="name" required pattern="[a-zA-Z]+" placeholder="{{usuarioactual.nombre_usuario}}">
+                    <input type="text" class="form-control" #name id="name" formControlName="name" required pattern="[a-zA-Z]+">
                     <span *ngIf="name.touched && !name.valid" class="text-orange">*Campo obligatorio</span>
                 </div>
                 <div class="col-sm-12 col-md-2 col-lg-1"></div>
                 <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                     <label for="username">Nombre de Usuario:</label>
-                    <input type="text" class="form-control" id="username" formControlName="username" required placeholder="{{usuarioactual.usuario_usuario}}">
+                    <input type="text" class="form-control" id="username" formControlName="username" required placeholder="Alias">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                     <label for="mail">Correo electrónico:</label>
-                    <input type="email" class="form-control" id="mail" formControlName="mail" required placeholder="{{usuarioactual.correo_usuario}}">
+                    <input type="email" class="form-control" id="mail" formControlName="mail" required>
                 </div>
                 <div class="col-sm-12 col-md-2 col-lg-1"></div>
                 <div class="col-sm-6 col-md-5 col-lg-5 pl-0">
                     <label for="ubicacion">Ubicacion:</label>
-                    <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion" placeholder="{{usuarioactual.ubicacion_usuario}}">
+                    <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion" placeholder="ejemplo: CDMX">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-11">
                     <label for="detalle">Acerca de tu perfil:</label>
-                    <textarea class="form-control" rows="5" id="detalle" formControlName="detalle" placeholder="{{usuarioactual.acerca_usuario}}"></textarea>
+                    <textarea class="form-control" rows="5" id="detalle" formControlName="detalle"></textarea>
                 </div>
             </div>
             <br>
