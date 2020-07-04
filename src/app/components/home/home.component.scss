@@ -1,4 +1,7 @@
 .row{ margin-right: 0px; margin-left: 0px; } 
+.d-fex {
+  font-family: "Avenir"
+}
 
 header {
   height: 1vh;
@@ -70,7 +73,13 @@ a {
       font-size: 10px;
       background-color: #F27711;
       color: #fff;
+      z-index: 1000;
   }
+
+  .carousel-indicators {
+    z-index: 2;
+  }
+
 
   a.obtener-info {
       font-size: 10px;

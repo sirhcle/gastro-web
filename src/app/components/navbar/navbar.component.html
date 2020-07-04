@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  <div class="collapse navbar-collapse p-2" id="navbarTogglerDemo01">
     
     <a class="navbar-brand" href="#">
       <img src="assets/imgs/logo.png" width="50%" height="auto">
@@ -17,7 +17,7 @@
       </li>
 
       <li class="nav-item">
-        <button class="nav-link text-white noButton btn btn-link"(click)="openSuscripcion()">PRECIOS</button>
+        <button class="nav-link text-white noButton btn btn-link"(click)="openSuscripcion()">SUSCRIPCIONES</button>
       </li>
       
       <li class="nav-item">
@@ -27,7 +27,8 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <button class="dropdown-item" type="button" (click)="openCursosOnline()">Online</button>
-            <button class="dropdown-item" type="button" (click)="openCursosPresenciales()">Presencial</button><button class="dropdown-item" type="button" (click)="openClasesGratis()">Clases gratis</button>
+            <button class="dropdown-item" type="button" (click)="openCursosPresenciales()">Presencial</button>
+            <!-- <button class="dropdown-item" type="button" (click)="openClasesGratis()">Clases gratis</button> -->
             
           </div>
         </div>
@@ -46,7 +47,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button class="dropdown-item" type="button" (click)="openEditarPerfil()">Editar perfil</button>
-            <button class="dropdown-item" type="button" (click)="openMisCompras()">Mis compras</button>
+            <button class="dropdown-item" type="button" (click)="openMisCompras()">Mis favoritos</button>
             <button class="dropdown-item" type="button" (click)="openMiPlan()">Mi plan</button>
             <button class="dropdown-item" type="button" (click)="openSuscripcion()">Suscripcion</button>
             <button class="dropdown-item" type="button" (click)="closeSesssion()">Salir</button>
@@ -58,17 +59,21 @@
 
     <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" *ngIf="!(userData) || (userData.isLogin == false)">
       <li class="nav-item">
-        <button class="nav-link text-white noButton btn btn-link" (click)="goHome()">HOME</button>
+        <button data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link text-white noButton btn btn-link" (click)="goHome()">HOME</button>
+      </li>
+
+      <!-- <li class="nav-item">
+        <button data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link text-white noButton btn btn-link" (click)="openStore()">TIENDA EN LINEA</button>
+      </li> -->
+      <li class="nav-item">
+        <button class="nav-link text-white noButton btn btn-link"(click)="openSuscripcion()">SUSCRIPCIONES</button>
       </li>
 
       <li class="nav-item">
-        <button class="nav-link text-white noButton btn btn-link" (click)="openStore()">TIENDA EN LINEA</button>
+        <button data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link text-white noButton btn btn-link" (click)="openRegister()">REGISTRO</button>
       </li>
       <li class="nav-item">
-        <button class="nav-link text-white noButton btn btn-link" (click)="openRegister()">REGISTRO</button>
-      </li>
-      <li class="nav-item">
-        <button type="button" class="nav-link text-orange rounded-pill bg-white btn-inicio-sesion"
+        <button data-toggle="collapse" data-target=".navbar-collapse.show" type="button" class="nav-link text-orange rounded-pill bg-white btn-inicio-sesion"
           (click)="openLogin()">
           INICIA SESION
         </button>

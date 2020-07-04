@@ -36,6 +36,6 @@ export class ProductsListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.modalRef = this.modalService.show(ProximamenteComponent);
+    // this.modalRef = this.modalService.show(ProximamenteComponent);
   }
 }

@@ -73,6 +73,8 @@ export class PerfilComponent implements OnInit {
     const correo = this.usuarioForm.value.mail;
     const ubicacion = this.usuarioForm.value.ubicacion;
     const acerca = this.usuarioForm.value.detalle;
+
+    // return;
     this._edicionService.updateUsuario(idUsuario, nombre, usuario, correo, ubicacion, acerca)
       .subscribe(response => {
         this.updated = response.status;

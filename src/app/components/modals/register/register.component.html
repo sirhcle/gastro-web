@@ -12,8 +12,8 @@
       <div class="row">
         <div class="col">
           <span class="has-float-label">
-            <input type="text" class="form-control" id="txtName" placeholder="John Doe" formControlName="username">
-            <label >Nombre</label>
+            <input type="text" class="form-control" id="txtName" formControlName="username">
+            <label >Nombre <span>*</span> </label>
           </span>
         </div>
       </div>
@@ -21,8 +21,8 @@
       <div class="row">
         <div class="col">
           <span class="has-float-label">
-            <input type="email" class="form-control" id="txtEmail" placeholder="email@example.com" formControlName="email">
-            <label >E-mail</label>
+            <input type="email" class="form-control" id="txtEmail" formControlName="email">
+            <label >E-mail <span>*</span></label>
           </span>
         </div>
       </div>
@@ -30,8 +30,8 @@
       <div class="row">
         <div class="col">
           <span class="has-float-label">
-            <input type="password" class="form-control" id="txtPassword" placeholder="********" formControlName="password">
-            <label>Contraseña</label>
+            <input type="password" class="form-control" id="txtPassword" formControlName="password">
+            <label>Contraseña <span>*</span></label>
           </span>
         </div>
       </div>
@@ -39,15 +39,19 @@
       <div class="row">
         <div class="col">
           <span class="has-float-label">
-            <input type="password" class="form-control" id="txtPasswordConfirm" placeholder="********" formControlName="password2">
-            <label>Confirmar contraseña</label>
+            <input type="password" class="form-control" id="txtPasswordConfirm" formControlName="password2">
+            <label>Confirmar contraseña <span>*</span></label>
           </span>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-            <button type="button" class="btn btn-primary form-control" (click)="doRegister()" >Crear cuenta</button>
+            <button type="button" class="btn btn-primary form-control" 
+                  (click)="doRegister()" 
+                  [disabled]="!registerForm.valid">
+                    Crear cuenta
+            </button>
         </div>
       </div>
 
@@ -58,7 +62,8 @@
   </form>
   <div class="row">
     <div class="col">
-      <button type="button" class="btn btn-link" (click)="activeModal.close()">¿Ya tienes una cuenta? Entra aquí</button>
+      <button type="button" class="btn btn-link" (click)="activeModal.close()" *ngIf="isFromLogin" >¿Ya tienes una cuenta? Entra aquí</button>
+      <button type="button" class="btn btn-link" (click)="openLoginModal()" *ngIf="!isFromLogin" >¿Ya tienes una cuenta? Entra aquí</button>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { InfoChefComponent } from '../modals/info-chef/info-chef.component';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-nosotros',
@@ -13,12 +14,15 @@ export class NosotrosComponent implements OnInit {
   constructor(private modalService: BsModalService) { }
 
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  openModal(){
-    // alert("hola")
-    this.modalRef = this.modalService.show(InfoChefComponent, {class: 'modal-lg'});
+  openModal(idChef) {
+
+    const initialState = {
+      idNosotros: idChef
+    };
+
+    this.modalRef = this.modalService.show(InfoChefComponent, {initialState});
   }
 
 }

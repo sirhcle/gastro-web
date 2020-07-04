@@ -7,7 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class VideosServicesService {
 
-  constructor( private httpClient: HttpClient) {}
+  private locStorage = localStorage.getItem('userData');
+  private userData = JSON.parse(this.locStorage);
+  private idUsuario;
+
+  constructor( private httpClient: HttpClient) {
+    if (this.userData != null){
+      this.idUsuario = this.userData.idUsuario;
+    }
+  }
 
   getVideosList(idUsuario): Observable<any> {
     const body = new HttpParams()
@@ -117,6 +125,58 @@ export class VideosServicesService {
 
     return this.httpClient.post(
       'https://gigahert.com.mx/gastroAdmin/webService.php?method=getVideosFree',
+      body.toString(),
+      headers
+    );
+  }
+
+  postVideoFavorito(idVideo) {
+    const body = new HttpParams()
+    .set('idUsuario', this.idUsuario)
+    .set('idVideo', idVideo);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=addFavorites',
+      body.toString(),
+      headers
+    );
+  }
+
+  postRateVideo(idVideo, calificacion) {
+    const body = new HttpParams()
+    .set('idUsuario', this.idUsuario)
+    .set('idVideo', idVideo)
+    .set('calificacion', calificacion);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=rateVideo',
+      body.toString(),
+      headers
+    );
+  }
+
+  getRateVideo(idVideo) {
+    const body = new HttpParams()
+    .set('idUsuario', this.idUsuario)
+    .set('idVideo', idVideo);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=getRateVideo',
       body.toString(),
       headers
     );

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login/login.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-register',
@@ -12,17 +13,29 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  @Input() public isFromLogin = false;
+
+
   registerForm: FormGroup;
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal, private _registerService: LoginService, private spinner: NgxSpinnerService, private router: Router) {
+  constructor(private modalService: NgbModal,
+              public activeModal: NgbActiveModal,
+              private _registerService: LoginService,
+              private spinner: NgxSpinnerService,
+              private router: Router) {
+
     this.registerForm = new FormGroup({
-      username: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      password2: new FormControl()
+      username: new FormControl('', Validators.required),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email
+      ]),
+      password: new FormControl('', Validators.required),
+      password2: new FormControl('', Validators.required)
     });
   }
 
   ngOnInit(): void {
+    console.log(this.isFromLogin);
   }
 
   doRegister() {
@@ -51,11 +64,18 @@ export class RegisterComponent implements OnInit {
           this.spinner.hide();
           localStorage.setItem('userData', JSON.stringify(obUsuario));
           this.activeModal.close();
-          this.router.navigate(['/cursos-online']).then(() => {
+          this.router.navigate(['/suscripcion']).then(() => {
             window.location.reload();
           });
         }
       });
   }
 
+  openLoginModal(){
+    this.modalService.open(LoginComponent);
+    this.activeModal.close();
+  }
+
 }
+
+

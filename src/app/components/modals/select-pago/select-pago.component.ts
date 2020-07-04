@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-pago',
@@ -18,7 +19,9 @@ export class SelectPagoComponent implements OnInit {
   cantidad: any;
   concepto: any;
 
-  constructor(public bsModalRef: BsModalRef, private _service: SuscripcionService) {
+  constructor(public bsModalRef: BsModalRef,
+              private _service: SuscripcionService,
+              private router: Router) {
     this.initConfig();
   }
 
@@ -67,7 +70,10 @@ export class SelectPagoComponent implements OnInit {
 
     this._service.postSuscripcion(idUsuario, idSuscripcion)
         .subscribe((resp: any) => {
-          console.log(resp);
+          this.router.navigate(['/cursos-online']).then( () => {
+            this.bsModalRef.hide();
+            window.location.reload();
+          });
         });
   }
 
