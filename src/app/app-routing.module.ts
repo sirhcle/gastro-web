@@ -48,6 +48,10 @@ const routes: Routes = [
     component: ProductDetailsComponent
   },
   {
+    path: 'product-details/:productId',
+    component: ProductDetailsComponent
+  },
+  {
     path: 'nosotros',
     component: NosotrosComponent
   }

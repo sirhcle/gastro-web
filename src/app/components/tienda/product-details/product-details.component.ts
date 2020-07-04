@@ -3,7 +3,7 @@ import { StoreServicesService } from 'src/app/services/store-services.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -19,6 +19,7 @@ export class ProductDetailsComponent implements OnInit {
   @ViewChild('videoFrame') myIframe: ElementRef;
 
   idVideo;
+  segundos = '0';
   videoData: any;
   showVideoContainer = true;
   widthFrame = '90%';
@@ -33,15 +34,14 @@ export class ProductDetailsComponent implements OnInit {
   urlSafe: SafeResourceUrl;
   nextPaso = 0;
   currentRoute = '';
-  
+
 
   constructor(private _httpService: StoreServicesService,
               private route: ActivatedRoute,
               private router: Router,
               private _services: VideosServicesService,
               public sanitizer: DomSanitizer,
-              config: NgbRatingConfig)
-  {
+              config: NgbRatingConfig) {
     config.max = 5;
     this.currentRoute = window.location.href;
   }
@@ -49,6 +49,8 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.idVideo = this.route.snapshot.paramMap.get('productId');
+    this.segundos = this.route.snapshot.paramMap.get('segundos');
+
     window.onscroll = () => {
       const videoContainer = document.getElementById('videoContainer');
       const sticky = videoContainer.offsetTop;
@@ -67,64 +69,81 @@ export class ProductDetailsComponent implements OnInit {
     };
 
     this._services.getRateVideo(this.idVideo)
-        .subscribe((resp: any) => {
-          // console.log(resp.promedio);
-          this.y = resp.promedio;
-        });
+      .subscribe((resp: any) => {
+        // console.log(resp.promedio);
+        this.y = resp.promedio;
+      });
 
+    this.loadVideo(this.segundos);
     // this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+  }
+
+  loadVideo(seconds) {
+    // console.log(seconds);
+
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
     const idUsuario = userData.idUsuario;
 
     this._services.getVideosById(this.idVideo, idUsuario)
       .subscribe((resp: any) => {
-        console.log(resp);
+        // console.log(resp);
         this.videoData = resp;
-        console.log(this.videoData.url_video);
-        this.videoURL = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=0s`;
+        // console.log(this.videoData.url_video);
+        this.videoURL = null;
+        this.videoURL = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=${seconds}s`;
+        // console.log(this.videoURL);
         this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
       });
   }
 
-  
   siguientePasoVideo() {
-    if (this.nextPaso > (this.videoData.pasos.length - 1)){
+    if (this.nextPaso > (this.videoData.pasos.length - 1)) {
       this.nextPaso = 0;
     }
     const nextStep = this.videoData.pasos[this.nextPaso];
-    // console.log(nextStep.segundos_pasos);
-    this.myIframe.nativeElement.src = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=${nextStep.segundos_pasos}s`;
+    console.log(nextStep.segundos_pasos);
+    this.myIframe.nativeElement.src = '';
+    setTimeout(() => {
+      this.myIframe.nativeElement.src = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=${nextStep.segundos_pasos}s`;
+    }, 500);
+
     this.nextPaso += 1;
   }
 
   anteriorPasoVideo() {
-    if (this.nextPaso === 0){
+    if (this.nextPaso === 0) {
       this.nextPaso = this.videoData.pasos.length - 1;
     }
+
     const nextStep = this.videoData.pasos[this.nextPaso];
-    this.myIframe.nativeElement.src = `https://player.vimeo.com/video/${this.videoData.url_video}#t=${nextStep.segundos_pasos}`;
+
+    this.myIframe.nativeElement.src = '';
+    setTimeout(() => {
+      this.myIframe.nativeElement.src = `https://player.vimeo.com/video/${this.videoData.url_video}?autoplay=1&loop=1&autopause=0#t=${nextStep.segundos_pasos}s`;
+    }, 500);
+
     this.nextPaso -= 1;
   }
 
-  openPDF(){
+  openPDF() {
     console.log(this.videoData);
     window.open(this.videoData.pdf_video, '_blank');
   }
 
-  addFavorite(){
+  addFavorite() {
     this._services.postVideoFavorito(this.videoData.id_video)
-        .subscribe((resp: any) => {
-          console.log(resp);
-        });
+      .subscribe((resp: any) => {
+        console.log(resp);
+      });
   }
 
   changeRating(value: number): void {
     console.log(value);
     this._services.postRateVideo(this.videoData.id_video, value)
-        .subscribe((resp: any) => {
-          console.log(resp);
-        });
+      .subscribe((resp: any) => {
+        console.log(resp);
+      });
   }
 
 }
