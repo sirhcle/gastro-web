@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Md5 } from 'ts-md5/dist/md5';
 
 @Injectable({
@@ -15,6 +16,7 @@ public url: string;
 
 
   getUsuario(idUsuario): Observable<any>{
+
     const body = new HttpParams().set('idUsuario', idUsuario);
     const headers = {
       headers: new HttpHeaders()
@@ -52,4 +54,15 @@ public url: string;
     return this.httpClient.post(this.url + 'gastroAdmin/webService.php?method=updatePassword', body.toString(),
     headers);
   }
+
+  updateImg(idUsuario, imgUpload: File): Observable<boolean> {
+    const endpoint = this.url + 'uploadifyImageProfile.php?idUsuario=' + idUsuario;
+    const formData: FormData = new FormData();
+    formData.append('Filedata', imgUpload, imgUpload.name);
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'multipart/form-data')
+    };
+    return this.httpClient.post(endpoint, formData, headers).pipe(map(() => true));
+}
 }
