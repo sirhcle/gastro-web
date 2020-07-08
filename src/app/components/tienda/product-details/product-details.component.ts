@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 
 
 
@@ -40,6 +41,7 @@ export class ProductDetailsComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private _services: VideosServicesService,
+              private _serviceSubs: SuscripcionService,
               public sanitizer: DomSanitizer,
               config: NgbRatingConfig) {
     config.max = 5;
@@ -83,9 +85,25 @@ export class ProductDetailsComponent implements OnInit {
 
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
-    const idUsuario = userData.idUsuario;
+    
 
-    this._services.getVideosById(this.idVideo, idUsuario)
+    console.log(userData);
+    
+    if (userData != null) {
+      const idUsuario = userData.idUsuario;
+      
+      this._serviceSubs.getSuscripcion(userData.idUsuario)
+        .subscribe((resp: any) => {
+
+          if (resp.suscription.id_suscripcion === '0') {
+            console.log('sin suscripción');
+            this.router.navigate(['/home']).then(() => {
+              window.location.reload();
+            });
+          }
+        });
+
+      this._services.getVideosById(this.idVideo, idUsuario)
       .subscribe((resp: any) => {
         // console.log(resp);
         this.videoData = resp;
@@ -95,6 +113,13 @@ export class ProductDetailsComponent implements OnInit {
         // console.log(this.videoURL);
         this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
       });
+
+    } else {
+      this.router.navigate(['/home']).then(() => {
+        window.location.reload();
+      });
+    }
+    
   }
 
   siguientePasoVideo() {
