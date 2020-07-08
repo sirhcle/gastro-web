@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../modals/login/login.component';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { RegisterComponent } from '../modals/register/register.component';
 
@@ -13,7 +13,14 @@ import { RegisterComponent } from '../modals/register/register.component';
 export class NavbarComponent implements OnInit {
 
   userData: any;
-  constructor(private modalService: NgbModal, private router: Router, private spinner: NgxSpinnerService ) {}
+  constructor(private modalService: NgbModal, private router: Router, private spinner: NgxSpinnerService ) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd){
+         // scroll to top
+         window.scrollTo(0, 0);
+      }
+   });
+  }
 
   ngOnInit(): void {
     const locStorage = localStorage.getItem('userData');

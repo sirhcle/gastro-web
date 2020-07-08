@@ -78,9 +78,13 @@ export class SelectPagoComponent implements OnInit {
   }
 
   private initConfig(): void {
+
+    const appKeyProd = 'AdYzk4zfZwskvzYnUoAzQsKTtFoJjsFaAzuJz5VUT7lQvC2Cg4qIPARnvKcVQe0PGACVe6syxAYebVk_';
+    const appKeySandbox = 'AXyhsj1weGYX3VtPJfEB9fvfIlGlXOsJsa4J_sL5kDehQmsHq1_SHp-ovWYrq1v4JuWZ3p3zFCJ9K9xw';
+
     this.payPalConfig = {
       currency: 'USD',
-      clientId: 'AXyhsj1weGYX3VtPJfEB9fvfIlGlXOsJsa4J_sL5kDehQmsHq1_SHp-ovWYrq1v4JuWZ3p3zFCJ9K9xw',
+      clientId: appKeyProd,
       // tslint:disable-next-line:no-angle-bracket-type-assertion
       createOrderOnClient: (data) => <ICreateOrderRequest> {
         intent: 'CAPTURE',

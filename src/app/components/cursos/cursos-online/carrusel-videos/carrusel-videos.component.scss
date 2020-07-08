@@ -22,6 +22,14 @@
             background-image: url('/assets/imgs/imgVideoBG3.png');
         }
         .card {
+
+            .containerBody {
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+            }
             background-color: #1d2126;
             
             background-position: center center;
