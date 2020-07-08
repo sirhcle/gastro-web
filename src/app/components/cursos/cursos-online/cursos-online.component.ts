@@ -16,7 +16,7 @@ export class CursosOnlineComponent implements OnInit {
 
   widthFrame = '100%';
   heightFrame = '600';
-  
+
   constructor(private _service: SuscripcionService, private router: Router) { }
 
   showVideoContainer = false;
@@ -25,37 +25,45 @@ export class CursosOnlineComponent implements OnInit {
 
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
-
-    this._service.getSuscripcion(userData.idUsuario)
-        .subscribe( (resp: any) => {
+    console.log(userData);
+    if (userData != null) {
+      this._service.getSuscripcion(userData.idUsuario)
+        .subscribe((resp: any) => {
           // console.log(resp);
           // console.log(resp.suscription.length);
           // console.log(resp.suscription.id_suscripcion);
 
           if (resp.suscription.id_suscripcion === '0') {
             console.log('sin suscripción');
-            this.router.navigate(['/home']).then( () => {
+            this.router.navigate(['/home']).then(() => {
               window.location.reload();
             });
           }
         });
 
-    window.onscroll = () => {
-      const videoContainer = document.getElementById('videoContainer');
-      const sticky = videoContainer.offsetTop;
+      window.onscroll = () => {
+        const videoContainer = document.getElementById('videoContainer');
+        const sticky = videoContainer.offsetTop;
 
-      if (window.pageYOffset > 400) {
-        // console.log("holaaa");
-        videoContainer.classList.remove('videoContainer');
-        videoContainer.classList.add('sticky');
-        this.heightFrame = '100';
-      } else {
-        // console.log("adiossss");
-        videoContainer.classList.remove('sticky');
-        videoContainer.classList.add('videoContainer');
-        this.heightFrame = '600';
-      }
-    };
+        if (window.pageYOffset > 400) {
+          // console.log("holaaa");
+          videoContainer.classList.remove('videoContainer');
+          videoContainer.classList.add('sticky');
+          this.heightFrame = '100';
+        } else {
+          // console.log("adiossss");
+          videoContainer.classList.remove('sticky');
+          videoContainer.classList.add('videoContainer');
+          this.heightFrame = '600';
+        }
+      };
+    } else {
+      this.router.navigate(['/home']).then(() => {
+        window.location.reload();
+      });
+    }
+
+
   }
 
   toogleVideo() {
