@@ -78,7 +78,8 @@ export class SelectPagoComponent implements OnInit {
   }
 
   private initConfig(): void {
-
+    console.log(this.cantidad);
+    
     const appKeyProd = 'AdYzk4zfZwskvzYnUoAzQsKTtFoJjsFaAzuJz5VUT7lQvC2Cg4qIPARnvKcVQe0PGACVe6syxAYebVk_';
     const appKeySandbox = 'AXyhsj1weGYX3VtPJfEB9fvfIlGlXOsJsa4J_sL5kDehQmsHq1_SHp-ovWYrq1v4JuWZ3p3zFCJ9K9xw';
 
