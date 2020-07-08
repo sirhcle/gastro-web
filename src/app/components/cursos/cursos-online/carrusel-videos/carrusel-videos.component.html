@@ -21,17 +21,18 @@
               
                     <div class="row">
                       <div class="col-sm" *ngFor="let cardVideo of item; let idx = index">
-                        <div class="card card0 d-block w-100" [routerLink]="['/product-details',cardVideo.id_video]"
+                        <div class="card card0 d-block w-100" 
                         style="cursor: pointer;"
                         [ngStyle]="{'background-image': 'url(' + cardVideo.imagen_video + ')'}">
-              
-                          <div class="card-body">
-                            <button class="btn favOff" (click)="saveFavorite(cardVideo.id_video)" *ngIf = "tituloVideos != 'MIS FAVORITOS' && tituloVideos != 'AGREGADOS RECIENTEMENTE' " >
-                              <img src="/assets/imgs/imgFavOff.png" width="30vw" height="30vh" *ngIf="!cardVideo.isFavorite" >
-                              <img src="/assets/imgs/imgFavOn.png" width="30vw" height="30vh" *ngIf="cardVideo.isFavorite" >
-                            </button>
 
-                            
+                        <button class="btn favOff" (click)="saveFavorite(cardVideo.id_video)" *ngIf = "tituloVideos != 'MIS FAVORITOS' && tituloVideos != 'AGREGADOS RECIENTEMENTE' " >
+                          <img src="/assets/imgs/imgFavOff.png" width="30vw" height="30vh" *ngIf="!cardVideo.isFavorite" >
+                          <img src="/assets/imgs/imgFavOn.png" width="30vw" height="30vh" *ngIf="cardVideo.isFavorite" >
+                        </button>
+
+                          <div class="card-body" >
+                            <div class="containerBody" 
+                            [routerLink]="['/product-details',cardVideo.id_video]" ></div>
                             <p class="card-text">
                               {{cardVideo.titulo_video}}
                             </p>

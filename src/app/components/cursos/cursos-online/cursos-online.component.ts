@@ -1,5 +1,7 @@
 import { VideosServicesService } from './../../../services/videos/videos-services.service';
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Input } from '@angular/core';
+import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -14,11 +16,30 @@ export class CursosOnlineComponent implements OnInit {
 
   widthFrame = '100%';
   heightFrame = '600';
-  constructor() { }
+  
+  constructor(private _service: SuscripcionService, private router: Router) { }
 
   showVideoContainer = false;
 
   ngOnInit(): void {
+
+    const locStorage = localStorage.getItem('userData');
+    const userData = JSON.parse(locStorage);
+
+    this._service.getSuscripcion(userData.idUsuario)
+        .subscribe( (resp: any) => {
+          // console.log(resp);
+          // console.log(resp.suscription.length);
+          // console.log(resp.suscription.id_suscripcion);
+
+          if (resp.suscription.id_suscripcion === '0') {
+            console.log('sin suscripción');
+            this.router.navigate(['/home']).then( () => {
+              window.location.reload();
+            });
+          }
+        });
+
     window.onscroll = () => {
       const videoContainer = document.getElementById('videoContainer');
       const sticky = videoContainer.offsetTop;
