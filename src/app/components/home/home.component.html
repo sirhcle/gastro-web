@@ -11,7 +11,8 @@
 
         <h3>Cocina en cualquier lugar en cualquier momento</h3>
         <p class="card-text">
-          <button type="button" class="btn text-orange rounded-pill" [routerLink]="['/clases-gratis']">COCINAR AHORA</button>
+          <button type="button" class="btn text-orange rounded-pill" [routerLink]="['/clases-gratis']">COCINAR
+            AHORA</button>
         </p>
         <a (click)="scroll(target)" class="text-white obtener-info btn-link">Obtener información</a>
 
@@ -66,11 +67,27 @@
           Descubre una variedad de cursos de cocina y recetarios digitales. Los videos incluyen el paso a paso y una
           receta en PDF para descargar.
         </p>
-        <a class="link-section2" (click)="scroll(target)">Obtener información</a>
+        <a class="link-section2" [routerLink]="['/suscripcion']">Suscribirme ahora</a>
       </div>
 
       <div class="flex-even p-2">
-        <img class="img-fluid" src="assets/imgs/section2home1.png" width="75%" height="auto">
+        <!-- <img class="img-fluid" src="assets/imgs/section2home1.png" width="75%" height="auto"> -->
+
+        <div class="carrusel">
+          
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item" *ngFor="let item of videoData;let index = index;let isFirst = first"
+                  [ngClass]="{active:isFirst}">
+
+                  <div class="card d-block" [ngStyle]="{'background-image': 'url(' + item.imagen_video + ')'}">
+                    <div class="card-body"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+        </div>
       </div>
 
     </div>
