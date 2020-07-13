@@ -1,4 +1,8 @@
-.row{ margin-right: 0px; margin-left: 0px; } 
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
 .d-fex {
   font-family: "Avenir"
 }
@@ -14,7 +18,7 @@ a {
 
 .section2 {
   // background-image: url('../../assets/imgs/backgroundgris');
-  background-image:url('/assets/imgs/backgroundGris.png');
+  background-image: url('/assets/imgs/backgroundGris.png');
   // display: block;
   // min-height: 900px;
 
@@ -42,73 +46,107 @@ a {
 }
 
 .carousel-content {
-    position: absolute;
-    top: 31%;
-    left: 8%;
-    color: white;
-    width: 30vw;
-    // background-color: red;
-    p {
-      font-size: 2.5vw;
-    }
-    line-height: 1.3;
+  position: absolute;
+  top: 31%;
+  left: 8%;
+  color: white;
+  width: 30vw;
+
+  // background-color: red;
+  p {
+    font-size: 2.5vw;
+  }
+
+  line-height: 1.3;
+  text-shadow: 1px 1px 6px #000000d5;
+}
+
+.contenedor-fijo {
+  position: absolute;
+  z-index: 2;
+  // height: 1.2em;
+  top: 55%;
+  left: 8%;
+
+  h3 {
     text-shadow: 1px 1px 6px #000000d5;
+    font-size: 1.3vw;
   }
 
-  .contenedor-fijo {
-    position: absolute;
-    z-index: 2;
-    // height: 1.2em;
-    top: 55%;
-    left: 8%;
-    h3 {
-        text-shadow: 1px 1px 6px #000000d5;
-        font-size: 1.3vw;
+  color: white;
+  font-size: 17px;
+}
+
+.text-orange {
+  font-size: 10px;
+  background-color: #F27711;
+  color: #fff;
+  z-index: 1000;
+}
+
+.carousel-indicators {
+  z-index: 2;
+}
+
+
+a.obtener-info {
+  font-size: 10px;
+  text-decoration: underline;
+
+}
+
+.section2-title {
+  color: black;
+  font-size: 3.3vw;
+  line-height: 1.3;
+
+  span {
+    color: orange;
+  }
+
+}
+
+.text-section2 {
+  // width: 350px;
+  color: #333333;
+  font-size: 1.5vm;
+}
+
+.link-section2 {
+  color: #f07727;
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+.flex-even {
+  flex: 1;
+}
+
+
+
+.carrusel {
+  padding-top: 7px;
+  padding-bottom: 15px;
+  
+
+  .card-body {
+    width: 100%;
+    height: auto;
+  }
+  .carousel {
+    .card {
+      // background-color: #1d2126;
+      background-image: url('/assets/imgs/imgVideoBG.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 160px;
+
     }
-    color: white;
-    font-size: 17px;
   }
 
-  .text-orange {
-      font-size: 10px;
-      background-color: #F27711;
-      color: #fff;
-      z-index: 1000;
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 100%;
   }
-
-  .carousel-indicators {
-    z-index: 2;
-  }
-
-
-  a.obtener-info {
-      font-size: 10px;
-      text-decoration: underline;
-      
-  }
-
-  .section2-title {
-    color: black;
-    font-size: 3.3vw;
-    line-height: 1.3;
-    span {
-      color: orange;
-    }
-
-  }
-
-  .text-section2 {
-    // width: 350px;
-    color: #333333;
-    font-size: 1.5vm;
-  }
-
-  .link-section2 {
-    color: #f07727;
-    font-size: 10px;
-    text-decoration: underline;
-  }
-
-  .flex-even {
-    flex: 1;
-  }
+}

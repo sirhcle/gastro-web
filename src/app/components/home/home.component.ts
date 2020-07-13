@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
 
 
 @Component({
@@ -8,13 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {}
+  videoData: any = [];
+
+  constructor(private _services: VideosServicesService) {}
 
   ngOnInit(): void {
+    this._services.getVideosGratis()
+        .subscribe((resp: any) => {
+          // console.log(resp.videos);
+          resp.videos.forEach( videos => {
+            videos.forEach(vids => {
+              this.videoData.push(vids);
+            });
+          });
+          console.log(this.videoData);
+        });
   }
 
   scroll(el: HTMLElement) {
-    
     el.scrollIntoView();
   }
 
