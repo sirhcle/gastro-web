@@ -11,7 +11,12 @@
 
         <h3>Cocina en cualquier lugar en cualquier momento</h3>
         <p class="card-text">
-          <button type="button" class="btn text-orange rounded-pill" [routerLink]="['/clases-gratis']">COCINAR
+          <button *ngIf="suscrito == 0" 
+          type="button" class="btn text-orange rounded-pill" [routerLink]="['/clases-gratis']">COCINAR
+            AHORA</button>
+
+            <button *ngIf="suscrito != 0" 
+          type="button" class="btn text-orange rounded-pill" [routerLink]="['/cursos-online']">COCINAR
             AHORA</button>
         </p>
         <a (click)="scroll(target)" class="text-white obtener-info btn-link">Obtener información</a>
@@ -67,7 +72,7 @@
           Descubre una variedad de cursos de cocina y recetarios digitales. Los videos incluyen el paso a paso y una
           receta en PDF para descargar.
         </p>
-        <a class="link-section2" [routerLink]="['/suscripcion']">Suscribirme ahora</a>
+        <a *ngIf="suscrito == 0"  class="link-section2" [routerLink]="['/suscripcion']">Suscribirme ahora</a>
       </div>
 
       <div class="flex-even p-2">

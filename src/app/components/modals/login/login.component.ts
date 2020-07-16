@@ -45,10 +45,6 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-
-    // console.log(this.loginForm);
-    // console.log(this.loginForm.value);
-    // console.log(this.loginForm.value.username);
     this.spinner.show();
 
     const username = this.loginForm.value.username;
@@ -56,15 +52,14 @@ export class LoginComponent implements OnInit {
 
     this._loginService.doLogin(username, password)
       .subscribe((resp: any) => {
-        console.log(resp);
-        
         if (resp.status === 0) {
           const obUsuario = {
             username: this.loginForm.value.username,
             idUsuario: resp.idUsuario,
-            isLogin: true
+            isLogin: true,
+            suscrito: resp.suscrito
           };
-  
+
           this.spinner.hide();
           localStorage.setItem('userData', JSON.stringify(obUsuario));
           this.activeModal.close();
@@ -74,26 +69,7 @@ export class LoginComponent implements OnInit {
         } else {
           alert(resp.error);
           this.spinner.hide();
-          // const obUsuario = {
-          //   username: this.loginForm.value.username,
-          //   idUsuario: 1,
-          //   isLogin: true
-          // };
-          
-          // localStorage.setItem('userData', JSON.stringify(obUsuario));
-          // this.activeModal.close();
-          // this.router.navigate(['/cursos-online']).then( () => {
-          //   window.location.reload();
-          // });
-          
         }
       });
-
-    // setTimeout(() => {
-    //   /** spinner ends after 5 seconds */
-
-
-    // }, 5000);
   }
-
 }

@@ -13,6 +13,8 @@ import { RegisterComponent } from '../modals/register/register.component';
 export class NavbarComponent implements OnInit {
 
   userData: any;
+  suscrito = 0;
+
   constructor(private modalService: NgbModal, private router: Router, private spinner: NgxSpinnerService ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd){
@@ -25,6 +27,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     const locStorage = localStorage.getItem('userData');
     this.userData = JSON.parse(locStorage);
+    if (this.userData != null){
+      this.suscrito = this.userData.suscrito;
+    }
     // console.log("hola->" + this.userData);
   }
 

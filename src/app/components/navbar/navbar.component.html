@@ -6,21 +6,33 @@
 
   <div class="collapse navbar-collapse p-2" id="navbarTogglerDemo01">
     
-    <a class="navbar-brand" href="#">
+    <a *ngIf="suscrito != 0"  class="navbar-brand" [routerLink] = "['/cursos-online']">
+      <img src="assets/imgs/logo.png" width="50%" height="auto">
+    </a>
+    <a *ngIf="suscrito == 0" class="navbar-brand" [routerLink] = "['/home']">
       <img src="assets/imgs/logo.png" width="50%" height="auto">
     </a>
 
+    <!-- MENU CUANDO ESTÁ LOGUEADO -->
     <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" *ngIf="(userData) && (userData.isLogin == true)">
       <li class="nav-item active">
         <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
         <button class="nav-link text-white noButton btn btn-link"(click)="goHome()">HOME</button>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <button class="nav-link text-white noButton btn btn-link"(click)="openSuscripcion()">SUSCRIPCIONES</button>
+      </li> -->
+      
+      <li class="nav-item">
+        <button class="nav-link text-white noButton btn btn-link"(click)="openCursosOnline()">CURSOS ONLINE</button>
       </li>
       
       <li class="nav-item">
+        <button class="nav-link text-white noButton btn btn-link"(click)="openCursosPresenciales()">CURSOS PRESENCIALES</button>
+      </li>
+
+      <!-- <li class="nav-item">
         <div class="dropdown">
           <button id="dropdownMenu1" class="nav-link text-white noButton btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             CURSOS
@@ -28,16 +40,15 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <button class="dropdown-item" type="button" (click)="openCursosOnline()">Online</button>
             <button class="dropdown-item" type="button" (click)="openCursosPresenciales()">Presencial</button>
-            <!-- <button class="dropdown-item" type="button" (click)="openClasesGratis()">Clases gratis</button> -->
-            
+            <button class="dropdown-item" type="button" (click)="openClasesGratis()">Clases gratis</button> 
           </div>
         </div>
 
-      </li>
+      </li> -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <button class="nav-link text-white noButton btn btn-link" (click)="openStore()">TIENDA EN LINEA</button>
-      </li>
+      </li> -->
       <li class="nav-item">
         <div class="dropdown">
           <button id="dropdownMenu2"
@@ -57,6 +68,7 @@
       </li>
     </ul>
 
+    <!-- MENU CUANDO NO ESTÁ LOGUEADO -->
     <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" *ngIf="!(userData) || (userData.isLogin == false)">
       <li class="nav-item">
         <button data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link text-white noButton btn btn-link" (click)="goHome()">HOME</button>
@@ -69,9 +81,9 @@
         <button class="nav-link text-white noButton btn btn-link"(click)="openSuscripcion()">SUSCRIPCIONES</button>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <button data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link text-white noButton btn btn-link" (click)="openRegister()">REGISTRO</button>
-      </li>
+      </li> -->
       <li class="nav-item">
         <button data-toggle="collapse" data-target=".navbar-collapse.show" type="button" class="nav-link text-orange rounded-pill bg-white btn-inicio-sesion"
           (click)="openLogin()">
