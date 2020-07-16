@@ -67,12 +67,15 @@
     <div class="d-flex p-5">
 
       <div class="flex-even p-2">
-        <p class="section2-title">COCINA <span>AHORA</span></p>
+        <p class="section2-title">CLASES <span>GRATIS</span></p>
         <p class="card-text text-section2">
           Descubre una variedad de cursos de cocina y recetarios digitales. Los videos incluyen el paso a paso y una
           receta en PDF para descargar.
         </p>
-        <a *ngIf="suscrito == 0"  class="link-section2" [routerLink]="['/suscripcion']">Suscribirme ahora</a>
+        <!-- <a *ngIf="suscrito == 0"  class="link-section2" [routerLink]="['/suscripcion']">Suscribirme ahora</a> -->
+
+        <button *ngIf="suscrito == 0" 
+          type="button" class="btn text-orange rounded-pill" [routerLink]="['/suscripcion']">Suscribirme ahora</button>
       </div>
 
       <div class="flex-even p-2">
