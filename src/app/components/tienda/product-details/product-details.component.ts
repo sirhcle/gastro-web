@@ -19,6 +19,8 @@ export class ProductDetailsComponent implements OnInit {
 
   @ViewChild('videoFrame') myIframe: ElementRef;
 
+  txtComentarios;
+
   idVideo;
   segundos = '0';
   videoData: any;
@@ -27,6 +29,7 @@ export class ProductDetailsComponent implements OnInit {
   heightFrame = '600';
   videoURL: any;
   rating = 0;
+  comentarios = [];
 
   x = 5;
   y = 0;
@@ -52,6 +55,8 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.idVideo = this.route.snapshot.paramMap.get('productId');
     this.segundos = this.route.snapshot.paramMap.get('segundos');
+    
+    this.loadComments();
 
     window.onscroll = () => {
       const videoContainer = document.getElementById('videoContainer');
@@ -85,10 +90,7 @@ export class ProductDetailsComponent implements OnInit {
 
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
-    
 
-    console.log(userData);
-    
     if (userData != null) {
       const idUsuario = userData.idUsuario;
       
@@ -169,6 +171,23 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe((resp: any) => {
         console.log(resp);
       });
+  }
+
+  comentar() {
+    
+    this._services.postComment(this.idVideo, this.txtComentarios)
+        .subscribe(() => {
+          // console.log(resp);
+          this.loadComments();
+        });
+  }
+
+  loadComments(){
+    this._services.getComments(this.idVideo)
+        .subscribe((resp: any) => {
+          // console.log(resp);
+          this.comentarios = resp.comments;
+        });
   }
 
 }

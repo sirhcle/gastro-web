@@ -181,4 +181,40 @@ export class VideosServicesService {
       headers
     );
   }
+
+  getComments(idVideo) {
+    const body = new HttpParams()
+    .set('idUsuario', this.idUsuario)
+    .set('idVideo', idVideo);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=getComments',
+      body.toString(),
+      headers
+    );
+  }
+
+  postComment(idVideo, comentario) {
+    const body = new HttpParams()
+    .set('idUsuario', this.idUsuario)
+    .set('idVideo', idVideo)
+    .set('comentario', comentario);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=comment',
+      body.toString(),
+      headers
+    );
+  }
+
+
 }
