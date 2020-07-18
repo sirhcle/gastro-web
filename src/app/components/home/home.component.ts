@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,13 @@ export class HomeComponent implements OnInit {
   userData: any;
   suscrito = 0;
 
-  constructor(private _services: VideosServicesService) {}
+  showVideoContainer = false;
+  widthFrame = '100%';
+  heightFrame = '600';
+  videoURL = '';
+  urlSafe: SafeResourceUrl;
+
+  constructor(private _services: VideosServicesService, public sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     const locStorage = localStorage.getItem('userData');
@@ -36,6 +42,15 @@ export class HomeComponent implements OnInit {
 
   scroll(el: HTMLElement) {
     el.scrollIntoView();
+  }
+
+  toogleVideo() {
+    this.showVideoContainer = !this.showVideoContainer;
+  }
+
+  showVideo(idVideo){
+    this.videoURL = `https://player.vimeo.com/video/${idVideo}`;
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
   }
 
 }

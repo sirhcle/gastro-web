@@ -62,6 +62,15 @@
 </section>
 
 <section>
+
+  <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer" >
+    <button class="btn closeVideo" (click)="toogleVideo()" >cerrar</button>
+    <iframe [src]="urlSafe" 
+        width="{{widthFrame}}"
+        height="{{heightFrame}}" 
+        frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+
   <div class="d-flex flex-column section2 ">
 
     <div class="d-flex p-5">
@@ -85,7 +94,7 @@
           
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item" *ngFor="let item of videoData;let index = index;let isFirst = first"
+                <div class="carousel-item" *ngFor="let item of videoData;let index = index;let isFirst = first" (click)="toogleVideo(); showVideo(item.url_video)"
                   [ngClass]="{active:isFirst}">
 
                   <div class="card d-block" [ngStyle]="{'background-image': 'url(' + item.imagen_video + ')'}">
