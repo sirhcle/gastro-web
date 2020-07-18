@@ -150,3 +150,18 @@ a.obtener-info {
     width: 100%;
   }
 }
+
+.videoContainer {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.507);
+  top: 0px;
+  left:0px;
+  right: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000;
+}
+
+.carousel-item {
+  cursor: pointer;
+}
