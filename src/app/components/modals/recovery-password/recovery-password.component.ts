@@ -10,13 +10,15 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class RecoveryPasswordComponent implements OnInit {
 
-  // public onClose: Subject<string>;
+  // bsModalRef: BsModalRef;
+
+  public onClose: Subject<string>;
   txtEmail = '';
 
   constructor(private _service: LoginService, private bsModalRef: BsModalRef) { }
 
   ngOnInit(): void {
-    // this.onClose = new Subject();
+    this.onClose = new Subject();
   }
 
   public onConfirm(): void {
@@ -24,13 +26,12 @@ export class RecoveryPasswordComponent implements OnInit {
   }
 
   recuperaPassword() {
-    // this.onClose.next('llamada');
-    // this.bsModalRef.hide();
     this._service.postResetPassword(this.txtEmail)
         .subscribe((resp: any) => {
           console.log(resp);
           if (resp.status === 0) {
             alert('Tu contraseña ha sido restaurada, por favor verifica tu correo');
+            this.bsModalRef.hide();
           } else {
             alert(resp.error);
           }
