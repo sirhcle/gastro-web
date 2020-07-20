@@ -115,7 +115,8 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     NgxPayPalModule,
     RatingModule.forRoot()
   ],
-  providers: [],
+  providers: [BsModalService,
+    BsModalRef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
