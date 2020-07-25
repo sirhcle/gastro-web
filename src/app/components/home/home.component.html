@@ -1,4 +1,4 @@
-<div class="d-flex">
+<!-- <div class="d-flex">
   <div id="carouselHome" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselHome" data-slide-to="0" class="active"></li>
@@ -43,13 +43,16 @@
       </div>
     </div>
 
-  </div>
+  </div> 
 
-</div>
+
+
+
+</div> -->
 
 
 <!-- <div class="sticky-top bg-white hidden-spacer"> </div> -->
-<section>
+<!-- <section>
   <div class="d-flex flex-column bordeNaranja p-4">
 
     <div class="d-flex justify-content-center">
@@ -59,7 +62,100 @@
       </p>
     </div>
   </div>
-</section>
+</section> -->
+
+
+<div class="backgroundImage">
+  <div class="text-center container">
+
+    <div class="space"></div>
+
+    <h3>Acceso ilimitado a clases de cocina online.</h3>
+    <h4>Cocina en cualquier lugar en cualquier momento.</h4>
+
+    <div class="card-deck">
+
+      <div class="card">
+        <div class="card-header" style="background-color: #919191;">
+          <h5 class="card-title">BÁSICA</h5>
+        </div>
+        <div class="card-body">
+
+          <p class="card-text text-line-1">$2.99<span> USD</span></p>
+          <p class="card-text text-line-2">Precio por mes</p>
+          <p class="card-text text-line-3">Clases Online y Recetarios <br>Digitales on Demand</p>
+
+        </div>
+        <div class="card-footer">
+          <button *ngIf="userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openPayment('2.99', 'basica')">
+            SUSCRIBIRME
+          </button>
+
+          <button *ngIf="!userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openFastRegister('2.99', 'basica')" >
+            SUSCRIBIRME
+          </button>
+          <a href="#" class="">Cancela en cualquier comento</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" style="background-color: #f26c16;">
+          <h5 class="card-title">PREMIUM</h5>
+        </div>
+        <div class="card-body">
+
+          <p class="card-text text-line-orange-1">$4.99 <span>USD</span></p>
+          <p class="card-text text-line-orange-2">Precio por mes</p>
+          <p class="card-text text-line-3">Clases OnLine y Recetarios<br>Digitales On Demand + 2<br>clases en Vivo</p>
+
+        </div>
+        <div class="card-footer">
+          <button *ngIf="userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openPayment('4.99', 'premium')">
+            SUSCRIBIRME
+          </button>
+
+          <button *ngIf="!userData"
+          type="button" class="btn rounded-pill .text-white btn-comprar2 btn-block" (click)="openFastRegister('4.99', 'premium')" >
+            SUSCRIBIRME
+          </button>
+          <a href="#" class="">Cancela en cualquier comento</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" style="background-color: #d6aa11;">
+          <h5 class="card-title">GOLDEN PASS</h5>
+        </div>
+        <div class="card-body">
+          
+          <p class="card-text text-line-1">$59 <span>USD</span></p>
+          <p class="card-text text-line-2">Precio anual</p>
+          <p class="card-text text-line-3">¡Te regalamos 2 meses <br>gratis de suscripción <br>y 4 clases en vivo!</p>
+            
+         
+
+        </div>
+        <div class="card-footer">
+          <button *ngIf="userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openPayment('59', 'golden')">
+            SUSCRIBIRME
+          </button>
+
+          <button *ngIf="!userData" 
+          type="button" class="btn rounded-pill .bg-white btn-comprar1 btn-block" (click)="openFastRegister('59', 'golden')">
+            SUSCRIBIRME
+          </button>
+          <a href="#" class="">Cancela en cualquier comento</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <section>
 

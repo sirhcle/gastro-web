@@ -47,8 +47,6 @@ export class SuscripcionComponent implements OnInit {
       {
         this.openTipoPago(monto, tipoMembresia);
       }
-      // this.openTipoPago();
-      
     });
   }
 

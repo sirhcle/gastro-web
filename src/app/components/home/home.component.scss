@@ -127,12 +127,13 @@ a.obtener-info {
 .carrusel {
   padding-top: 7px;
   padding-bottom: 15px;
-  
+
 
   .card-body {
     width: 100%;
-    height: auto;
+    height: 30vh;
   }
+
   .carousel {
     .card {
       // background-color: #1d2126;
@@ -155,7 +156,7 @@ a.obtener-info {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.507);
   top: 0px;
-  left:0px;
+  left: 0px;
   right: 0px;
   width: 100vw;
   height: 100vh;
@@ -164,4 +165,126 @@ a.obtener-info {
 
 .carousel-item {
   cursor: pointer;
+}
+
+
+/*****************************************/
+/*suscripcion*/
+
+.container {
+  padding-left: 70px;
+  padding-right: 70px;
+  // padding-bottom: 5.3%;
+
+}
+
+h3 {
+  font-size: 45px;
+  color: rgb(255, 255, 255);
+}
+
+h4 {
+  color: rgb(255, 255, 255);
+}
+
+.card-deck {
+  .card {
+    margin-top: 20px;
+    // height: 430px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 10px;
+
+    .card-footer {
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 30px;
+      background-color: transparent;
+      border: none;
+
+      .btn-comprar1 {
+        border-color: #959595;
+        border-width: 2;
+        margin-bottom: 30px;
+        margin-top: 20px;
+      }
+
+      .btn-comprar2 {
+        // border-color: #f26c16;
+        background-color: #f26c16;
+        border-width: 2;
+        color: white;
+        margin-bottom: 30px;
+        margin-top: 20px;
+      }
+
+      a {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+
+    .card-header {
+      border-bottom: 0px solid rgb(0, 0, 0);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .card-title {
+      margin-top: 14px;
+      font-size: 25px;
+      color: #ffffff;
+    }
+
+    .card-body {
+
+      .text-line-1,
+      .text-line-orange-1 {
+        font-weight: 600;
+        font-size: 37px;
+        margin-top: 20px;
+
+        span {
+          font-weight: normal;
+        }
+      }
+
+      .text-line-2,
+      .text-line-orange-2 {
+        font-size: 27px;
+      }
+
+      .text-line-3,
+      .text-line-orange-3 {
+        font-size: 20px;
+        margin-top: 30px;
+      }
+
+      .text-line-orange-1,
+      .text-line-orange-2,
+      .text-line-orange-3 {
+        color: #f26c16
+      }
+    }
+  }
+}
+
+
+
+.space {
+  min-height: 200px;
+}
+
+.backgroundImage {
+  background-image: url('/assets/imgs/suscripcionBackground.png');
+  // position: absolute;
+  background-color: #000000cc;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 95%;
+  width: 100%;
+  padding-bottom: 20px;
+  //    text-align: center;
+  //    margin: 0px;
 }
