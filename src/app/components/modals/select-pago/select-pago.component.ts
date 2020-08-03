@@ -71,6 +71,7 @@ export class SelectPagoComponent implements OnInit, AfterContentInit {
         onApprove: function (data, actions) {
           console.log(data);
           alert('Suscripción correcta');
+          self.pagoExitoso();
           // self.getSubcriptionDetails(data.subscriptionID);
         },
         onCancel: function (data) {
