@@ -7,6 +7,7 @@ import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.ser
 import { Router } from '@angular/router';
 
 declare var paypal;
+declare var OpenPay;
 
 @Component({
   selector: 'app-select-pago',
