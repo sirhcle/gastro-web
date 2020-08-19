@@ -33,12 +33,12 @@ export class CursosOnlineComponent implements OnInit {
           // console.log(resp.suscription.length);
           // console.log(resp.suscription.id_suscripcion);
 
-          // if (resp.suscription.id_suscripcion === '0') {
-          //   console.log('sin suscripción');
-          //   this.router.navigate(['/home']).then(() => {
-          //     window.location.reload();
-          //   });
-          // }
+          if (resp.suscription.id_suscripcion === '0') {
+            console.log('sin suscripción');
+            this.router.navigate(['/home']).then(() => {
+              window.location.reload();
+            });
+          }
         });
 
       window.onscroll = () => {

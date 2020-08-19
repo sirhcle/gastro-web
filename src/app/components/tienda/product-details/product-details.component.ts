@@ -97,12 +97,12 @@ export class ProductDetailsComponent implements OnInit {
       this._serviceSubs.getSuscripcion(userData.idUsuario)
         .subscribe((resp: any) => {
 
-          // if (resp.suscription.id_suscripcion === '0') {
-          //   console.log('sin suscripción');
-          //   this.router.navigate(['/home']).then(() => {
-          //     window.location.reload();
-          //   });
-          // }
+          if (resp.suscription.id_suscripcion === '0') {
+            console.log('sin suscripción');
+            this.router.navigate(['/home']).then(() => {
+              window.location.reload();
+            });
+          }
         });
 
       this._services.getVideosById(this.idVideo, idUsuario)
