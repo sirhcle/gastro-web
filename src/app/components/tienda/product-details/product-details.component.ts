@@ -97,12 +97,12 @@ export class ProductDetailsComponent implements OnInit {
       this._serviceSubs.getSuscripcion(userData.idUsuario)
         .subscribe((resp: any) => {
 
-          if (resp.suscription.id_suscripcion === '0') {
-            console.log('sin suscripción');
-            this.router.navigate(['/home']).then(() => {
-              window.location.reload();
-            });
-          }
+          // if (resp.suscription.id_suscripcion === '0') {
+          //   console.log('sin suscripción');
+          //   this.router.navigate(['/home']).then(() => {
+          //     window.location.reload();
+          //   });
+          // }
         });
 
       this._services.getVideosById(this.idVideo, idUsuario)
@@ -121,10 +121,11 @@ export class ProductDetailsComponent implements OnInit {
         window.location.reload();
       });
     }
-    
   }
 
   siguientePasoVideo() {
+    console.log(this.videoData.pasos);
+    
     if (this.nextPaso > (this.videoData.pasos.length - 1)) {
       this.nextPaso = 0;
     }
@@ -154,14 +155,17 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   openPDF() {
-    console.log(this.videoData);
+    // console.log(this.videoData);
     window.open(this.videoData.pdf_video, '_blank');
   }
 
   addFavorite() {
     this._services.postVideoFavorito(this.videoData.id_video)
       .subscribe((resp: any) => {
-        console.log(resp);
+        // console.log(resp);
+        if (resp.status === 0){
+          alert('Video agregado a favoritos');
+        }
       });
   }
 
@@ -169,7 +173,9 @@ export class ProductDetailsComponent implements OnInit {
     console.log(value);
     this._services.postRateVideo(this.videoData.id_video, value)
       .subscribe((resp: any) => {
-        console.log(resp);
+        if (resp.status === 0){
+          alert('Video calificado');
+        }
       });
   }
 

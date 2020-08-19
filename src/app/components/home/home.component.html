@@ -160,7 +160,9 @@
 <section>
 
   <div id='videoContainer' class="videoContainer" *ngIf="showVideoContainer" >
-    <button class="btn closeVideo" (click)="toogleVideo()" >cerrar</button>
+    <button class="btn closeVideo" (click)="toogleVideo()" >
+      <img src="/assets/imgs/closeModalButton.png" width="50vm" height="auto">
+    </button>
     <iframe [src]="urlSafe" 
         width="{{widthFrame}}"
         height="{{heightFrame}}" 
@@ -192,9 +194,13 @@
               <div class="carousel-inner">
                 <div class="carousel-item" *ngFor="let item of videoData;let index = index;let isFirst = first" (click)="toogleVideo(); showVideo(item.url_video)"
                   [ngClass]="{active:isFirst}">
-
+                  
                   <div class="card d-block" [ngStyle]="{'background-image': 'url(' + item.imagen_video + ')'}">
-                    <div class="card-body"></div>
+                    <div class="card-body">
+                      <div class="btn-play">
+                        <img src="/assets/imgs/play-button.png" width="50vm" height="auto">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
