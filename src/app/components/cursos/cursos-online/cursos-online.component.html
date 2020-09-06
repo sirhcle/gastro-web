@@ -28,27 +28,14 @@
 <div class="d-flex flex-column recetas" style="background-color: #1d2126;">
 
     <h3>RECETARIOS DIGITALES</h3>
-
-    <div class="pdfs d-flex justify-content-around p-5" align="center">
-
-        <img src="/assets/imgs/01recetas.png" width="20%" height="20%" (click)="openPDF('/assets/imgs/01recetas.pdf')">
-
-
-        <img src="/assets/imgs/02recetas.png" width="20%" height="20%" (click)="openPDF('/assets/imgs/02recetas.pdf')">
-
-
-        <img src="/assets/imgs/03recetas.png" width="20%" height="20%" (click)="openPDF('/assets/imgs/03recetas.pdf')">
-
+    <div class="row">
+        <div class="col">
+            <div class="card-columns" align="center">
+        
+                <div class="card" *ngFor="let receta of recetarios" >
+                    <img src="{{receta.imagen_recetario}}" width="60%" height="auto" (click)="openPDF(receta.pdf_recetario)">
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="pdfs d-flex justify-content-around p-5" align="center">
-
-        <img src="/assets/imgs/04recetas.png" width="20%" height="20%" (click)="openPDF('/assets/imgs/04recetas.pdf')">
-
-        <img src="/assets/imgs/05recetas.png" width="20%" height="20%" (click)="openPDF('/assets/imgs/05recetas.pdf')">
-
-        <img src="/assets/imgs/06recetas.png" width="20%" height="20%" (click)="openPDF('/assets/imgs/06recetas.pdf')">
-
-    </div>
-
 </div>

@@ -216,5 +216,16 @@ export class VideosServicesService {
     );
   }
 
+  getRecetas(){
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=getRecetarios',
+      headers
+    );
+  }
+
 
 }

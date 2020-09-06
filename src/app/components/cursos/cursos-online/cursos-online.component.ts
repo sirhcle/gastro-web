@@ -1,4 +1,4 @@
-import { VideosServicesService } from './../../../services/videos/videos-services.service';
+import { VideosServicesService } from 'src/app/services/videos/videos-services.service';
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Input } from '@angular/core';
 import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 import { Router } from '@angular/router';
@@ -16,8 +16,9 @@ export class CursosOnlineComponent implements OnInit {
 
   widthFrame = '100%';
   heightFrame = '600';
-
-  constructor(private _service: SuscripcionService, private router: Router) { }
+  recetarios: any; 
+  
+  constructor(private _service: SuscripcionService, private _recetaService: VideosServicesService, private router: Router) { }
 
   showVideoContainer = false;
 
@@ -25,7 +26,10 @@ export class CursosOnlineComponent implements OnInit {
 
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
-    console.log(userData);
+    // console.log(userData);
+    
+    this.getRecetas();
+
     if (userData != null) {
       this._service.getSuscripcion(userData.idUsuario)
         .subscribe((resp: any) => {
@@ -33,12 +37,12 @@ export class CursosOnlineComponent implements OnInit {
           // console.log(resp.suscription.length);
           // console.log(resp.suscription.id_suscripcion);
 
-          if (resp.suscription.id_suscripcion === '0') {
-            console.log('sin suscripción');
-            this.router.navigate(['/home']).then(() => {
-              window.location.reload();
-            });
-          }
+          // if (resp.suscription.id_suscripcion === '0') {
+          //   console.log('sin suscripción');
+          //   this.router.navigate(['/home']).then(() => {
+          //     window.location.reload();
+          //   });
+          // }
         });
 
       window.onscroll = () => {
@@ -64,6 +68,13 @@ export class CursosOnlineComponent implements OnInit {
     }
 
 
+  }
+
+  getRecetas(){
+    this._recetaService.getRecetas()
+        .subscribe((resp: any) => {
+          this.recetarios = resp;
+        });
   }
 
   toogleVideo() {
