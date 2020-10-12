@@ -21,18 +21,41 @@ export class OpenpayService {
   }
 
 
-  openPayCreaSuscripcion(customerID: string) {
+  openPayCreaSuscripcion(customerID: string, cardNumer: string, holderName: string, expiration: string, cvv: string, tipoPlan: string) {
+     
+    const expirationArr = expiration.split('/');
+    const expirationYear = expirationArr[1];
+    const expirationMonth = expirationArr[0];
+
+    //SANDBOX
+    //plan-id basico => pvtolvs4f9gdtyej6jj2     <- basica
+    //plan-id premium => pi1tmvt9ftp87avkpfwk    <- premium
+    //plan-id golden => pooxhdz1l72d0h5340er     <- golden
+
+
+
+    let planID = '';
+
+    if (tipoPlan === 'basica'){
+      planID = 'pvtolvs4f9gdtyej6jj2';
+    } else if(tipoPlan === 'premium'){
+      planID = 'pi1tmvt9ftp87avkpfwk';
+    } else if (tipoPlan === 'golden'){
+      planID = 'pooxhdz1l72d0h5340er';
+    } else {
+      planID = 'pvtolvs4f9gdtyej6jj2';
+    }
 
     const raw = JSON.stringify({
       card: {
-        card_number: '4111111111111111',
-        holder_name: 'Juan Perez Ramirez',
-        expiration_year: '20',
-        expiration_month: '12',
-        cvv2: '110',
+        card_number: cardNumer,
+        holder_name: holderName,
+        expiration_year: expirationYear,
+        expiration_month: expirationMonth,
+        cvv2: cvv,
         device_session_id: 'kR1MiQhz2otdIuUlQkbEyitIqVMiI16f'
      },
-     plan_id: 'pvtolvs4f9gdtyej6jj2'
+     plan_id: planID
     });
 
     const headers = {
@@ -63,4 +86,28 @@ export class OpenpayService {
       raw,
       headers);
   }
+
+  openPayGetClientSubscript(clientID){
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Authorization', 'Basic c2tfMDE4MDc2Mjg4NTJiNDIyZmE5ZmY2NDcyNDQzZGVkYTg6')
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.get(
+      'https://sandbox-api.openpay.mx/v1/mkhlhyhzipnwjnikydcr/customers/' + clientID + '/subscriptions',
+      headers);
+  }
+
+  openPayCancelSubscription(clientID, subscriptionID){
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Authorization', 'Basic c2tfMDE4MDc2Mjg4NTJiNDIyZmE5ZmY2NDcyNDQzZGVkYTg6')
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.delete(
+      'https://sandbox-api.openpay.mx/v1/mkhlhyhzipnwjnikydcr/customers/' + clientID + '/subscriptions/' + subscriptionID,
+      headers);
+  }
+
+
 }

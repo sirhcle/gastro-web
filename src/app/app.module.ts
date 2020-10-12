@@ -57,6 +57,8 @@ import { RecoveryPasswordComponent } from './components/modals/recovery-password
 import { AnuncioComponent } from './components/modals/anuncio/anuncio.component';
 // import { SafePipePipe } from './pipes/safe-pipe.pipe';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { CreditCardDirectivesModule } from 'angular-cc-library';
+
 
 @NgModule({
   declarations: [
@@ -113,7 +115,8 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     HttpClientModule,
     ModalModule.forRoot(),
     NgxPayPalModule,
-    RatingModule.forRoot()
+    RatingModule.forRoot(),
+    CreditCardDirectivesModule
   ],
   providers: [BsModalService,
     BsModalRef],

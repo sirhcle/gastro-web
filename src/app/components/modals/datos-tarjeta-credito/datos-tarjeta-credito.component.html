@@ -16,7 +16,10 @@
       <div class="d-flex justify-content-start box">
         <div class="form-group">
           <label >Número de tarjeta:</label>
-          <input type="number" class="form-control" id="numeroTarjeta">
+          <!-- <input type="number" class="form-control" id="numeroTarjeta"> -->
+          <input id="cc-number" type="tel" autocomplete="cc-number" ccNumber class="form-control"
+          [(ngModel)]="ccnumber" name="ccnumber">
+          
         </div>
         <img class="margin-imgs" src="/assets/imgs/visaLogo.png" width="8%" height="8%">
         <img class="margin-imgs" src="/assets/imgs/mastercardLogo.png" width="5%" height="5%">
@@ -38,7 +41,10 @@
       <div class="d-flex justify-content-start">
         <div class="form-group">
           <label >Expira (MM/AA):</label>
-          <input type="text" class="form-control" id="fechaExpira" [(ngModel)]="fechaExpira" name="fechaExpira">
+          <input type="tel" class="form-control" id="fechaExpira" [(ngModel)]="fechaExpira" name="fechaExpira" autocomplete="cc-exp" ccExp>
+
+          <!-- <input id="cc-exp-date" type="tel" autocomplete="cc-exp" ccExp> -->
+
         </div>
 
         <div class="form-group">
