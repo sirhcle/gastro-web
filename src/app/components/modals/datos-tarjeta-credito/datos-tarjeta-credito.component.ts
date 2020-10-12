@@ -3,6 +3,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { OpenpayService } from 'src/app/services/openpay/openpay.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
+import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
 
 @Component({
   selector: 'app-datos-tarjeta-credito',
@@ -15,11 +17,17 @@ export class DatosTarjetaCreditoComponent implements OnInit {
   username = '';
   fechaExpira = '';
   cvv = '';
+  ccnumber = '';
+
+  cantidad: any;
+  concepto: string;
 
   public onClose: Subject<string>;
   constructor(public bsModalRef: BsModalRef,
               private _openPayService: OpenpayService,
-              private spinner: NgxSpinnerService) { }
+              private spinner: NgxSpinnerService,
+              private _service: SuscripcionService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.onClose = new Subject();
@@ -28,9 +36,15 @@ export class DatosTarjetaCreditoComponent implements OnInit {
   public onConfirm(): void {
     this.bsModalRef.hide();
   }
+  addSlash(expDate){
+    console.log(expDate);
+  }
 
   public pagar(){
-    // console.log(this.email);
+    
+    this.ccnumber = this.ccnumber.replace(/\s/g, '');
+    this.fechaExpira = this.fechaExpira.replace(/\s/g, '');
+    // return;
     this.spinner.show();
     this._openPayService.openPayTraeSuscriptores()
         .subscribe((resp: any) => {
@@ -39,13 +53,17 @@ export class DatosTarjetaCreditoComponent implements OnInit {
 
           for (const suscripcion of resp){
             if (suscripcion.email === this.email) {
-              console.log('cliente existente');
-              this._openPayService.openPayCreaSuscripcion(suscripcion.id)
+              // tslint:disable-next-line:max-line-length
+              this._openPayService.openPayCreaSuscripcion(suscripcion.id, this.ccnumber, this.username, this.fechaExpira, this.cvv, this.concepto)
                   .subscribe((respData: any) => {
-                    // console.log(respData);
+                    console.log(respData);
                     // console.log('suscrito');
                     this.spinner.hide();
                     alert('pago realizado');
+                    this.pagoExitoso();
+                  }, (error: any) => {
+                    this.spinner.hide();
+                    alert(error.error.description);
                   });
               hasSuscription = true;
               break;
@@ -53,21 +71,45 @@ export class DatosTarjetaCreditoComponent implements OnInit {
           }
 
           if (!hasSuscription) {
-            console.log('no es cliente');
             this._openPayService.openPayCrearCliente(this.username, this.email)
                 .subscribe((respCliente: any) => {
-                  // console.log(respCliente);
-                  // console.log('cliente registrado');
-                  this._openPayService.openPayCreaSuscripcion(respCliente.id)
+                  // tslint:disable-next-line:max-line-length
+                  this._openPayService.openPayCreaSuscripcion(respCliente.id, this.ccnumber, this.username, this.fechaExpira, this.cvv, this.concepto)
                       .subscribe((respDataSusc: any) => {
-                        // console.log('suscripcion exito o no?');
-                        // console.log(respDataSusc);
                         this.spinner.hide();
                         alert('pago realizado');
+                        this.pagoExitoso();
                       });
+                }, (error: any) => {
+                  this.spinner.hide();
+                  alert(error.error.description);
                 });
           }
         });
+  }
+
+  pagoExitoso() {
+
+    const locStorage = localStorage.getItem('userData');
+    const userData = JSON.parse(locStorage);
+
+    const idUsuario = userData.idUsuario;
+    let idSuscripcion = 1;
+
+    if (this.concepto === 'premium') {
+      idSuscripcion = 2;
+    } else if (this.concepto === 'golden') {
+      idSuscripcion = 3;
+    }
+
+
+    this._service.postSuscripcion(idUsuario, idSuscripcion)
+      .subscribe((resp: any) => {
+        this.router.navigate(['/cursos-online']).then(() => {
+          this.bsModalRef.hide();
+          window.location.reload();
+        });
+      });
   }
   
   // paymentTarjeta(){

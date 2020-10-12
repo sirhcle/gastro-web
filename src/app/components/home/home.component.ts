@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
     this.modalRef.content.onClose.subscribe(result => {
       switch (result) {
         case 'tarjeta':
-          this.modalRef = this.modalService.show(DatosTarjetaCreditoComponent, { class: 'modal-lg' });
+          this.modalRef = this.modalService.show(DatosTarjetaCreditoComponent, { class: 'modal-lg', initialState });
           break;
 
         case 'paypal':

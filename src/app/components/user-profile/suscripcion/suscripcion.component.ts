@@ -63,7 +63,8 @@ export class SuscripcionComponent implements OnInit {
     this.modalRef.content.onClose.subscribe(result => {
       switch (result) {
         case 'tarjeta':
-          this.modalRef = this.modalService.show(DatosTarjetaCreditoComponent, { class: 'modal-lg' });
+          console.log(initialState);
+          this.modalRef = this.modalService.show(DatosTarjetaCreditoComponent, { class: 'modal-lg', initialState });
           break;
 
         case 'paypal':
