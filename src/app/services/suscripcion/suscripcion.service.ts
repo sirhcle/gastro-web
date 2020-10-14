@@ -9,10 +9,11 @@ export class SuscripcionService {
 
   constructor( private httpClient: HttpClient) {}
 
-  postSuscripcion(idUsuario, idSuscripcion): Observable<any> {
+  postSuscripcion(idUsuario, idSuscripcion, tipoSuscripcion): Observable<any> {
     const body = new HttpParams()
     .set('idUsuario', idUsuario)
-    .set('idSuscripcion', idSuscripcion);
+    .set('idSuscripcion', idSuscripcion)
+    .set('tipoSuscripcion', tipoSuscripcion);
 
     //console.log(body);
     
@@ -51,6 +52,20 @@ export class SuscripcionService {
     return this.httpClient.post(
       'https://gigahert.com.mx/gastroAdmin/webService.php?method=cancelSuscription',
       body.toString(),
+      headers);
+  }
+
+  getPaypalUserInfo(){
+    // const body = new HttpParams()
+    // .set('idUsuario', idUsuario);
+
+    const headers = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('Authorization', '')
+    };
+    return this.httpClient.post(
+      'https://gigahert.com.mx/gastroAdmin/webService.php?method=cancelSuscription',
       headers);
   }
 }

@@ -90,7 +90,7 @@ export class SelectPagoComponent implements OnInit, AfterContentInit {
 
   }
   // ============Start Get Subcription Details Method============================  
-  getSubcriptionDetails(subcriptionId) {
+  /***getSubcriptionDetails(subcriptionId) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
@@ -105,7 +105,7 @@ export class SelectPagoComponent implements OnInit, AfterContentInit {
 
     // ============END Get Subcription Details Method========================  
 
-  }
+  }**/
 
   public onConfirm(): void {
     this.bsModalRef.hide();
@@ -146,7 +146,7 @@ export class SelectPagoComponent implements OnInit, AfterContentInit {
     }
 
 
-    this._service.postSuscripcion(idUsuario, idSuscripcion)
+    this._service.postSuscripcion(idUsuario, idSuscripcion, 1)
       .subscribe((resp: any) => {
         this.router.navigate(['/cursos-online']).then(() => {
           this.bsModalRef.hide();
@@ -155,7 +155,8 @@ export class SelectPagoComponent implements OnInit, AfterContentInit {
       });
   }
 
-  private initConfig(): void {
+  /**private initConfig(): void {
+    
     console.log(this.cantidad);
 
     const appKeyProd = 'AdYzk4zfZwskvzYnUoAzQsKTtFoJjsFaAzuJz5VUT7lQvC2Cg4qIPARnvKcVQe0PGACVe6syxAYebVk_';
@@ -233,7 +234,7 @@ export class SelectPagoComponent implements OnInit, AfterContentInit {
         // this.resetStatus();
       },
     };
-  }
+  }**/
 
 
 }
