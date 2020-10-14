@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4 col-md-6 col-lg-8">
+        <div class="col-sm-4 col-md-6 col-lg-8" *ngIf="tipoSuscripcion != 0" >
             <h2 id="tipoplan" class="text-orange ">Plan {{nombreSuscripcion}}</h2>
             <p id="detalle" class="texto">${{precioSuscripcion}}USD, {{descripcionSuscripcion}} </p>
         </div>
@@ -20,10 +20,22 @@
     <hr>
     <div class="row">
         <div class="col-sm-12 col-md-4 col-lg-4">
-            <input type="button" class="btn btn-orange" value="SUBIR TU SUSCRIPCIÓN" (click)="openSuscripciones()"></div>
+            
+            <input type="button" class="btn btn-orange" value="SUBIR TU SUSCRIPCIÓN" (click)="openSuscripciones()" *ngIf="tipoSuscripcion != 0" >
+
+            <input type="button" class="btn btn-orange" value="SUSCRIBIRSE" (click)="openSuscripciones()" *ngIf="tipoSuscripcion == 0" >
+        </div>
+
         <div class="col-sm-12 col-md-1 col-lg-1 ml-2"><br></div>
-        <div class="col-sm-12 col-md-4 col-lg-4">
+        
+        <div class="col-sm-12 col-md-4 col-lg-4" *ngIf="tipoSuscripcion == 2">
             <input type="button" class="btn btn-orange" value="CANCELAR SUSCRIPCIÓN" (click)="cancelaSuscripcion()">
+        </div>
+
+        <div class="col-sm-12 col-md-4 col-lg-4" *ngIf="tipoSuscripcion == 1" >
+            <a class="btn btn-orange" href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=EOnAFhvbk3zsr7j2hmgI-K4rMrYgkwdLYLwS7qxkeD8cobVrAxNH7poMBPumyyOHoHT01tu81qDBvmFT" target="_blank" (click)="cancelaSuscripcion()" >
+                CANCELAR SUSCRIPCIÓN
+            </a>
         </div>
     </div>
 
