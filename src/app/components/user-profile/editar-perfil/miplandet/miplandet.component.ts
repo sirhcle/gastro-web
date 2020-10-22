@@ -91,7 +91,7 @@ export class MiPlanDetComponent implements OnInit, AfterContentInit {
 
   getSuscriptionsCliente(clienteID: string){
     this._openPayService.openPayGetClientSubscript(clienteID)
-        .subscribe((resp:any) => {
+        .subscribe((resp: any) => {
           console.log(resp);
           for (const suscription of resp){
             this._openPayService.openPayCancelSubscription(clienteID, suscription.id)
