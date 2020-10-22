@@ -5,6 +5,7 @@ import { OpenpayService } from 'src/app/services/openpay/openpay.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { SuscripcionService } from 'src/app/services/suscripcion/suscripcion.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-datos-tarjeta-credito',
@@ -56,14 +57,14 @@ export class DatosTarjetaCreditoComponent implements OnInit {
               // tslint:disable-next-line:max-line-length
               this._openPayService.openPayCreaSuscripcion(suscripcion.id, this.ccnumber, this.username, this.fechaExpira, this.cvv, this.concepto)
                   .subscribe((respData: any) => {
-                    console.log(respData);
-                    // console.log('suscrito');
                     this.spinner.hide();
-                    alert('pago realizado');
-                    this.pagoExitoso();
+                    swal('', 'Pago realizado correctamente', 'success').then((value: any) => {
+                      this.pagoExitoso();
+                    });
+
                   }, (error: any) => {
                     this.spinner.hide();
-                    alert(error.error.description);
+                    swal('', 'Ocurrió un error al procesar su pago', 'error');
                   });
               hasSuscription = true;
               break;
@@ -77,12 +78,14 @@ export class DatosTarjetaCreditoComponent implements OnInit {
                   this._openPayService.openPayCreaSuscripcion(respCliente.id, this.ccnumber, this.username, this.fechaExpira, this.cvv, this.concepto)
                       .subscribe((respDataSusc: any) => {
                         this.spinner.hide();
-                        alert('pago realizado');
+                        swal('', 'Pago realizado correctamente', 'success').then((value: any) => {
+                          this.pagoExitoso();
+                        });
                         this.pagoExitoso();
                       });
                 }, (error: any) => {
                   this.spinner.hide();
-                  alert(error.error.description);
+                  swal('', 'Ocurrió un error al procesar su pago', 'error');
                 });
           }
         });
