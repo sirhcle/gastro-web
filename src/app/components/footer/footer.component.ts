@@ -12,4 +12,9 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openAvisoPRivacidad(url: string) {
+    window.open(url, '_blank');
+  }
+  
+
 }

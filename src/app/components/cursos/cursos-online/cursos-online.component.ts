@@ -74,6 +74,7 @@ export class CursosOnlineComponent implements OnInit {
     this._recetaService.getRecetas()
         .subscribe((resp: any) => {
           this.recetarios = resp;
+          console.log(this.recetarios);
         });
   }
 
