@@ -49,9 +49,13 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    this.spinner.show();
+
     this._registerService.postCreateUser(username, password, email)
       .subscribe((resp: any) => {
-        console.log(resp);
+        // console.log(resp);
+        this.spinner.hide();
+
         if (resp.status === 1) {
           alert(resp.error);
         } else {
@@ -61,7 +65,7 @@ export class RegisterComponent implements OnInit {
             isLogin: true
           };
 
-          this.spinner.hide();
+          // this.spinner.hide();
           localStorage.setItem('userData', JSON.stringify(obUsuario));
           this.activeModal.close();
           this.router.navigate(['/suscripcion']).then(() => {
