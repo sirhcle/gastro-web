@@ -45,9 +45,11 @@ export class FastRegisterComponent implements OnInit {
 
     // console.log(this.registerForm);
     // return;
-    
+    this.spinner.show();
+    // return;
     this._service.postCreateUser(username, password, email)
         .subscribe((resp: any) => {
+          this.spinner.hide();
           if (resp.status === 1) {
             alert(resp.error);
             this.onClose.next(false);
@@ -59,7 +61,7 @@ export class FastRegisterComponent implements OnInit {
               isLogin: true
             };
 
-            this.spinner.hide();
+            // this.spinner.hide();
             localStorage.setItem('userData', JSON.stringify(obUsuario));
             this.onClose.next(true);
             this.bsModalRef.hide();
