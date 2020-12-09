@@ -38,7 +38,7 @@ export class DatosTarjetaCreditoComponent implements OnInit {
     this.bsModalRef.hide();
   }
   addSlash(expDate){
-    console.log(expDate);
+    // console.log(expDate);
   }
 
   public pagar(){
@@ -50,6 +50,7 @@ export class DatosTarjetaCreditoComponent implements OnInit {
     this._openPayService.openPayTraeSuscriptores()
         .subscribe((resp: any) => {
           // console.log(resp);
+          this.spinner.hide();
           let hasSuscription = false;
 
           for (const suscripcion of resp){
@@ -92,7 +93,7 @@ export class DatosTarjetaCreditoComponent implements OnInit {
   }
 
   pagoExitoso() {
-
+    this.spinner.hide();
     const locStorage = localStorage.getItem('userData');
     const userData = JSON.parse(locStorage);
 
