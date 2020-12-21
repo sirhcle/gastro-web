@@ -25,10 +25,10 @@ export class DatosTarjetaCreditoComponent implements OnInit {
 
   public onClose: Subject<string>;
   constructor(public bsModalRef: BsModalRef,
-              private _openPayService: OpenpayService,
-              private spinner: NgxSpinnerService,
-              private _service: SuscripcionService,
-              private router: Router) { }
+    private _openPayService: OpenpayService,
+    private spinner: NgxSpinnerService,
+    private _service: SuscripcionService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.onClose = new Subject();
@@ -37,26 +37,33 @@ export class DatosTarjetaCreditoComponent implements OnInit {
   public onConfirm(): void {
     this.bsModalRef.hide();
   }
-  addSlash(expDate){
+  addSlash(expDate) {
     // console.log(expDate);
   }
 
-  public pagar(){
-    
+  public pagar() {
+
     this.ccnumber = this.ccnumber.replace(/\s/g, '');
     this.fechaExpira = this.fechaExpira.replace(/\s/g, '');
     // return;
     this.spinner.show();
-    this._openPayService.openPayTraeSuscriptores()
-        .subscribe((resp: any) => {
-          // console.log(resp);
-          this.spinner.hide();
-          let hasSuscription = false;
 
-          for (const suscripcion of resp){
-            if (suscripcion.email === this.email) {
-              // tslint:disable-next-line:max-line-length
-              this._openPayService.openPayCreaSuscripcion(suscripcion.id, this.ccnumber, this.username, this.fechaExpira, this.cvv, this.concepto)
+    this._openPayService.openPayTraeSuscriptores()
+      .subscribe((resp: any) => {
+        // console.log(resp);
+        // this.spinner.hide();
+        let hasSuscription = false;
+
+        for (const suscripcion of resp) {
+          if (suscripcion.email === this.email) {
+            // tslint:disable-next-line:max-line-length
+
+            this._openPayService.openPayCreaToken(this.ccnumber, this.username, this.fechaExpira, this.cvv)
+              .subscribe((respToken: any) => {
+                console.log(respToken);
+
+                // tslint:disable-next-line:max-line-length
+                this._openPayService.openPayCreaSuscripcion(suscripcion.id, this.ccnumber, this.username, this.fechaExpira, this.cvv, this.concepto, respToken.id)
                   .subscribe((respData: any) => {
                     this.spinner.hide();
                     swal('', 'Pago realizado correctamente', 'success').then((value: any) => {
@@ -67,29 +74,48 @@ export class DatosTarjetaCreditoComponent implements OnInit {
                     this.spinner.hide();
                     swal('', 'Ocurrió un error al procesar su pago', 'error');
                   });
-              hasSuscription = true;
-              break;
-            }
-          }
 
-          if (!hasSuscription) {
-            this._openPayService.openPayCrearCliente(this.username, this.email)
-                .subscribe((respCliente: any) => {
+              }, (error: any) => {
+                this.spinner.hide();
+                // console.log(error);
+                swal('', 'Ocurrió un error al procesar su pago', 'error');
+              });
+
+            hasSuscription = true;
+            break;
+          }
+        }
+
+        if (!hasSuscription) {
+          this._openPayService.openPayCrearCliente(this.username, this.email)
+            .subscribe((respCliente: any) => {
+
+              this._openPayService.openPayCreaToken(this.ccnumber, this.username, this.fechaExpira, this.cvv)
+                .subscribe((respToken: any) => {
+                  console.log(respToken);
                   // tslint:disable-next-line:max-line-length
-                  this._openPayService.openPayCreaSuscripcion(respCliente.id, this.ccnumber, this.username, this.fechaExpira, this.cvv, this.concepto)
-                      .subscribe((respDataSusc: any) => {
-                        this.spinner.hide();
-                        swal('', 'Pago realizado correctamente', 'success').then((value: any) => {
-                          this.pagoExitoso();
-                        });
+                  this._openPayService.openPayCreaSuscripcion(respCliente.id, this.ccnumber, this.username, this.fechaExpira, this.cvv, this.concepto, respToken.id)
+                    .subscribe((respDataSusc: any) => {
+                      this.spinner.hide();
+                      swal('', 'Pago realizado correctamente', 'success').then((value: any) => {
                         this.pagoExitoso();
                       });
+                      // this.pagoExitoso();
+                    }, (error: any) => {
+                      this.spinner.hide();
+                      swal('', 'Ocurrió un error al procesar su pago', 'error');
+                    });
                 }, (error: any) => {
                   this.spinner.hide();
                   swal('', 'Ocurrió un error al procesar su pago', 'error');
                 });
-          }
-        });
+            }, (error: any) => {
+              this.spinner.hide();
+              console.log(error);
+              swal('', 'Ocurrió un error al procesar su pago', 'error');
+            });
+        }
+      });
   }
 
   pagoExitoso() {
@@ -115,7 +141,7 @@ export class DatosTarjetaCreditoComponent implements OnInit {
         });
       });
   }
-  
+
   // paymentTarjeta(){
   //   this.onClose.next('tarjeta');
   //   this.bsModalRef.hide();
