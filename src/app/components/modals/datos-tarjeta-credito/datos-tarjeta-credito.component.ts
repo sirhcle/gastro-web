@@ -135,6 +135,7 @@ export class DatosTarjetaCreditoComponent implements OnInit {
 
     this._service.postSuscripcion(idUsuario, idSuscripcion, 2)
       .subscribe((resp: any) => {
+        console.log(resp);
         this.router.navigate(['/cursos-online']).then(() => {
           this.bsModalRef.hide();
           window.location.reload();
