@@ -10,14 +10,19 @@ export class OpenpayService {
 
   constructor( private httpClient: HttpClient) {}
 
+  merchandIDSandbox = 'mkhlhyhzipnwjnikydcr';
+  merchandIDProd = 'm3hnzpyqlorpf0n3biek';
+
   openPayTraeSuscriptores() {
     const headers = {
       headers: new HttpHeaders()
         .set('Authorization', 'Basic c2tfMDE4MDc2Mjg4NTJiNDIyZmE5ZmY2NDcyNDQzZGVkYTg6')
         .set('Content-Type', 'application/json')
     };
+
+    
     return this.httpClient.get(
-      'https://sandbox-api.openpay.mx/v1/mkhlhyhzipnwjnikydcr/customers',
+      'https://sandbox-api.openpay.mx/v1/' + this.merchandIDProd + '/customers',
       headers);
   }
 
@@ -40,7 +45,7 @@ export class OpenpayService {
         .set('Content-Type', 'application/json')
     };
     return this.httpClient.post(
-      'https://sandbox-api.openpay.mx/v1/mkhlhyhzipnwjnikydcr/tokens',
+      'https://sandbox-api.openpay.mx/v1/' + this.merchandIDProd + '/tokens',
       raw,
       headers);
   }
@@ -60,7 +65,19 @@ export class OpenpayService {
 
     let planID = '';
 
+    //SANDBOX
     if (tipoPlan === 'basica'){
+      planID = 'pvtolvs4f9gdtyej6jj2';
+    } else if (tipoPlan === 'premium'){
+      planID = 'pi1tmvt9ftp87avkpfwk';
+    } else if (tipoPlan === 'golden'){
+      planID = 'pooxhdz1l72d0h5340er';
+    } else {
+      planID = 'pvtolvs4f9gdtyej6jj2';
+    }
+
+    //PRODUCCION
+    /*if (tipoPlan === 'basica'){
       planID = 'pvtolvs4f9gdtyej6jj2';
     } else if(tipoPlan === 'premium'){
       planID = 'pi1tmvt9ftp87avkpfwk';
@@ -68,7 +85,7 @@ export class OpenpayService {
       planID = 'pooxhdz1l72d0h5340er';
     } else {
       planID = 'pvtolvs4f9gdtyej6jj2';
-    }
+    }*/
 
     const raw = JSON.stringify({
       /*card: {
@@ -90,7 +107,7 @@ export class OpenpayService {
         .set('Content-Type', 'application/json')
     };
     return this.httpClient.post(
-      'https://sandbox-api.openpay.mx/v1/mkhlhyhzipnwjnikydcr/customers/' + customerID + '/subscriptions',
+      'https://sandbox-api.openpay.mx/v1/' + this.merchandIDProd + '/customers/' + customerID + '/subscriptions',
       raw,
       headers);
   }
@@ -110,7 +127,7 @@ export class OpenpayService {
         .set('Content-Type', 'application/json')
     };
     return this.httpClient.post(
-      'https://sandbox-api.openpay.mx/v1/mkhlhyhzipnwjnikydcr/customers',
+      'https://sandbox-api.openpay.mx/v1/' + this.merchandIDProd + '/customers',
       raw,
       headers);
   }
@@ -122,7 +139,7 @@ export class OpenpayService {
         .set('Content-Type', 'application/json')
     };
     return this.httpClient.get(
-      'https://sandbox-api.openpay.mx/v1/mkhlhyhzipnwjnikydcr/customers/' + clientID + '/subscriptions',
+      'https://sandbox-api.openpay.mx/v1/' + this.merchandIDProd + '/customers/' + clientID + '/subscriptions',
       headers);
   }
 
@@ -133,7 +150,7 @@ export class OpenpayService {
         .set('Content-Type', 'application/json')
     };
     return this.httpClient.delete(
-      'https://sandbox-api.openpay.mx/v1/mkhlhyhzipnwjnikydcr/customers/' + clientID + '/subscriptions/' + subscriptionID,
+      'https://sandbox-api.openpay.mx/v1/' + this.merchandIDProd + '/customers/' + clientID + '/subscriptions/' + subscriptionID,
       headers);
   }
 
