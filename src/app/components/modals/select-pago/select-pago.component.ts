@@ -18,9 +18,9 @@ export class SelectPagoComponent implements OnInit, AfterContentInit {
 
   @ViewChild('paypal') paypalElement: ElementRef;
 
-  // basicAuth = 'Basic AdYzk4zfZwskvzYnUoAzQsKTtFoJjsFaAzuJz5VUT7lQvC2Cg4qIPARnvKcVQe0PGACVe6syxAYebVk_EG65_XNlYR_r48DO2CgFnHM9Dp0TB5-8zmTNr9tJGAdsPs6NRebWIBBrR_oKNsQGR1UjsgaSnm12Qlwg';  //Pass your ClientId + scret key PROD
+  basicAuth = 'Basic AdYzk4zfZwskvzYnUoAzQsKTtFoJjsFaAzuJz5VUT7lQvC2Cg4qIPARnvKcVQe0PGACVe6syxAYebVk_EG65_XNlYR_r48DO2CgFnHM9Dp0TB5-8zmTNr9tJGAdsPs6NRebWIBBrR_oKNsQGR1UjsgaSnm12Qlwg';  //Pass your ClientId + scret key PROD
 
-  basicAuth = 'Basic AXyhsj1weGYX3VtPJfEB9fvfIlGlXOsJsa4J_sL5kDehQmsHq1_SHp-ovWYrq1v4JuWZ3p3zFCJ9K9xwEOnAFhvbk3zsr7j2hmgI-K4rMrYgkwdLYLwS7qxkeD8cobVrAxNH7poMBPumyyOHoHT01tu81qDBvmFT';  //Pass your ClientId + scret key SANDBOX
+  // basicAuth = 'Basic AXyhsj1weGYX3VtPJfEB9fvfIlGlXOsJsa4J_sL5kDehQmsHq1_SHp-ovWYrq1v4JuWZ3p3zFCJ9K9xwEOnAFhvbk3zsr7j2hmgI-K4rMrYgkwdLYLwS7qxkeD8cobVrAxNH7poMBPumyyOHoHT01tu81qDBvmFT';  //Pass your ClientId + scret key SANDBOX
 
   public onClose: Subject<string>;
   public payPalConfig: IPayPalConfig;
@@ -45,20 +45,20 @@ export class SelectPagoComponent implements OnInit, AfterContentInit {
       const self = this;
       switch (this.concepto) {
         case 'basica':
-          this.planId = 'P-7BG43521B28065247L4TTLKQ'; //sandbox
-          // this.planId = 'P-0JL83622S53201540L4TW4RA'; //produccion
+          // this.planId = 'P-7BG43521B28065247L4TTLKQ'; //sandbox
+          this.planId = 'P-0JL83622S53201540L4TW4RA'; //produccion
           break;
         case 'premium':
-          this.planId = 'P-33R37723K61125940L4TWK5I'; //sandbox
-          // this.planId = 'P-47H831882M861600UL4TW4VY'; //produccion
+          // this.planId = 'P-33R37723K61125940L4TWK5I'; //sandbox
+          this.planId = 'P-47H831882M861600UL4TW4VY'; //produccion
           break;
         case 'golden':
-          this.planId = 'P-2KL74888B9054183FL4TV3UA'; //sandbox
-          // this.planId = 'P-5M51081751710311JL4TW5EY'; //produccion
+          // this.planId = 'P-2KL74888B9054183FL4TV3UA'; //sandbox
+          this.planId = 'P-5M51081751710311JL4TW5EY'; //produccion
           break;
         default:
-          this.planId = 'P-2KL74888B9054183FL4TV3UA'; //sandbox
-          // this.planId = 'P-0JL83622S53201540L4TW4RA'; //produccion
+          // this.planId = 'P-2KL74888B9054183FL4TV3UA'; //sandbox
+          this.planId = 'P-0JL83622S53201540L4TW4RA'; //produccion
           break;
       }
 
